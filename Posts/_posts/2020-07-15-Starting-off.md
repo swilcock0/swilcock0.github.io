@@ -6,6 +6,7 @@ description: >
 tags: Example test first
 sitemap: false
 date: 2020-07-15 13:00:00
+comments: true
 ---
 
 I'm just a **basic** first try at producing a page really. Not used markup before so it'll be a *slight* learning curve!
