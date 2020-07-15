@@ -5,6 +5,7 @@ description: >
   This is my first blog post, as a test
 tags: Example test first
 sitemap: false
+date: 2020-07-15 13:00:00
 ---
 
 I'm just a **basic** first try at producing a page really. Not used markup before so it'll be a *slight* learning curve!
