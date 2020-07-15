@@ -13,6 +13,7 @@ _drafts
 *.swo
 *.swp
 *.vi
+*.bat
 *~
 
 # OS or Editor folders

@@ -47,22 +47,22 @@ author:
   name:                Sam Wilcock
   email:               samdemon42@gmail.com
   # # Used by `jekyll-seo-tag`:
-  # twitter:             <username>
+  # twitter:             Sam0_robotics
 
 # Add links to the sidebar.
 menu:
-  - title:             Example
-    url:               /example/
-  - title:             Documentation
-    url:               /docs/
-  - title:             About
+  - title:             About me
     url:               /about/
+  - title:             Blog posts
+    url:               /posts/
+  - title:             Search
+    url:               /search/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 legal:
-  - title:             LICENSE
-    url:               /LICENSE/
+  - title:             SEARCH
+    url:               /search
   - title:             NOTICE
     url:               /NOTICE/
   - title:             CHANGELOG
