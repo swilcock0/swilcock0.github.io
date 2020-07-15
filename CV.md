@@ -21,13 +21,11 @@ Computational Dynamics Simulation to Find a Stable Walking Policy*”\\
 
 #### The University of Nottingham
 BSc (Hons) Mechanical Engineering       **2011 – 2017**\\
-1 year hiatus of studies in 2014-2015 whilst studying masters year\\
-Returned to studies in 2015, changed course to BSc in 2016 due to health reasons\\
 **2.1**
 
 
 #### Bury Grammar School Boys VIth Form, Manchester
-A2-levels in Physics, Mathematics, Systems and Control Technology, Chemistry, Further Mathematics       **2009 – 2011**\\
+A2-levels        **2009 – 2011**\\
 Mathematics, Further Mathematics, Physics: *A*\\
 Chemistry, Systems & Control Technology: *B*
 
@@ -50,7 +48,7 @@ A large part of my studies, both academic and recreational, has centred around b
 
 
 ## SOFTWARE PROFICIENCIES
-#### Python, MATLAB, Embedded C (Arduino, ARM Cortex-M), Visual Basic, HTML, C++, C#, R, Golang
+#### Python, MATLAB, Embedded C (Arduino, ARM Cortex-M), Visual Basic, C++, C#, R, Golang
 Proficient in writing and debugging complex programs in all of the above languages.
 
 #### Javascript, CSS, HTML
