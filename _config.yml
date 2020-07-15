@@ -20,7 +20,7 @@ baseurl:               ''
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
-lang:                  en
+lang:                  en-gb
 
 # The title of your blog. Used in the sidebar and the browser tab.
 title:                 Sam Wilcock
@@ -28,13 +28,13 @@ title:                 Sam Wilcock
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Creating benign robots to take over the world
+  Creating benign(?) robots to take over the world
 
 # A shorter description for the sidebar.
-tagline:               Creating benign robots to take over the world
+tagline:               Creating benign(?) robots to take over the world
 
 # A list of keywords for your blog
-keywords:              [robotics, engineering, science, mathematics, rhino3d]
+keywords:              [robotics, engineering, science, mathematics, rhino3d, architecture, generative, CAD]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
