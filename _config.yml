@@ -12,7 +12,7 @@ url:                   https://swilcock0.github.i0
 # Use the empty string '' otherwise.
 # For GitHub project sites, this is usually the name of the project,
 # e.g. `/hydejack`.
-baseurl:               '/hydejack-starter-kit'
+baseurl:               ''
 
 
 # General settings
