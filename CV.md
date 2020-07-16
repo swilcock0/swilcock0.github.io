@@ -1,8 +1,8 @@
 ---
 layout: page
+title: My CV
 ---
 
-# My CV
 * this list will be replaced by the toc
 {:toc}
 
@@ -21,7 +21,7 @@ Computational Dynamics Simulation to Find a Stable Walking Policy*”\\
 
 #### The University of Nottingham
 BSc (Hons) Mechanical Engineering       **2011 – 2017**\\
-**2.1**
+**2.1** 
 
 
 #### Bury Grammar School Boys VIth Form, Manchester
@@ -30,7 +30,7 @@ Mathematics, Further Mathematics, Physics: *A*\\
 Chemistry, Systems & Control Technology: *B*
 
 
-## AREAS OF RESEARCH
+## Areas of Research
 #### Control systems
 My recent work at the University of Leeds has focused on creating control laws for actuated bipedal walking robots, both classical and more adaptive schemes. During my Bachelor’s degree, my final project focused on designing and manufacturing a prototype factory floor robot, adhering to relevant BS:EN and ISO standards.
 
@@ -47,7 +47,7 @@ realistic parameters for joint trajectories.
 A large part of my studies, both academic and recreational, has centred around building my capabilities in programming and software, in order to quickly produce results for both design and analytical work.
 
 
-## SOFTWARE PROFICIENCIES
+## Software Proficiencies
 #### Python, MATLAB, Embedded C (Arduino, ARM Cortex-M), Visual Basic, C++, C#, R, Golang
 Proficient in writing and debugging complex programs in all of the above languages.
 
