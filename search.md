@@ -1,8 +1,7 @@
 ---
 layout: page
+title: Search
 ---
-
-# SEARCH
 * this list will be replaced by the toc
 {:toc .large-only}
 ## Search for a post by

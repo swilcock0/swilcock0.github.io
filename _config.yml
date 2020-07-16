@@ -63,15 +63,13 @@ menu:
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 legal:
-  - title:             SEARCH
+  - title:             Search
     url:               /search
-  - title:             NOTICE
-    url:               /NOTICE/
-  - title:             CHANGELOG
-    url:               /CHANGELOG/
+  - title:             Top
+    url:               {{ page.url }}
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2020. All rights reserved. 
+copyright:             © 2020 Sam Wilcock. 
 
 # Format of the permalinks
 permalink:             /:categories/:year-:month-:day-:title/
@@ -303,9 +301,9 @@ exclude:
   - vendor
   - Gemfile
   - Gemfile.lock
+  - Start.bat
 include:
   - .well-known
-  - LICENSE.md
 
 
 # Plugins
@@ -324,6 +322,7 @@ plugins:
   - jekyll-titles-from-headings
   - jekyll-include-cache
   - jekyll-last-modified-at
+  - jemoji
 
 
 # SEO Tag
@@ -412,3 +411,7 @@ jekyll_compose:
       links:
         - title: Project Link
           url: https://example.com
+
+# Allow setting off future posts
+future: false
+timezone: Europe/London
