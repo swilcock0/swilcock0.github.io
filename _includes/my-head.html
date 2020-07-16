@@ -10,10 +10,14 @@
 
 
 <!-- Setup for sharing to facebook -->
-{% if page.header-img %}
-    <meta property="og:image" content="{{ site.url }}/{{ page.header-img }}" />
+<meta property="fb:app_id" content="895679567585559" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ page.title }}" />
+
+{% if page.img %}
+    <meta property="og:image" content="{{ site.url }}/{{ page.img }}" />
 {% else %}
     <meta property="og:image" content="{{ site.url }}/assets/img/logo.png" />
 {% endif %}
 
-<meta property="og:description" content="{{ page.description }}" />
+<meta property="og:description" content="{{ page.content | markdownify | strip_html | strip_newlines | truncate: 300 }}" />
