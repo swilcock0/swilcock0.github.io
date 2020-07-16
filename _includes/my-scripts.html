@@ -3,7 +3,15 @@
 
 <script>
     document.querySelector('hy-push-state').addEventListener('hy-push-state-load', () => {
-        $("#_main").prepend('<a id="top" />')
-        $("article").append(`<a href="#top">Return to top</a>`)
+        let newNode = document.createElement("a");
+        newNode.id="top";
+        let refNode = document.getElementById("_main");
+        
+        refNode.before(newNode);
+        
+        let newLink = document.createElement("a");
+        newLink.href="#top";
+        newLink.innerText="Return to top";
+        document.getElementsByTagName("article")[document.getElementsByTagName("article").length-1].innerHTML += `<a href="#top">Return to top</a>`;
     }, {passive: true});
 </script>
