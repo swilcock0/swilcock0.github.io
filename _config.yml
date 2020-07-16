@@ -415,3 +415,10 @@ jekyll_compose:
 # Allow setting off future posts
 future: false
 timezone: Europe/London
+
+# Turn comments on by default for posts
+defaults:
+  - scope:
+      type: posts
+    values:
+      comments: true
