@@ -1,18 +1,9 @@
 <!-- Adds return to top links on all pages-->
+<!-- Doesn't work on Github -->
+
 <script>
-    document.getElementById('_pushState').addEventListener('hy-push-state-load', function () {
-        if (window.location.href.includes("search") == false){
-            let newNode = document.createElement("a");
-            newNode.id="top";
-            let refNode = document.getElementById("_main");
-            
-            refNode.before(newNode);
-            
-            let newLink = document.createElement("a");
-            newLink.href="#top";
-            newLink.innerText="Return to top";
-            document.getElementsByTagName("article")[document.getElementsByTagName("article").length-1].innerHTML += `<a href="#top">Return to top</a>`;
-        }
-    }, { passive: true})
-    
-  </script>
+    document.querySelector('hy-push-state').addEventListener('hy-push-state-load', () => {
+        $("#_main").prepend('<a id="top" />')
+        $("article").append(`<a href="#top">Return to top</a>`)
+    }, {passive: true});
+</script>
