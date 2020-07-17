@@ -32,6 +32,7 @@ Chemistry, Systems & Control Technology: *B*
 
 
 ## Areas of Research
+{:.icon-stats-bars}
 #### Control systems
 My recent work at the University of Leeds has focused on creating control laws for actuated bipedal walking robots, both classical and more adaptive schemes. During my Bachelor’s degree, my final project focused on designing and manufacturing a prototype factory floor robot, adhering to relevant BS:EN and ISO standards.
 
