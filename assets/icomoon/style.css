@@ -269,6 +269,9 @@
 .icon-box-add:before {
   content: "\e95e";
 }
+.icon-stats-bars:before {
+  content: "\e99c";
+}
 
 .iconAc-researchgate:before {
   content: "\e902";
