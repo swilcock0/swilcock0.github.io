@@ -208,5 +208,5 @@ download:
   icon: icon-box-add
 researchgate:
   name: ResearchGate
-  icon: icon-researchgate
+  icon: iconAc-researchgate
   prepend: "https://www.researchgate.net/profile/"
