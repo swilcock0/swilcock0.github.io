@@ -11,6 +11,7 @@ title: My CV
 
 
 ## Education
+{:.icon-library}
 
 #### The University of Leeds
 MScEng Mechatronics and Robotics        **2018 – 2019**\\
