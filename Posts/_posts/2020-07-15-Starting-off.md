@@ -38,3 +38,23 @@ print(x*3)
     3. Ordered?
 
 [anchor]: http://www.youtube.com
+
+This is a book
+{:.icon-book}
+
+:bowtie:
+[Here's a handy emoji cheat sheet][jemojis]
+
+[jemojis]: https://www.webfx.com/tools/emoji-cheat-sheet/ "Emojis"
+
+$$
+\begin{aligned}
+    x^2 + 3x + 2 = (x+2)(x+1)\\
+    This\;is\;some^{pretty}_{maths}\therefore\theta
+\end{aligned}
+$$
+
+
+## And this is some pretty python
+{% include TestJupyter/TestJupyter.md %}
+
