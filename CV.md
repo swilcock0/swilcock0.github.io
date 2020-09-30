@@ -7,11 +7,17 @@ title: My CV
 {:toc}
 
 <h1>Sam Wilcock</h1>
-<h2><i>Provisional PhD candidate at the University of Leeds</i></h2>
+<h2><i>Postgraduate Researcher at the University of Leeds</i></h2>
 
 
 ## Education
 {:.icon-library}
+
+#### The University of Leeds
+PhD Civil Engineering        **2020 – Present**\\
+Researching "Efficient robotic assembling of shell structures"\\
+**Pass with distinction**
+
 
 #### The University of Leeds
 MScEng Mechatronics and Robotics        **2018 – 2019**\\
