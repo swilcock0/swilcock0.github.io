@@ -2,8 +2,8 @@
 layout: post
 title: Rhino/Iris Test
 description: >
-  Can I post embedded Three.js Rhino models here
-tags: posts
+  Three.js model posting test
+tags: posts grasshopper rhino model
 sitemap: false
 date: 2020-10-05 18:00:00
 ---
@@ -12,6 +12,6 @@ Here's a fine ball produced in Rhino/GH, thanks to [Iris](https://www.food4rhino
 <figure class="video_container"><iframe width="315" height="315" src="/assets/documents/Ball.html" frameborder="0" allowfullscreen="true"></iframe></figure>
 {:.lead}
 
-Get the grasshopper definition <a href="https://swilcock0.github.io/Files/BallWalk.gh" target="_blank">here</a>
+Get the grasshopper definition <a href="https://swilcock0.github.io/Files/BallWalk.gh" target="_top_">here</a>
 
 
