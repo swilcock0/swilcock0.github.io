@@ -12,6 +12,6 @@ Here's a fine ball produced in Rhino/GH, thanks to [Iris](https://www.food4rhino
 <figure class="video_container"><iframe width="315" height="315" src="/assets/documents/Ball.html" frameborder="0" allowfullscreen="true"></iframe></figure>
 {:.lead}
 
-Get the grasshopper definition [here](/Files/BallWalk.gh)
+Get the grasshopper definition <a href="https://swilcock0.github.io/Files/BallWalk.gh" target="_blank">here</a>
 
 
