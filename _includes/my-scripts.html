@@ -32,3 +32,11 @@
     }, {passive: true});
 </script>
 -->
+<script>
+    menuI = document.getElementById("_menu")
+    let searchI = document.createElement("a")
+    searchI.id="_searchM"
+    searchI.href="https://swilcock0.github.io/search"
+    searchI.innerHTML = `<span class="icon-search"> ::before </span> `
+    menuI.parentNode.insertBefore(searchI, menuI.nextSibling)
+  </script>
