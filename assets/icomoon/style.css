@@ -276,3 +276,7 @@
 .iconAc-researchgate:before {
   content: "\e902";
 }
+
+.icon-menu:before {
+  content: "\2630";
+}
