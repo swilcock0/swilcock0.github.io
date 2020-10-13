@@ -1,19 +1,29 @@
 @font-face {
-  font-family: 'Academicons';
-  src:  url('fonts/Academicons.eot?d6zxrs');
-  src:  url('fonts/Academicons.eot?d6zxrs#iefix') format('embedded-opentype'),
-    url('fonts/Academicons.ttf?d6zxrs') format('truetype'),
-    url('fonts/Academicons.woff?d6zxrs') format('woff'),
-    url('fonts/Academicons.svg?d6zxrs#Academicons') format('svg');
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?vlhmtr');
+  src:  url('fonts/icomoon.eot?vlhmtr#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?vlhmtr') format('truetype'),
+    url('fonts/icomoon.woff?vlhmtr') format('woff'),
+    url('fonts/icomoon.svg?vlhmtr#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-display: block;
+}
+
+@font-face {
+  font-family: 'Academicons';
+  src:  url('fonts/Academicons.eot?rcn2hx');
+  src:  url('fonts/Academicons.eot?rcn2hx#iefix') format('embedded-opentype'),
+    url('fonts/Academicons.ttf?rcn2hx') format('truetype'),
+    url('fonts/Academicons.woff?rcn2hx') format('woff'),
+    url('fonts/Academicons.svg?rcn2hx#Academicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'Academicons' !important;
-  speak: never;
+  font-family: 'icomoon' !important;
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -25,9 +35,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-researchgate:before {
-  content: "\e905";
+[class^="iconAc-"], [class*=" iconAc-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Academicons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 .icon-book:before {
   content: "\e91f";
 }
@@ -65,13 +87,13 @@
   content: "\e9cb";
 }
 .icon-star-empty:before {
-  content: "\2606";
+  content: "\e9d7";
 }
 .icon-star-half:before {
-  content: "\272e";
+  content: "\e9d8";
 }
 .icon-star-full:before {
-  content: "\2605";
+  content: "\e9d9";
 }
 .icon-heart:before {
   content: "\e9da";
@@ -247,60 +269,19 @@
 .icon-box-add:before {
   content: "\e95e";
 }
-.icon-spinner11:before {
-  content: "\21bb";
+
+.icon-stats-bars:before {
+  content: "\e99c";
 }
-.icon-cog:before {
-  content: "\e994";
+
+.iconAc-researchgate:before {
+  content: "\e902";
 }
-.icon-power-cord:before {
-  content: "\e9b7";
-}
+
 .icon-menu:before {
   content: "\2630";
 }
-.icon-arrow-right2:before {
-  content: "\2192";
-}
-.icon-arrow-left2:before {
-  content: "\2190";
-}
-.icon-home3:before {
-  content: "\e903";
-}
-.icon-mail2:before {
-  content: "\ea84";
-}
-.icon-brightness-contrast:before {
-  content: "\e9d6";
-}
+
 .icon-search:before {
-  content: "\e986";
-}
-.icon-key:before {
-  content: "\e98d";
-}
-.icon-quill:before {
-  content: "\e907";
-}
-.icon-flag:before {
-  content: "\e9cc";
-}
-.icon-man-woman:before {
-  content: "\e9de";
-}
-.icon-cross:before {
-  content: "\ea0f";
-}
-.icon-file-empty:before {
-  content: "\e924";
-}
-.icon-printer:before {
-  content: "\e954";
-}
-.icon-user-plus:before {
-  content: "\e973";
-}
-.icon-file-pdf:before {
-  content: "\eadf";
+  content: "\ead9";
 }
