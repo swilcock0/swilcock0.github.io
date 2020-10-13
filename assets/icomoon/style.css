@@ -280,3 +280,7 @@
 .icon-menu:before {
   content: "\2630";
 }
+
+.icon-search:before {
+  content: "\e986";
+}
