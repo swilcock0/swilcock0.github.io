@@ -33,6 +33,7 @@
 </script>
 -->
 <script>
+
     menuI = document.getElementById("_menu");
     let searchI = document.createElement("a");
     searchI.id="_searchM";
@@ -44,4 +45,17 @@
 
     document.getElementById("_searchM").style.borderRight="none";
     document.getElementById("_searchM").style.borderLeft="none";
+
+
+    menuI = document.getElementById("_menu");
+    let homeI = document.createElement("a");
+    homeI.id="_homeM";
+    homeI.href="/";
+    homeI.classList.add("nav-btn");
+    homeI.classList.add("no-hover");
+    homeI.innerHTML = `<span class="sr-only">Home</span><span class="icon-home3"></span> `;
+    menuI.parentNode.insertBefore(homeI, menuI.nextSibling);
+
+    document.getElementById("_homeM").style.borderRight="none";
+    document.getElementById("_homeM").style.borderLeft="none";
   </script>
