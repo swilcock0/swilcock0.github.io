@@ -304,3 +304,8 @@
 .icon-file-pdf:before {
   content: "\eadf";
 }
+
+@font-face {
+  font-family: icomoon;
+  src: https://cdn.jsdelivr.net/npm/icomoon@1.0.0/fonts/icomoon.woff
+}
