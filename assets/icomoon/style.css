@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Academicons';
+  font-family: 'icomoon';
   src:  url('fonts/Academicons.eot?d6zxrs');
   src:  url('fonts/Academicons.eot?d6zxrs#iefix') format('embedded-opentype'),
     url('fonts/Academicons.ttf?d6zxrs') format('truetype'),
@@ -12,7 +12,7 @@
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'Academicons' !important;
+  font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -303,9 +303,4 @@
 }
 .icon-file-pdf:before {
   content: "\eadf";
-}
-
-@font-face {
-  font-family: 'icomoon';
-  src: https://cdn.jsdelivr.net/npm/icomoon@1.0.0/fonts/icomoon.woff
 }
