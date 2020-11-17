@@ -6,6 +6,7 @@ description: >
 tags: PhD Manipulator Arm Robot ROS ROS2 Moveit Moveit2 Denso posts
 sitemap: false
 date: 2020-11-17 18:00:00
+img: /assets/img/Posts/2020-11-17-Manipulator-Hemisphere.png
 ---
 {:refdef: style="text-align: center;"}
 ![My image](/assets/img/Posts/2020-11-17-Manipulator-Hemisphere.png){:height="500" width="500"}
