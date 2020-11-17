@@ -19,10 +19,10 @@ Since my work is aiming to focus on bringing robotic simulation and planning for
 
 <figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/sSEF9cADy6s" frameborder="0" allowfullscreen="true"></iframe></figure>
 {:.lead}
-Moveit2 Vs068 Demonstration
+Moveit2 VS068 Demonstration
 {:.figcaption style="text-align: center;"}
 
-One aspect of ROS that wasn't explained in Renard's course was action servers, and this proved to be a temporary barrier in enabling Moveit to execute trajectories. It took a little while until I realised that the action server had to be written to enable this capability (of course! How else can you then connect a software controller to the hardware?). Once this was in place, the Moveit2 demos provided a useful start for looking at how to utilise the MoveGroupInterface and PlanningScene classes. They also made me realise how rusty my C++ was...
+One aspect of ROS that wasn't explained in Renard's course was action servers, and this proved to be a temporary barrier in enabling Moveit to execute trajectories. It took a little while until I realised that the action server had to be written to enable this capability (of course! How else can you then connect a software controller to the hardware?). Once this was in place, the Moveit2 demos provided a useful start for looking at how to utilise the MoveGroupInterface and PlanningScene classes in a Object-Oriented C++ server. They also made me realise how rusty my C++ was...
 
 Moveit2 is still approaching maturity - it has currently been [95% ported](https://moveit.ros.org/documentation/contributing/roadmap/) over from Moveit! thanks to the fantastic work of [Henning Kayser and the Moveit community](https://github.com/ros-planning/moveit2). I've been unable to work with the python wrapper yet - moveit_commander doesn't seem to be a high priority for porting currently, and I don't blame them. Instead, I've been experimenting with writing a set of motion planning services with C++, which I can then easily connect to using Python. Above you can see some of the initial results of planning to position goals for the end-effector.
 

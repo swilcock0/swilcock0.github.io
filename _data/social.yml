@@ -210,3 +210,6 @@ researchgate:
   name: ResearchGate
   icon: icon-researchgate
   prepend: "https://www.researchgate.net/profile/"
+uoleeds:
+  name: UniversityOfLeeds
+  icon: icon-library

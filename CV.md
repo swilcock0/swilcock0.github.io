@@ -15,7 +15,7 @@ title: My CV
 
 #### The University of Leeds
 PhD Civil Engineering        **2020 – Present**\\
-Researching "Efficient robotic assembling of shell structures"\\
+Researching "Efficient robotic assembling of shell structures"
 
 
 #### The University of Leeds
