@@ -5,7 +5,7 @@ description: >
   Experimentation with sending geometries to ROS from Grasshopper
 tags: PhD Manipulator posts
 sitemap: false
-date: 2020-12-03 12:00:00
+date: 2020-12-03 08:00:00
 img: assets/img/Posts/2020-12-03-GH-Ros.png
 ---
 {:refdef: style="text-align: center;"}
