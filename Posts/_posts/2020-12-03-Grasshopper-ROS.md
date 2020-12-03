@@ -39,6 +39,7 @@ document.getElementById("loadButton").onclick = function() {
 </script>
 
 <div id = "Outer"></div>
+{:.lead}
 
 WIP!
 
