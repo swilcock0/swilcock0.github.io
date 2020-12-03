@@ -14,16 +14,26 @@ img: assets/img/Posts/2020-12-03-GH-Ros.png
 Defining geometries in CAD and sending via ROS2 middleware.
 {:.figcaption style="text-align: center;"}
 
-<button class="myButton" id="loadButton">Load visual</button>
+<center><button class="myButton" id="loadButton">Load visual</button></center>
 
 <script>
 document.getElementById("loadButton").onclick = function() {
-  iframe = document.getElementById("viz");
-  iframe.src = "/assets/documents/WallAndDenso.html";
+  document.getElementById("loadButton").remove();
+
+  frame = document.createElement("iframe");
+  frame.src = "/assets/documents/WallAndDenso.html";
+  frame.height = "315";
+  frame.width = "315";
+  frame.frameborder = "0";
+  frame.allowfullscreen = "true";
+  frame.id = "viz";
+
+  outer = document.getElementById("vidcnt");
+  outer.appendChild(frame);
 }
 </script>
 
-<figure class="video_container"><iframe width="315" height="315" src="" frameborder="0" allowfullscreen="true" id="viz"></iframe></figure>
+<figure class="video_container" id="vidcnt"></figure>
 {:.lead}
 
 WIP!
