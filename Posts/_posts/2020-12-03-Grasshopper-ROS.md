@@ -14,14 +14,14 @@ img: assets/img/Posts/2020-12-03-GH-Ros.png
 Defining geometries in CAD and sending via ROS2 middleware.
 {:.figcaption style="text-align: center;"}
 
-<center><button class="myButton" id="loadButton">Load visual</button></center>
+<center><button class="myButton" id="loadButton">Load visual (high RAM)</button></center>
 
 <script>
 document.getElementById("loadButton").onclick = function() {
   document.getElementById("loadButton").remove();
 
   vidcnt = document.createElement("figure");
-  vidcnt.class="video_container";
+  vidcnt.class="video_container lead";
   vidcnt.id="vidcnt";
 
   frame = document.createElement("iframe");
@@ -39,7 +39,6 @@ document.getElementById("loadButton").onclick = function() {
 </script>
 
 <div id = "Outer"></div>
-{:.lead}
 
 WIP!
 
