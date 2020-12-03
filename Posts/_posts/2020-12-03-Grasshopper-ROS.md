@@ -26,8 +26,8 @@ document.getElementById("loadButton").onclick = function() {
 
   frame = document.createElement("iframe");
   frame.src = "/assets/documents/WallAndDenso.html";
-  frame.height = "315";
-  frame.width = "315";
+  frame.height = "500";
+  frame.width = "500";
   frame.frameborder = "0";
   frame.allowfullscreen = "true";
   frame.id = "viz";
