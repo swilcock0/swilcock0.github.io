@@ -15,10 +15,13 @@ Defining geometries in CAD and sending via ROS2 middleware.
 {:.figcaption style="text-align: center;"}
 
 <button class="myButton" id="loadButton">Load visual</button>
+
+<script>
 document.getElementById("loadButton").onclick = function() {
   iframe = document.getElementById("viz");
   iframe.src = "/assets/documents/WallAndDenso.html";
 }
+</script>
 
 <figure class="video_container"><iframe width="315" height="315" src="" frameborder="0" allowfullscreen="true" id="viz"></iframe></figure>
 {:.lead}
