@@ -20,6 +20,10 @@ Defining geometries in CAD and sending via ROS2 middleware.
 document.getElementById("loadButton").onclick = function() {
   document.getElementById("loadButton").remove();
 
+  vidcnt = document.createElement("figure");
+  vidcnt.class="video_container";
+  vidcnt.id="vidcnt";
+
   frame = document.createElement("iframe");
   frame.src = "/assets/documents/WallAndDenso.html";
   frame.height = "315";
@@ -28,18 +32,19 @@ document.getElementById("loadButton").onclick = function() {
   frame.allowfullscreen = "true";
   frame.id = "viz";
 
-  outer = document.getElementById("vidcnt");
-  outer.appendChild(frame);
+  outer = document.getElementById("Outer");
+  vidcnt.appendChild(frame);
+  outer.appendChild(vidcnt);
 }
 </script>
 
-<figure class="video_container" id="vidcnt"></figure>
-{:.lead}
+<div id = "Outer"></div>
 
 WIP!
 
 <figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/MLa0AMedjpQ" frameborder="0" allowfullscreen="true"></iframe></figure>
 {:.lead}
+
 Moveit2 VS068 Demonstration
 {:.figcaption style="text-align: center;"}
 
