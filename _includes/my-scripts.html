@@ -58,4 +58,20 @@
 
     document.getElementById("_homeM").style.borderRight="none";
     document.getElementById("_homeM").style.borderLeft="none";
+
+    iframeVis = document.getElementsByClassName("outerIFrame");
+    if (iframeVis != null){
+        _button = document.createElement("button");
+        _button.class = "visLoader";
+        _button.id = "loadButton";
+        _button.innerHTML = "Load model";
+
+        _button.onclick = function() {
+            _button.remove();
+
+            myframe = iframeVis.getElementsByTagName("iframe");
+            myframe.src = myframe.data-src;
+        }
+    }
   </script>
+  

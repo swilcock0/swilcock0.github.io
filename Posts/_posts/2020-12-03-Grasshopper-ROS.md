@@ -16,29 +16,8 @@ Defining geometries in CAD and sending via ROS2 middleware.
 
 <center><button class="myButton" id="loadButton">Load visual (high RAM)</button></center>
 
-<script>
-document.getElementById("loadButton").onclick = function() {
-  document.getElementById("loadButton").remove();
-
-  vidcnt = document.createElement("figure");
-  vidcnt.class="video_container lead";
-  vidcnt.id="vidcnt";
-
-  frame = document.createElement("iframe");
-  frame.src = "/assets/documents/WallAndDenso.html";
-  frame.height = "500";
-  frame.width = "500";
-  frame.frameborder = "0";
-  frame.allowfullscreen = "true";
-  frame.id = "viz";
-
-  outer = document.getElementById("Outer");
-  vidcnt.appendChild(frame);
-  outer.appendChild(vidcnt);
-}
-</script>
-
-<div id = "Outer"></div>
+<figure class="video_container"><iframe width="560" height="315" data-src="/assets/documents/WallAndDenso.html" frameborder="0" allowfullscreen="true"></iframe></figure>
+{:.lead .outerIFrame}
 
 WIP!
 
