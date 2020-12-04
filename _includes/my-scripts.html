@@ -60,8 +60,7 @@
 </script>
   
 <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        console.log('DOM fully loaded and parsed');
+    function changeIFrame(){
         iframeVis = document.getElementsByClassName("outerIFrame")[0];
         if (iframeVis != null){        
             _buttonCntr = document.createElement("center"); //Fix centring
@@ -94,5 +93,12 @@
                 } 
             }
         }
-    });
+    }
+    if( document.readyState !== 'loading' ) {
+        alert('Loaded!');
+        changeIFrame();
+    } else {
+        window.addEventListener('DOMContentLoaded', (event) => changeIFrame() );
+        alert('Added listener!');
+    }
 </script>
