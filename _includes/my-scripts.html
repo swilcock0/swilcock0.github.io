@@ -60,39 +60,36 @@
 </script>
   
 <script>
-window.addEventListener('load', function () {
-        //print("Done");
-        iframeVis = document.getElementsByClassName("outerIFrame")[0];
-        if (iframeVis != null){        
-            _buttonCntr = document.createElement("center"); //Fix centring
-            _button = document.createElement("button");
-            _button.classList.add("myButton");
-            _button.id = "loadButton";
-            _button.innerHTML = "Load model";
-            _buttonCntr.append(_button);
+    iframeVis = document.getElementsByClassName("outerIFrame")[0];
+    if (iframeVis != null){        
+        _buttonCntr = document.createElement("center"); //Fix centring
+        _button = document.createElement("button");
+        _button.classList.add("myButton");
+        _button.id = "loadButton";
+        _button.innerHTML = "Load model";
+        _buttonCntr.append(_button);
+        
+        iframeVis.parentNode.insertBefore(_buttonCntr, iframeVis);
+        iframeVis.style.display = "none";
+
+
+        _button.onclick = function() {
+            // Change button text
+            if (_button.innerText == "Load model") {_button.innerText = "Close"; } else {_button.innerText = "Load model";}
+            myframe = iframeVis.getElementsByTagName("iframe");
             
-            iframeVis.parentNode.insertBefore(_buttonCntr, iframeVis);
-            iframeVis.style.display = "none";
-
-
-            _button.onclick = function() {
-                // Change button text
-                if (_button.innerText == "Load model") {_button.innerText = "Close"; } else {_button.innerText = "Load model";}
-                myframe = iframeVis.getElementsByTagName("iframe");
-                
-                // Change frame src
-                if (myframe[0].src == ""){ myframe[0].src = "about:blank"; } 
-                tmp = myframe[0].src;
-                myframe[0].src = myframe[0].dataset.src;
-                myframe[0].dataset.src = tmp;
-                
-                // Hide the block
-                if (iframeVis.style.display == "block"){
-                    iframeVis.style.display = "none";
-                } else {
-                    iframeVis.style.display = "block";
-                } 
-            }
+            // Change frame src
+            if (myframe[0].src == ""){ myframe[0].src = "about:blank"; } 
+            tmp = myframe[0].src;
+            myframe[0].src = myframe[0].dataset.src;
+            myframe[0].dataset.src = tmp;
+            
+            // Hide the block
+            if (iframeVis.style.display == "block"){
+                iframeVis.style.display = "none";
+            } else {
+                iframeVis.style.display = "block";
+            } 
         }
-    }) 
+    }
 </script>
