@@ -94,11 +94,13 @@
             }
         }
     }
+
+
     if( document.readyState !== 'loading' ) {
         alert('Loaded!');
         changeIFrame();
     } else {
-        window.addEventListener('DOMContentLoaded', (event) => changeIFrame() );
+        window.addEventListener('DOMContentLoaded', (event) => { changeIFrame(); } );
         alert('Added listener!');
     }
 </script>
