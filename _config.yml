@@ -147,7 +147,7 @@ defaults:
     values:
       sitemap:         false
 
-    - scope:
+  - scope:
       path:            files/**
     values:
       sitemap:         false
