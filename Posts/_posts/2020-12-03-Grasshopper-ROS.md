@@ -7,6 +7,7 @@ tags: PhD Manipulator posts
 sitemap: false
 date: 2020-12-03 08:00:00
 img: assets/img/Posts/2020-12-03-GH-Ros.jpg
+published: false
 ---
 {:refdef: style="text-align: center;"}
 ![My image](/assets/img/Posts/2020-12-03-GH-Ros.jpg){:height="500" width="500"}
