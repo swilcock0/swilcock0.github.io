@@ -60,7 +60,7 @@
 </script>
 
 <script>
-    document.getElementById('_pushState').addEventListener('hy-push-state-after', function (e) {
+    function changeIFrame() {
         iframeVis = document.getElementsByClassName("outerIFrame")[0];
         if (iframeVis != null){        
             _buttonCntr = document.createElement("center");
@@ -92,5 +92,10 @@
                 } 
             }
         }
-    });
+    }
+
+    document.getElementById('_pushState').addEventListener('hy-push-state-after', changeIFrame());
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD){
+        changeIFrame();
+    }
 </script>
