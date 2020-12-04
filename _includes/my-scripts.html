@@ -58,9 +58,9 @@
     document.getElementById("_homeM").style.borderRight="none";
     document.getElementById("_homeM").style.borderLeft="none";
 </script>
-  
+
 <script>
-    function changeIFrame(){
+        function changeIFrame(){
         iframeVis = document.getElementsByClassName("outerIFrame")[0];
         if (iframeVis != null){        
             _buttonCntr = document.createElement("center");
@@ -85,7 +85,6 @@
                 myframe[0].src = myframe[0].dataset.src;
                 myframe[0].dataset.src = tmp;
                 
-                // Hide the block
                 if (iframeVis.style.display == "block"){
                     iframeVis.style.display = "none";
                 } else {
