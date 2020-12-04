@@ -14,7 +14,7 @@ img: assets/img/Posts/2020-12-03-GH-Ros.jpg
 Defining geometries in CAD and sending via ROS2 middleware.
 {:.figcaption style="text-align: center;"}
 
-<figure class="video_container"><iframe width="560" height="315" data-src="/assets/documents/WallAndDenso.html" frameborder="0" allowfullscreen="true"></iframe></figure>
+<figure class="video_container"><iframe width="560" height="315" data-src="/assets/documents/WallAndDenso.html" frameborder="0"></iframe></figure>
 {:.lead .outerIFrame}
 
 WIP!
