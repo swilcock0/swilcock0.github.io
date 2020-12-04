@@ -94,6 +94,14 @@
         }
     }
 
-    document.getElementById('_pushState').addEventListener('hy-push-state-load', changeIFrame());
-    /* document.getElementById('_pushState').addEventListener('hy-push-state-load', changeIFrame());  */
+    after_listener = document.getElementById('_pushState').addEventListener('hy-push-state-after', function() {
+        changeIFrame();
+        document.getElementById('_pushState').removeEventListener('hy-push-state-load', load_listener);
+    });
+    
+    load_listener = document.getElementById('_pushState').addEventListener('hy-push-state-load', function() {
+        changeIFrame();
+        document.getElementById('_pushState').removeEventListener('hy-push-state-load', after_listener);
+    });
+    
 </script>
