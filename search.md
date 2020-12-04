@@ -14,6 +14,7 @@ title: Search
 <!-- Script pointing to search-script.js -->
 <script src="../scripts/search-script.js" type="text/javascript"></script>
 
+
 <!-- Configuration -->
 <script>
 SimpleJekyllSearch({
