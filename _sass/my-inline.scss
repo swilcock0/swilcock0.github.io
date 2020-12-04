@@ -4,26 +4,27 @@
 }
 
 .myButton {
-  padding: 15px 25px;
+  margin-bottom: 25px;
+  padding: 10px 15px;
   font-size: 24px;
   text-align: center;
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #1ae9f0;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 5px #999;
 }
 
-.myButton:hover {background-color: #3e8e41}
+.myButton:hover {background-color: #15a8ad}
 
 .myButton:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  background-color: #a9fff8;
+  box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
 
 .outerIFrame:figure {
-  visibility: hidden;
+  display: none;
 }
