@@ -152,12 +152,6 @@ defaults:
     values:
       sitemap:         false
 
-  # # You can use the following to enable comments on all posts.
-  # - scope:
-  #     type:            posts
-  #   values:
-  #     comments:        true
-
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
   - scope:
@@ -421,9 +415,3 @@ jekyll_compose:
 future: false
 timezone: Europe/London
 
-# Turn comments on by default for posts
-defaults:
-  - scope:
-      type: posts
-    values:
-      comments: true
