@@ -19,7 +19,7 @@ Defining geometries in CAD and sending via ROS2 middleware.
 <iframe width="560" height="315" data-src="/assets/documents/WallAndDenso.html" frameborder="0" />
 </figure>
 </center>
-{:.lead .outerIFrame .centered}
+{:.lead .outerIFrame}
 
 WIP!
 
