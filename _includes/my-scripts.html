@@ -95,7 +95,5 @@
     }
 
     document.getElementById('_pushState').addEventListener('hy-push-state-after', changeIFrame());
-    if (performance.navigation.type == performance.navigation.TYPE_RELOAD){
-        changeIFrame();
-    }
+    document.getElementById('_pushState').addEventListener('hy-push-state-load', changeIFrame());    
 </script>
