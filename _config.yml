@@ -151,6 +151,11 @@ defaults:
       path:            "files/**"
     values:
       sitemap:         false
+  
+  - scope:
+      path:            "googledae5203f89959b84.html"
+    values:
+      sitemap:         false
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
