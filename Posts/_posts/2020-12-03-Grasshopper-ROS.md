@@ -18,6 +18,33 @@ Having previously managed to get a manipulator arm [simulated in RVIZ](/posts/20
 Rapid geometry generation in Grasshopper
 {:.figcaption style="text-align: center;"}
 
+Following the example set by [COMPAS FAB](https://gramaziokohler.github.io/compas_fab/latest/), it isn't too difficult to connect Grasshopper to ROS via the [roslibpy](https://roslibpy.readthedocs.io/en/latest/index.html) Python library, which transmits messages via the WebSocket protocol to the rosbridge web bridge. This would all be fine as is, except for the fact that the roslibpy library interacts with old school ROS whilst my project is in ROS2. Hence, it was required to pair messages between the versions by building them into the [ros1_bridge](https://github.com/ros2/ros1_bridge).
+
+~~~ python
+# Transmitting geometry data to ROS for motion planning
+if call: 
+    points = rs.coerce3dpointlist(points)
+    
+    poses = []
+    
+    for cnt, point in enumerate(points):
+        point = rs.coerce3dpoint(point)
+        position = dict(x = point.X/scale_factor, y = point.Y/scale_factor, z = point.Z/scale_factor - 0.17+0.065/2)# - 0.17+.08+0.065/2)
+        orientation = dict(x = QX[cnt], y = QY[cnt], z = QZ[cnt], w = QW[cnt])
+        pose=dict(position= position, orientation= orientation)
+        poses.append(pose)
+    
+    request = dict(poses=poses, orientation_constraint=1)
+    sc.sticky[key_request] = request
+
+    topic = roslibpy.Topic(client, "/vs068/ros1/move_to_poses", "my_denso_msgs/MoveToPointsM")
+    pub = topic.advertise()
+    while (topic.is_advertised != True and sc.escape_test(False)):
+        time.sleep(1)
+        
+    topic.publish(roslibpy.Message(request))
+~~~
+
 {:refdef: style="text-align: center;"}
 ![Structural assembly in ROS](/assets/img/Posts/2020-12-03-GH-Ros.jpg){:height="500" width="500"}
 {:refdef}
