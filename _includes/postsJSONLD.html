@@ -21,7 +21,7 @@
     "description": "Sam Wilcock is a Postgraduate Researcher in Civil Engineering at the University of Leeds, using robots to build shell structures."
   },
   "publisher": {
-    "@type": "Person",
+    "@type": "Organisation",
     "name": {{ site.title | jsonify }},
     "url": "{{ site.url }}",
     "logo": {
@@ -37,7 +37,11 @@
   },
   "image": {
     "@type": "ImageObject",
-    "url": "{{ site.url }}{{ page.img }}"
+    {% if page.img %}
+      "url": "{{ site.url }}/{{ page.img }}"
+    {% else %}
+      "url": "{{ site.url }}/assets/img/logo.png"
+    {% endif %}
   }
 }
 </script>
