@@ -57,7 +57,7 @@ description: >
     "@type": "ImageObject",
     "width": {{ page.img_width | default: site.img_width }},
     "height": {{ page.img_height | default: site.img_height }},
-    "url": "{{ site.url }}{{ page.img_url | default: site.img_url }}"
+    "url": "{{ site.url }}{{ page.img || default: assets/icons/icon-512x512.png }}"
   }
 }
 </script>
