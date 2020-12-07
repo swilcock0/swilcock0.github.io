@@ -34,7 +34,7 @@ description:           >
 tagline:               Creating benign(?) robots to take over the world
 
 # A list of keywords for your blog
-keywords:              [robotics, engineering, science, mathematics, rhino3d, architecture, generative, CAD]
+keywords:              [robotics, engineering, science, mathematics, rhino3d, architecture, generative, CAD, Leeds, civil]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -47,7 +47,7 @@ author:
   name:                Sam Wilcock
   email:               samdemon42@gmail.com
   # # Used by `jekyll-seo-tag`:
-  # twitter:             Sam0_robotics
+  twitter:             SamWilc0ck
 
 # Add links to the sidebar.
 menu:
