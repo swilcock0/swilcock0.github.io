@@ -29,7 +29,7 @@ if call:
     
     for cnt, point in enumerate(points):
         point = rs.coerce3dpoint(point)
-        position = dict(x = point.X/scale_factor, y = point.Y/scale_factor, z = point.Z/scale_factor - 0.17+0.065/2)
+        position = dict(x = point.X/scale_factor, y = point.Y/scale_factor, z = point.Z/scale_factor)
         orientation = dict(x = QX[cnt], y = QY[cnt], z = QZ[cnt], w = QW[cnt])
         pose=dict(position= position, orientation= orientation)
         poses.append(pose)
@@ -38,12 +38,15 @@ if call:
     sc.sticky[key_request] = request
 
     topic = roslibpy.Topic(client, "/vs068/ros1/move_to_poses", "my_denso_msgs/MoveToPointsM")
-    pub = topic.advertise()
-    while (topic.is_advertised != True and sc.escape_test(False)):
-        time.sleep(1)
         
     topic.publish(roslibpy.Message(request))
 ~~~
+Sending geometry data using ghPython
+{:.figcaption style="text-align: center;"}
+
+Having established a working connection between Grasshopper and the robot middleware, it was then necessary to create some geometry to test it with. Since we have a stack of bricks in the labs, and following the example of Gramazio Kohler's ["Informed Wall"](http://papers.cumincad.org/cgi-bin/works/Show?acadia06_489), a class B brick geometry was created. A pick and place pipeline was created in the ROS motion server; the grasp procedure approaches and retracts from the bricks at a set height above the brick in a matched orientation as will be required once there is a gripper attached to the end effector. I currently have no idea, however, about the design of the gripper that we will have available in the lab, so the system currently "floats" the bricks around 10cm from the gripper.
+
+In order to establish a structure to build out of bricks, 
 
 {:refdef: style="text-align: center;"}
 ![Structural assembly in ROS](/assets/img/Posts/2020-12-03-GH-Ros.jpg){:height="500" width="500"}
