@@ -4,7 +4,7 @@ title: Connecting Grasshopper to ROS for transfer of generatively designed geome
 description: >
   Experimentation with sending geometries to ROS from Grasshopper
 tags: PhD Manipulator posts
-sitemap: false
+#sitemap: false
 date: 2020-12-03 08:00:00
 img: assets/img/Posts/2020-12-03-GH-Ros.jpg
 header-img: assets/img/Posts/2020-12-03-GH-Ros.jpg
