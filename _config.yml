@@ -28,10 +28,10 @@ title:                 Sam Wilcock
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Creating benign(?) robots to take over the world
+  A site discussing the use of robots in construction and architecture, and research developments in the University of Leeds' Civil Engineering department.
 
 # A shorter description for the sidebar.
-tagline:               Creating benign(?) robots to take over the world
+tagline:               Robotic construction and digital fabrication
 
 # A list of keywords for your blog
 keywords:              [robotics, engineering, science, mathematics, rhino3d, architecture, generative, CAD, Leeds, civil]
