@@ -9,9 +9,9 @@ date: 2020-11-17 18:00:00
 img: assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg
 ---
 {:refdef: style="text-align: center;"}
-![My image](/assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg){:height="500" width="500"}
+![The VS068 moving to a series of points](/assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg){:height="500" width="500"}
 {:refdef}
-The VS068 moving to a series of points.
+The VS068 moving to a series of points
 {:.figcaption style="text-align: center;"}
 
 My recent work has required me to learn ROS2. Having not used the original ROS before, I took an excellent course on Udemy by Edouard Renard - [ROS2 for Beginners (ROS Foxy - 2020)](https://www.udemy.com/course/ros2-for-beginners/) which I can highly recommend if you're just starting out or migrating over to ROS2. Edouard takes the time to explain every example in the creation of nodes, publishers, subscribers, services and messages in both Python and C++ before leading into a typical Turtlesim project, and I found that it very quickly brought me upto speed on the distributed middleware system.
@@ -20,7 +20,7 @@ Since my work is aiming to focus on bringing robotic simulation and planning for
 
 <figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/sSEF9cADy6s" frameborder="0" allowfullscreen="true"></iframe></figure>
 {:.lead}
-Moveit2 VS068 Demonstration
+VS068 Demonstration
 {:.figcaption style="text-align: center;"}
 
 One aspect of ROS that wasn't explained in Renard's course was action servers, and this proved to be a temporary barrier in enabling Moveit to execute trajectories. It took a little while until I realised that the action server had to be written to enable this capability (of course! How else can you then connect a software controller to the hardware?). Once this was in place, the Moveit2 demos provided a useful start for looking at how to utilise the MoveGroupInterface and PlanningScene classes in a Object-Oriented C++ server. They also made me realise how rusty my C++ was...
