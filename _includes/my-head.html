@@ -23,7 +23,7 @@
 <meta property="og:description" content="{{ page.content | markdownify | strip_html | strip_newlines | truncate: 300 }}" />
 
 {% if page.title %}
-    {% include postJSONLD.html %}
+    {% include postsJSONLD.html %}
 {% else %}
     {% include homeJSONLD.html %}
 {% endif %}  
