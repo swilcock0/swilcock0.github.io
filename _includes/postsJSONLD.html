@@ -4,7 +4,7 @@
   "@type": "BlogPosting",
   "url": "{{ site.url }}{{ page.url }}",
   "name": "{{ page.title | jsonify }}",
-  "headline": "{{ page.title | jsonify }}",
+  "headline": {{ page.title | jsonify }},
   "keywords": {{ page.tags | join: ',' | jsonify }},
   "description": {{ page.excerpt | strip_newlines | strip | jsonify }},
   "articleBody": {{ page.content | strip_html | jsonify }},
