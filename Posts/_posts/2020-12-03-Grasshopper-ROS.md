@@ -29,7 +29,7 @@ if call:
     
     for cnt, point in enumerate(points):
         point = rs.coerce3dpoint(point)
-        position = dict(x = point.X/scale_factor, y = point.Y/scale_factor, z = point.Z/scale_factor - 0.17+0.065/2)# - 0.17+.08+0.065/2)
+        position = dict(x = point.X/scale_factor, y = point.Y/scale_factor, z = point.Z/scale_factor - 0.17+0.065/2)
         orientation = dict(x = QX[cnt], y = QY[cnt], z = QZ[cnt], w = QW[cnt])
         pose=dict(position= position, orientation= orientation)
         poses.append(pose)
