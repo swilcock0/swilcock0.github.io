@@ -1,9 +1,9 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
-author1:
+Sam:
   name:              Sam Wilcock
-  email:             samdemon42@gmail.com
+  email:             el18sw@leeds.ac.uk
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -28,7 +28,7 @@ author1:
     #github:            swilcock0
     uoleeds:           https://eps.leeds.ac.uk/civil-engineering/pgr/8721/sam-wilcock
     twitter:           SamWilc0ck
-    email:             samdemon42+site@gmail.com
+    email:             el18sw@leeds.ac.uk
     # rss:             https://<url>/feed.xml
     #facebook:        Hacksaw.Circumcision
     # google:          <number>
