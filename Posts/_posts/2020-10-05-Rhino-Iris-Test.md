@@ -3,7 +3,8 @@ layout: post
 title: Rhino/Iris Test
 description: >
   Three.js model posting test
-tags: posts grasshopper rhino model
+categories: posts
+tags: grasshopper rhino model
 sitemap: false
 date: 2020-10-05 18:00:00
 ---

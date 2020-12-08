@@ -3,7 +3,8 @@ layout: post
 title: Connecting Grasshopper to ROS for transfer of generatively designed geometries
 description: >
   Experimentation with sending geometries to ROS from Grasshopper
-tags: PhD Manipulator posts
+categories: posts
+tags: PhD Manipulator ROS Moveit CAD
 #sitemap: false
 date: 2020-12-03 08:00:00
 img: assets/img/Posts/2020-12-03-GH-Ros.jpg

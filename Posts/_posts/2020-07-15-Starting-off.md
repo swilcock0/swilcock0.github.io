@@ -3,7 +3,8 @@ layout: post
 title: Starting off
 description: >
   This is my first blog post, as a test
-tags: Example test first posts
+categories: posts
+tags: Example test first
 sitemap: false
 date: 2020-07-15 13:00:00
 comments: true
