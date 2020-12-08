@@ -3,11 +3,13 @@ layout: post
 title: ROS2 and Moveit2 Demonstration
 description: >
   A first demonstration of the Moveit2 planning capabilities for a Denso VS068 manipulator
-categories: posts
+categories: []
 tags: PhD Manipulator ROS Moveit
 sitemap: true
 date: 2020-11-17 18:00:00
 img: assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg
+related-posts:
+  Posts/_posts/2020-12-03-Grasshopper-ROS.md
 ---
 {:refdef: style="text-align: center;"}
 ![The VS068 moving to a series of points](/assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg){:height="500" width="500"}
