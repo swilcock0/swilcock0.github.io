@@ -8,7 +8,7 @@ redirect_from:
   - /download/
 ---
 
-<meta property="og:title" content="Sam Wilcock is a Postgraduate Researcher in Civil Engineering at the University of Leeds, using robots to build shell structures." />
+<meta property="og:description" content="Sam Wilcock is a Postgraduate Researcher in Civil Engineering at the University of Leeds, using robots to build shell structures." />
 # About
 {:refdef: style="text-align: center;"}
 ![Collection of robot designs](/assets/img/Collection2.jpg)
