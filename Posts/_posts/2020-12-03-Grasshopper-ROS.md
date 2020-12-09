@@ -18,7 +18,7 @@ related-posts:
   srcset="/assets/img/Posts/webp/2020-12-03-GH-Ros.webp-small.webp 500w,
           /assets/img/Posts/webp/2020-12-03-GH-Ros.webp-medium.webp 1000w,
          /assets/img/Posts/webp/2020-12-03-GH-Ros.webp 1500w" 
-  sizes="(min-width: 960px) 500px, 100vw" alt="Structural assembly in ROS">
+  sizes="(min-width: 960px) 800px, 100vw" alt="Structural assembly in ROS">
 {:refdef}
 Defining geometries in CAD and sending via ROS2 middleware. 
 {:.figcaption style="text-align: center;"}
