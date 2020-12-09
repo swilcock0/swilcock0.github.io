@@ -34,77 +34,12 @@
 -->
 
 <script>
-    menuI = document.getElementById("_menu");
-    let searchI = document.createElement("a");
-    searchI.id="_searchM";
-    searchI.href="/search";
-    searchI.classList.add("nav-btn");
-    searchI.classList.add("no-hover");
-    searchI.innerHTML = `<span class="sr-only">Search</span><span class="icon-search"></span> `;
-    menuI.parentNode.insertBefore(searchI, menuI.nextSibling);
-
-    document.getElementById("_searchM").style.borderRight="none";
-    document.getElementById("_searchM").style.borderLeft="none";
-
-    menuI = document.getElementById("_menu");
-    let homeI = document.createElement("a");
-    homeI.id="_homeM";
-    homeI.href="/";
-    homeI.classList.add("nav-btn");
-    homeI.classList.add("no-hover");
-    homeI.innerHTML = `<span class="sr-only">Home</span><span class="icon-home3"></span> `;
-    menuI.parentNode.insertBefore(homeI, menuI.nextSibling);
-
-    document.getElementById("_homeM").style.borderRight="none";
-    document.getElementById("_homeM").style.borderLeft="none";
+    menuI=document.getElementById("_menu");let searchI=document.createElement("a");searchI.id="_searchM",searchI.href="/search",searchI.classList.add("nav-btn"),searchI.classList.add("no-hover"),searchI.innerHTML='<span class="sr-only">Search</span><span class="icon-search"></span> ',menuI.parentNode.insertBefore(searchI,menuI.nextSibling),document.getElementById("_searchM").style.borderRight="none",document.getElementById("_searchM").style.borderLeft="none",menuI=document.getElementById("_menu");let homeI=document.createElement("a");homeI.id="_homeM",homeI.href="/",homeI.classList.add("nav-btn"),homeI.classList.add("no-hover"),homeI.innerHTML='<span class="sr-only">Home</span><span class="icon-home3"></span> ',menuI.parentNode.insertBefore(homeI,menuI.nextSibling),document.getElementById("_homeM").style.borderRight="none",document.getElementById("_homeM").style.borderLeft="none";
 </script>
 
+<!-- Script below minified w/ https://javascript-minifier.com/ -->
 <script>
-    function changeIFrame() {
-        iframeVis = document.getElementsByClassName("outerIFrame")[0];
-        if (iframeVis != null){        
-            _buttonCntr = document.createElement("center");
-            _button = document.createElement("button");
-            _button.classList.add("myButton");
-            _button.id = "loadButton";
-            _button.innerHTML = "Load model";
-            _buttonCntr.append(_button);
-            
-            iframeVis.parentNode.insertBefore(_buttonCntr, iframeVis);
-            iframeVis.style.display = "none";
-
-
-            _button.onclick = function() {
-                
-                if (_button.innerText == "Load model") {_button.innerText = "Close"; } else {_button.innerText = "Load model";}
-                myframe = iframeVis.getElementsByTagName("iframe");
-                
-            
-                if (myframe[0].src == ""){ myframe[0].src = "about:blank"; } 
-                tmp = myframe[0].src;
-                myframe[0].src = myframe[0].dataset.src;
-                myframe[0].dataset.src = tmp;
-                
-                if (iframeVis.style.display == "block"){
-                    iframeVis.style.display = "none";
-                } else {
-                    iframeVis.style.display = "block";
-                } 
-            }
-        }
-    }
-
-    
-    load_listener = document.getElementById('_pushState').addEventListener('hy-push-state-load', function() {
-        changeIFrame();
-    });
-    
-    /*after_listener = document.getElementById('_pushState').addEventListener('hy-push-state-after', function() {
-        document.getElementById('_pushState').removeEventListener('hy-push-state-load', load_listener);
-        changeIFrame();
-    });*/
-
-    
+    function changeIFrame(){iframeVis=document.getElementsByClassName("outerIFrame")[0],null!=iframeVis&&(_buttonCntr=document.createElement("center"),_button=document.createElement("button"),_button.classList.add("myButton"),_button.id="loadButton",_button.innerHTML="Load model",_buttonCntr.append(_button),iframeVis.parentNode.insertBefore(_buttonCntr,iframeVis),iframeVis.style.display="none",_button.onclick=function(){"Load model"==_button.innerText?_button.innerText="Close":_button.innerText="Load model",myframe=iframeVis.getElementsByTagName("iframe"),""==myframe[0].src&&(myframe[0].src="about:blank"),tmp=myframe[0].src,myframe[0].src=myframe[0].dataset.src,myframe[0].dataset.src=tmp,"block"==iframeVis.style.display?iframeVis.style.display="none":iframeVis.style.display="block"})}load_listener=document.getElementById("_pushState").addEventListener("hy-push-state-load",function(){changeIFrame()});    
 </script>
 
 <script src="../scripts/last-modified.js" type="text/javascript"></script>

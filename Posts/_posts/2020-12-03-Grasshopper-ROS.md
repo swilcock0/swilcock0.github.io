@@ -13,7 +13,7 @@ related-posts:
   Posts/_posts/2020-11-17-ROS2-Moveit-Demo.md
 ---
 {:refdef: style="text-align: center;"}
-![Structural assembly in ROS](/assets/img/Posts/2020-12-03-GH-Ros.jpg){:height="500" width="500"}
+![Structural assembly in ROS](/assets/img/Posts/2020-12-03-GH-Ros.webp){:height="500" width="500"}
 {:refdef}
 Defining geometries in CAD and sending via ROS2 middleware. 
 {:.figcaption style="text-align: center;"}
