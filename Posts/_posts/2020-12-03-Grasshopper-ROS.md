@@ -74,8 +74,7 @@ With the wall generation definition complete, it was necessary to find a set of 
 
 Here's a video of the system in action.
 
-<figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/MLa0AMedjpQ"
-srcdoc="<a href=https://www.youtube.com/embed/MLa0AMedjpQ><img src=https://i3.ytimg.com/vi/MLa0AMedjpQ/hqdefault.jpg>" frameborder="0" allowfullscreen="true"></iframe></figure>
+<figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/MLa0AMedjpQ" frameborder="0" allowfullscreen="true"></iframe></figure>
 {:.lead}
 Moveit2 VS068 Demonstration
 {:.figcaption style="text-align: center;"}
