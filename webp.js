@@ -25,7 +25,7 @@ imagemin(["./assets/img/Posts/*.{jpg,png}"], {
 }).then(() => {
     fs.readdirSync(directory).forEach(file => {
         sharp(`${directory}/${file}`)
-          .resize(200, 100) // width, height
+          .resize(400) // width, height
           .toFile(`${directory}/${file}-small.webp`);
         });
 });
