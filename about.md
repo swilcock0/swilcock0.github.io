@@ -10,5 +10,8 @@ redirect_from:
 ---
 
 # About
+{:refdef: style="text-align: center;"}
+![Collection of robot designs](/assets/img/Collection2.jpg)
+{:refdef}
 
 <!--author-->
