@@ -10,6 +10,7 @@ date: 2020-11-17 18:00:00
 img: assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg
 related-posts:
   Posts/_posts/2020-12-03-Grasshopper-ROS.md
+comments: true
 ---
 {:refdef: style="text-align: center;"}
 <!--![The VS068 moving to a series of points](/assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg){:height="500" width="500"}-->

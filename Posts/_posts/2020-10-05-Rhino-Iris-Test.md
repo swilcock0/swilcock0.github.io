@@ -7,6 +7,7 @@ categories: []
 tags: grasshopper rhino model
 sitemap: false
 date: 2020-10-05 18:00:00
+comments: true
 ---
 Here's a fine ball produced in Rhino/GH, thanks to [Iris](https://www.food4rhino.com/app/iris-export-rhino-models-web) and [Shortest Walk](https://www.food4rhino.com/app/shortest-walk-gh).
 
