@@ -58,4 +58,3 @@ $$
 
 ## And this is some pretty python
 {% include TestJupyter/TestJupyter.md %}
-
