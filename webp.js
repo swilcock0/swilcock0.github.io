@@ -25,10 +25,11 @@ imagemin(["./assets/img/Posts/*.{jpg,png}"], {
 }).then(() => {
     fs.readdirSync(directory).forEach(file => {
         sharp(`${directory}/${file}`)
-          .resize(1000) // width, height
-          .toFile(`${directory}/${file}-medium.webp`);
+          .resize(800) // width, height
+          .toFile(`${directory}/${file}-large.webp`);
+
         sharp(`${directory}/${file}`)
-          .resize(500) // width, height
+          .resize(400) // width, height
           .toFile(`${directory}/${file}-small.webp`);
         });
 });
