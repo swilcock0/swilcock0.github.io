@@ -12,7 +12,11 @@ related-posts:
   Posts/_posts/2020-12-03-Grasshopper-ROS.md
 ---
 {:refdef: style="text-align: center;"}
-![The VS068 moving to a series of points](/assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg){:height="500" width="500"}
+<!--![The VS068 moving to a series of points](/assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg){:height="500" width="500"}-->
+<img src="/assets/img/Posts/2020-11-17-Manipulator-Hemisphere.jpg" 
+  srcset="/assets/img/Posts/webp/2020-11-17-Manipulator-Hemisphere.webp-small.webp 400w,
+         /assets/img/Posts/webp/2020-11-17-Manipulator-Hemisphere.webp-large.webp 800w" 
+  sizes="(min-width: 960px) 600px, 100vw" alt="The VS068 moving to a series of points" title="The VS068 moving to a series of points">
 {:refdef}
 The VS068 moving to a series of points
 {:.figcaption style="text-align: center;"}
