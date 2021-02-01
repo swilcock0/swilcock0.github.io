@@ -148,7 +148,7 @@ defaults:
       sitemap:         false
 
   - scope:
-      path:            "files/**"
+      path:            "Files/*.gh"
     values:
       sitemap:         false
   
