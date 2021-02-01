@@ -3,9 +3,6 @@ layout: page
 title: My CV
 ---
 
-* this list will be replaced by the toc
-{:toc}
-
 <h1>Sam Wilcock</h1>
 <h2><i>Postgraduate Researcher at the University of Leeds</i></h2>
 
