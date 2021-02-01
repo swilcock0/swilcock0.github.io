@@ -6,7 +6,7 @@ title: My CV
 <h1>Sam Wilcock</h1>
 <h2><i>Postgraduate Researcher at the University of Leeds</i></h2>
 
-Download CV [here](Files/documents/CV.pdf)
+Download CV [here]({{ site.baseurl }}{% link Files/documents/CV.pdf %})
 
 ## Education
 {:.icon-library}
