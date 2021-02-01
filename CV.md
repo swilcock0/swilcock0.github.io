@@ -9,6 +9,7 @@ title: My CV
 <h1>Sam Wilcock</h1>
 <h2><i>Postgraduate Researcher at the University of Leeds</i></h2>
 
+Download CV [here](assets/documents/CV.pdf)
 
 ## Education
 {:.icon-library}
