@@ -18,8 +18,8 @@ Researching "Efficient robotic assembling of shell structures"
 
 #### The University of Leeds
 MScEng Mechatronics and Robotics        **2018 – 2019**\\
-Dissertation Title: “*Estimation of Extinct Animal Bone Structure and
-Computational Dynamics Simulation to Find a Stable Walking Policy*”\\
+Dissertation Title: <a href="https://www.researchgate.net/publication/341453763_Estimation_of_Extinct_Animal_Bone_Structure_and_Computational_Dynamics_Simulation_to_Find_a_Stable_Walking_Policy">“*Estimation of Extinct Animal Bone Structure and
+Computational Dynamics Simulation to Find a Stable Walking Policy*”</a>\\
 **Pass with distinction**
 
 

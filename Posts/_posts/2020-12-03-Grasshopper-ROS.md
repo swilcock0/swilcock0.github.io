@@ -5,7 +5,7 @@ description: >
   Experimentation with sending geometries to ROS from Grasshopper
 categories: []
 tags: PhD Manipulator ROS Moveit CAD
-#sitemap: false
+sitemap: true
 date: 2020-12-03 08:00:00
 img: assets/img/Posts/2020-12-03-GH-Ros.jpg
 header-img: assets/img/Posts/2020-12-03-GH-Ros.jpg
