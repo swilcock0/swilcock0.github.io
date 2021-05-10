@@ -12,7 +12,7 @@ date: 2021-05-09 01:00:00
 comments: false
 ---
 {:refdef: style="text-align: center;"}
-[Reach map](/assets/img/Posts/2021-05-09-Reach.png){:height="500" width="500"}
+![Reach map](/assets/img/Posts/2021-05-09-Reach.png){:height="500" width="500"}
 {:refdef}
 A cross-section of the reach map for a manipulator.
 {:.figcaption style="text-align: center;"}
