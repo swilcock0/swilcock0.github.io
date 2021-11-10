@@ -1,5 +1,6 @@
 ---
 layout: about
+title: About
 image: /assets/img/blog/hydejack-9.jpg
 description: >
   Sam Wilcock is a Postgraduate Researcher in Civil Engineering at the University of Leeds, using robots to build shell structures.
