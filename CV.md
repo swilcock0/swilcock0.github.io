@@ -51,36 +51,20 @@ realistic parameters for joint trajectories.
 #### Software development
 A large part of my studies, both academic and recreational, has centred around building my capabilities in programming and software, in order to quickly produce results for both design and analytical work.
 
-
-## Software Proficiencies
-#### Python, MATLAB, Embedded C (Arduino, ARM Cortex-M), Visual Basic, C++, C#, R, Golang
-Proficient in writing and debugging complex programs in all of the above languages.
-
-#### Javascript, CSS, HTML
-Capable of delivering webpages and userscripts to user requirements.
-
-#### Rhino3D, Solidworks, Pro Engineer/PTC Creo
-Proficient in designing and assembling 3D representations of products and mechanisms for CAD/CAM, and simulating system stresses to inform design choices.
-
-#### Simulink
-Experienced in using Simulink to create and optimise system models.
-
-#### Altium
-Experience in designing PCB masks.
-
-#### Github
-Worked in group projects relying heavily on collaborative workflows.
-
-#### Microsoft Project
-Experienced in software aided project management, producing Gannt charts, PERT and risk analyses.
-
-#### Microsoft Office
-High proficiency in formation of engineering reports and presentations utilising Word, Excel, Powerpoint etc.
-
-
 ## Awards
 #### EPSRC Studentship
 *2020-2024*
 
 #### Head of School Scholarship, University of Leeds
 *2018*
+
+## Additional experience
+#### The University of Leeds
+Postgraduate Teaching Assistant        **2021 – Present**\\
+
+#### Panic Family Circus, UK
+[Clown and Circus Skills Teacher](http://www.panicfamilycircus.co.uk)        **2009 – Present**\\
+
+#### Self employment
+Squash court installer        **2016 – 2020**\\
+
