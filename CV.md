@@ -60,11 +60,11 @@ A large part of my studies, both academic and recreational, has centred around b
 
 ## Additional experience
 #### The University of Leeds
-Postgraduate Teaching Assistant        **2021 – Present**\\
+Postgraduate Teaching Assistant        **2021 – Present**
 
 #### Panic Family Circus, UK
-[Clown and Circus Skills Teacher](http://www.panicfamilycircus.co.uk)        **2009 – Present**\\
+[Clown and Circus Skills Teacher](http://www.panicfamilycircus.co.uk)        **2009 – Present**
 
 #### Self employment
-Squash court installer        **2016 – 2020**\\
+Squash court installer        **2016 – 2020**
 
