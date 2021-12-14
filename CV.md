@@ -6,7 +6,7 @@ title: My CV
 <h1>Sam Wilcock</h1>
 <h2><i>Postgraduate Researcher at the University of Leeds</i></h2>
 
-Download CV <a href="https://swilcock0.github.io/Files/CV.pdf" target="_top_">here</a>
+Download CV <a href="https://samwilcock.xyz/Files/CV.pdf" target="_top_">here</a>
 
 ## Education
 {:.icon-library}
@@ -18,7 +18,7 @@ Researching "Efficient robotic assembling of shell structures"
 
 #### The University of Leeds
 MScEng Mechatronics and Robotics        **2018 – 2019**\\
-Dissertation Title: <a href="https://www.researchgate.net/publication/341453763_Estimation_of_Extinct_Animal_Bone_Structure_and_Computational_Dynamics_Simulation_to_Find_a_Stable_Walking_Policy">“*Estimation of Extinct Animal Bone Structure and
+Dissertation: <a href="https://www.researchgate.net/publication/341453763_Estimation_of_Extinct_Animal_Bone_Structure_and_Computational_Dynamics_Simulation_to_Find_a_Stable_Walking_Policy">“*Estimation of Extinct Animal Bone Structure and
 Computational Dynamics Simulation to Find a Stable Walking Policy*”</a>\\
 **Pass with distinction**
 
