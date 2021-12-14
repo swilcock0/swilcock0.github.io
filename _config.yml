@@ -157,7 +157,7 @@ defaults:
     values:
       sitemap:         false
 
-    - scope:
+  - scope:
       path:            ".well-known/**"
     values:
       sitemap:         false
