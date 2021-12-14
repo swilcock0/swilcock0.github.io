@@ -157,6 +157,11 @@ defaults:
     values:
       sitemap:         false
 
+    - scope:
+      path:            ".well-known/**"
+    values:
+      sitemap:         false
+
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
   - scope:
