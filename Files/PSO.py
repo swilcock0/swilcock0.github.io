@@ -1,6 +1,8 @@
 import numpy.random as rd
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+
 from celluloid import Camera
 plt.style.use('seaborn-pastel')
 
@@ -17,12 +19,15 @@ w_i = 0.5 # Inertia weight
 w_c = 1 # Cognitive coeff
 w_s = 1 # Social coeff
 
-# Setup figure 
-fig = plt.figure()
+fig, ax = plt.subplots()
+divider = make_axes_locatable(ax)
+cax = divider.append_axes('right', size='5%', pad=0.05)
+
 camera = Camera(fig)
 plt.rcParams["axes.titlesize"] = 8
-plt.xlim(x_range)
-plt.ylim(y_range)
+ax.autoscale_view(True)
+ax.set_xlim(x_range)
+ax.set_ylim(y_range)
 
 functions = {
     0 : {"fn_text" : "x**2.0 + y**2.0", 
@@ -32,8 +37,7 @@ functions = {
     2 : {"fn_text" : "-0.0001*(abs(np.sin(x)*np.sin(y)*np.exp(abs(100-(((x**2.0+y**2.0)**0.5)/np.pi))))+1)**0.1",
         "fn_name" : "Cross_in_tray_fn"}
     }
-select = 2 # Change me to select the function!
-
+select = 2
 fn_text = functions[select]["fn_text"]
 fn_name = functions[select]["fn_name"]
 
@@ -43,12 +47,11 @@ def objective(x, y):
 
 
 # Sample objective space for contours
-cont_x = np.arange(x_range[0]*2, x_range[1]*2, 0.1)
-cont_y = np.arange(y_range[0]*2, y_range[1]*2, 0.1)
+cont_x = np.arange(x_range[0], x_range[1], 0.1)
+cont_y = np.arange(y_range[0], y_range[1], 0.1)
 [X, Y] = np.meshgrid(cont_x, cont_y)
 Z = objective(X, Y)
 cp = plt.contourf(X,Y,Z)
-plt.colorbar(cp)
 
 # Define particle class
 class Particle:
@@ -102,10 +105,11 @@ def plot_particles():
         x.append(p.x)
         y.append(p.y)
 
-    plt.contourf(X, Y, Z)
-    plt.plot(x,y, 'kx')
-    plt.plot(global_best_pos[0], global_best_pos[1], 'ro')
-    plt.title("PSO for f(x,y)=\n" + fn_text)
+    cp = ax.contourf(X, Y, Z)
+    fig.colorbar(cp, cax=cax, ax = ax)
+    ax.plot(x,y, 'kx')
+    ax.plot(global_best_pos[0], global_best_pos[1], 'ro')
+    ax.set_title("PSO for f(x,y)=\n" + fn_text)
 
 # Initialise set of particles
 particles = [Particle(id=i) for i in range(n)]
@@ -115,7 +119,6 @@ for p in particles:
 plot_particles()
 camera.snap()
 
-# Iterate through PSO for 20 generations
 iteration_bests = []
 for i in range(20):
     generation += 1
@@ -127,8 +130,7 @@ for i in range(20):
 
 print("Best position found : [{x:.5f}, {y:.5f}]".format(x=global_best_pos[0], y=global_best_pos[1]))
 
-# Plot it and export to gif
-animation = camera.animate(interval=500, blit=True)
+animation = camera.animate(interval=500, blit=False)
 animation.save('pso_'+fn_name +'.gif', writer = 'imagemagick')
 
 fig = plt.figure()
