@@ -45,7 +45,7 @@ logo:                  /assets/img/logo.png
 author:
   # Used by `jekyll-feed`:
   name:                Sam Wilcock
-  email:               samdemon42@gmail.com
+  email:               el18sw@leeds.ac.uk
   # # Used by `jekyll-seo-tag`:
   twitter:             SamWilc0ck
 
@@ -242,7 +242,7 @@ hydejack:
 
   # Code blocks and tables "break" the layout by spanning the full available width.
   # Set this to true if you want them to be the same width as other content.
-  no_break_layout:     true
+  no_break_layout:     false
 
   # Set to `true` to disable the dynamic Table of Contents on large screens.
   no_toc:              false
