@@ -28,6 +28,9 @@
 .icon-researchgate:before {
   content: "\e905";
 }
+.icon-orcid:before {
+  content: "\e900";
+}
 .icon-book:before {
   content: "\e91f";
 }
