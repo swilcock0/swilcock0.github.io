@@ -1,63 +1,22 @@
-<script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Blog",
-        "url": "{{ prepend: site.baseurl | prepend: site.url }}",
-        "headline": "{{ site.title }}",
-        "about": "{{ site.description }}",
-        "image": [
-            "https://samwilcock.xyz/assets/icons/icon-512x512.png"
-        ],
-        "isAccessibleForFree": "True",
-        "isPartOf": {
-            "@type": ["CreativeWork", "Product"],
-            "name": "Sam Wilcock's page",
-            "productID": "samwilcock.xyz"
-        },
-        "discussionUrl": "https://twitter.com/search?q=SamWilc0ck&src=typed_query",
-        "author": {
-            "@type": "Person",
-            "name": "Sam Wilcock",
-            "url": "https://samwilcock.xyz",
-            "description": "Sam Wilcock is a Postgraduate Researcher in Civil Engineering at the University of Leeds, using robots to build shell structures.",
-            "sameAs": "https://samwilcock.xyz/about/",
-            "image": {
-                "@type": "ImageObject",
-                "url": "https://samwilcock.xyz/assets/icons/icon-512x512.png"
-            },
-            "givenName": "Sam",
-            "familyName": "Wilcock",
-            "alternateName": "Swilcock0",
-            "publishingPrinciples": "https://samwilcock.xyz/about/"
-        },
-        "editor": {
-            "@type": "Person",
-            "name": "Sam Wilcock",
-            "description": "Sam Wilcock is a Postgraduate Researcher in Civil Engineering at the University of Leeds, using robots to build shell structures.",
-            "sameAs": "https://samwilcock.xyz/about/",
-            "image": {
-                "@type": "ImageObject",
-                "url": "https://samwilcock.xyz/assets/icons/icon-512x512.png"
-            },
-            "givenName": "Sam",
-            "familyName": "Wilcock",
-            "alternateName": "Swilcock0",
-            "publishingPrinciples": "https://samwilcock.xyz/about/"
-        },
-        "inLanguage": "en-GB",
-        "license": "http://creativecommons.org/licenses/by-sa/4.0/",
-        "additionalType": "CreativeWork",
-        "alternateName": "Sam Wilcock's page",
-        "publisher": {
-            "@type": "Organization",
-            "name": "University of Leeds",
-            "description": "A site discussing the use of robots in construction and architecture.",
-            "sameAs": "https://samwilcock.xyz",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://samwilcock.xyz/assets/icons/icon-512x512.png"
-            },
-            "publishingPrinciples": "http://samwilcock.xyz/about/"
-        }
-    }
+<script type="application/ld+json"> 
+    { 
+        "@context": "http://schema.org", 
+        "@type": "WebSite", 
+        {% if site.name %}
+            "name": "{{ site.name }}",
+        {% endif %} 
+        {% if site.description %}
+            "description": "{{ site.description }}",
+        {% endif %} 
+        {% if site.url %}
+            "url": "{{ site.url }}{{ site.baseurl }}",
+        {% endif %} 
+        {% if site.author %}
+            "author": { "@type": "Person", "name": "{{ site.author }}" },
+        {% endif %} 
+        {% if site.date %}
+            "dateCreated": "{{ site.date | date: "%Y-%m-%d" }}",
+        {% endif %} 
+        "dateModified": "{{ site_modified | date: "%Y-%m-%d" }}" 
+    } 
 </script>

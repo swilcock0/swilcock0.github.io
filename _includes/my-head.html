@@ -24,10 +24,15 @@
     <meta property="og:image" content="{{ site.url }}/assets/img/logo.png" />
 {% endif %}
 
-<meta property="og:description" content="{{ page.content | markdownify | strip_html | strip_newlines | truncate: 300 }}" />
 
-{% if page.title %}
+
+{% if page.title contains "About" %}
+    <meta property="og:description" content="{{ page.content | markdownify | strip_html | strip_newlines | truncate: 300 }}" />
+    {% include aboutJSONLD.html %} 
+{% elsif page.title %}
+    <meta property="og:description" content="{{ page.content | markdownify | strip_html | strip_newlines | truncate: 300 }}" />
     {% include postsJSONLD.html %}
 {% else %}
+    <meta property="og:description" content="Sam Wilcock's page" />
     {% include homeJSONLD.html %}
 {% endif %}  
