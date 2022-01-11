@@ -213,3 +213,7 @@ researchgate:
 uoleeds:
   name: UniversityOfLeeds
   icon: icon-library
+orcid:
+  name: ORCID
+  icon: icon-orcid
+  prepend: "https://orcid.org/"
