@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/Academicons.eot?d6zxrs');
-  src:  url('fonts/Academicons.eot?d6zxrs#iefix') format('embedded-opentype'),
-    url('fonts/Academicons.ttf?d6zxrs') format('truetype'),
-    url('fonts/Academicons.woff?d6zxrs') format('woff'),
-    url('fonts/Academicons.svg?d6zxrs#Academicons') format('svg');
+  font-family: 'Academicons';
+  src:  url('fonts/Academicons.eot?rhbeuj');
+  src:  url('fonts/Academicons.eot?rhbeuj#iefix') format('embedded-opentype'),
+    url('fonts/Academicons.ttf?rhbeuj') format('truetype'),
+    url('fonts/Academicons.woff?rhbeuj') format('woff'),
+    url('fonts/Academicons.svg?rhbeuj#Academicons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
