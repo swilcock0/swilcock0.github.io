@@ -16,7 +16,7 @@ comments: false
 {:refdef: style="text-align: center;"}
 ![Echo shell](/assets/img/Posts/2022-03-22-Echo.jpg){:height="500" width="500"}
 {:refdef}
-We're running a Summer module as part of the [Leeds International Summer School](https://www.leeds.ac.uk/leeds-international-summer-school). The module will be delivered over a 2 week period, covering topics including
+We're running an in-person Summer module as part of the [Leeds International Summer School](https://www.leeds.ac.uk/leeds-international-summer-school). The module will be delivered over a 2 week period, covering topics including
 * History of shell structures
 * Parametric design with Grasshopper
 * Shell structure form finding techniques and algorithms
