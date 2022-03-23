@@ -9,12 +9,12 @@ sitemap: true
 date: 2022-03-22 01:00:00
 redirect_from:
   - /SummerSchool
-#img: assets/img/Posts/2020-12-03-GH-Ros.jpg
-#header-img: assets/img/Posts/2020-12-03-GH-Ros.jpg
+img: assets/img/Posts/2022-03-22-Echo.jpg
+header-img: assets/img/Posts/2022-03-22-Echo.jpg
 comments: false
 ---
 {:refdef: style="text-align: center;"}
-![Echo shell](/assets/img/Posts/2022-03-22-Echo.jpg){:height="500" width="500"}
+![Echo shell](/assets/img/Posts/2022-03-22-Echo.jpg){:height="1000" width="500"}
 {:refdef}
 We're running an in-person Summer module as part of the [Leeds International Summer School](https://www.leeds.ac.uk/leeds-international-summer-school). The module will be delivered over a 2 week period, covering topics including
 * History of shell structures
