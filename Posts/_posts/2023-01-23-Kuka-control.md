@@ -12,7 +12,9 @@ redirect_from:
 comments: false
 hidden: true
 ---
-## Table of Contents
+S. Wilcock 2023
+
+## Table of contents
 - [Installing Anaconda](#installing-anaconda)
     - [University PC](#university-pc)
     - [Personal PC](#personal-pc)
@@ -34,6 +36,7 @@ First up we need to install Anaconda on your PC.
 If you're running a university computer, Anaconda is included in the AppsAnywhere system. Visit https://appsanywhere.leeds.ac.uk/ , accept any installation requirements, validate etc. etc. If you need help with this step see the knowledge base https://it.leeds.ac.uk/it?id=kb_article&sysparm_article=KB0014827
 
 With AppsAnywhere setup, it should then be a case of simply searching for Anaconda:
+
 ![image](https://user-images.githubusercontent.com/48917295/214005732-7cef76a9-4084-4215-b0fe-0207b926083f.png)
 
 ### Personal PC
@@ -48,6 +51,7 @@ The initial setup is the same for both University and personal computers.
 Anaconda allows us to create "virtual environments" that contain sets of Python packages. This is beneficial as it allows isolation of packages with different, clashing installation requirements, whilst acting as a sandbox of sorts.
 
 First we're going to create a new Conda virtual environment. In the start menu, search for "Anaconda" and run the Anaconda Prompt
+
 ![image](https://user-images.githubusercontent.com/48917295/214015606-5eb5beff-0049-4ef6-bb7a-aa73bb9d9c6c.png)
 
 Then, we will create the environment with the COMPAS and COMPAS_FAB packages installed:
@@ -65,7 +69,28 @@ python -m compas
 At this point, you have created a new Python environment with the required software installed (keep the prompt open!). Now we need to tell Rhino/Grasshopper to add COMPAS as a plugin (this process depends on your computer type).
 
 ### University PC
-~~TODO
+This is a bit of a pain on a Uni PC as we don't have admin rights to install stuff properly. In Windows Explorer, visit 
+```cmd
+%USERPROFILE%\Anaconda3\envs\kuka_control\Lib\site-packages
+```
+Find all folders with "compas" at the beginning (but not dist-info as a suffix), AND THE ROSLIBPY FOLDER, select them and copy them.
+
+![image](https://user-images.githubusercontent.com/48917295/214059931-b89542c9-54c4-49f8-8e4e-07b55ece0f36.png)
+![image](https://user-images.githubusercontent.com/48917295/214073268-9f874a7c-06da-44f7-817a-92a3c0ece7c7.png)
+
+We need to paste these into the Rhino scripts folder, found at
+```cmd
+%APPDATA%\McNeel\Rhinoceros\{VERSION_NUMBER}\scripts
+``` 
+where {VERSION_NUMBER} should be replaced with your Rhino version, e.g. 
+```cmd
+%APPDATA%\McNeel\Rhinoceros\6.0\scripts
+``` 
+
+You will also need to copy the compas_bootstrapper.py file into this folder:
+[compas_bootstrapper.py](https://gist.githubusercontent.com/swilcock0/0c2b2fac1208cfdade043cb837585417/raw/abe0756314f29c55ba0428f6e5778865f6f9e204/compas_bootstrapper.py)
+
+(Fingers crossed this works...)
 
 ### Personal PC
 This is simpler on a personal computer as we have admin access. In the Anaconda Prompt you should be able to simply run:
@@ -89,6 +114,7 @@ print(compas.__version__)
 import compas_fab
 print(compas_fab.__version__)
 ```
+
 ![image](https://user-images.githubusercontent.com/48917295/214018288-0a61298f-2daa-4230-a5ce-2be004fc302a.png)
 
 # Starting the Ubuntu control PC and simulating with ROS
@@ -113,29 +139,37 @@ Approximate round trip times in milli-seconds:
 
 On the desktop of the Ubuntu PC are icons allowing simulation or real control modes to be run. First, double click the icon to Simulate the robot.
 The terminal (bash) window which pops up should provide debugging information for the (simulated) robot
+
 ![Cmd](https://user-images.githubusercontent.com/48917295/214025200-0e59fee1-b0ac-4eb5-98de-035b10c6a92d.png)
 
 The RVIZ window allows graphical interaction with the robot
+
 ![Goal](https://user-images.githubusercontent.com/48917295/214025321-534139ed-c6ae-463f-b40f-e553cd5de26d.png)
+
 ^ Here the goal position of the robot end-effector can be seen as being altered.
 
 On the left we have the Motion planning and displays tabs. In the MotionPlanning tab, we can plan and execute paths for the robot, and select preprogrammed manipulater positions
+
 ![Moving](https://user-images.githubusercontent.com/48917295/214025570-06cc1cd1-de9c-4d13-838d-91ce22433ac6.png)
 
 Additionally within the MotionPlanning tab is a scene object section, which allows us to view any collision objects that we have in the planning scene
+
 ![PlanningSceneObject](https://user-images.githubusercontent.com/48917295/214025697-ebffe657-39c3-43ca-a9ee-6592fe60074a.png)
 
 Additionally there is the display tab allowing us to alter the displayed graphics. In here the most important section for us is the MotionPlanning tab. When in simulation mode ONLY, we can change the planning group to move the gripper instead of the arm
+
 ![PlanningGroup](https://user-images.githubusercontent.com/48917295/214026007-fe74045d-b5a0-4c37-aaee-685229dc9d31.png)
 
 
 
 # Controlling the robot from Grasshopper
-
+~~TODO
 
 # Turning on the robot and preparing for real control
 First switch on the robot by the green button on the back
+
 ![image](https://user-images.githubusercontent.com/48917295/214019821-ed524f92-dc7a-4efa-a78f-23adbd6a168e.png)
+
 Once started, the Kuka software annoyingly has a minor issue with the screen resolution which can be fixed easily. Turn the switch at the top to the settings/gear icon. 
 
 Press the blue bar to unload the control connection and then press again to reload it (this seems to fix the screen issue!)
@@ -147,11 +181,13 @@ To get ready for control, first perform and safety checks on the area, then, ens
 ![image](https://user-images.githubusercontent.com/48917295/214021323-da9f1fd2-51a6-48e7-9650-18a9c2753fb3.png)
 
 The program can then be started using the "Play" button on the left. The program awaits communication from the control PC.
+
 ![image](https://user-images.githubusercontent.com/48917295/214021354-2cfefee1-ae94-420d-a2c6-674c3328491f.png)
 
 Then, the "Start robot control" script should be run from the Ubuntu desktop. Once RVIZ loads, you should see the robot model on screen move to match the real robot's pose.
 
 With this running, the robot control should now be live! It is controllable in the same way as the simulation. Turn down the speed on the robot smartPAD to around 20% for safety (I've programmed in some hard speed limits on the KukaSunrise so if you don't do this the robot will likely keep stopping).
+
 ![image](https://user-images.githubusercontent.com/48917295/214032510-b407f35b-0b41-41a7-b0e8-8c211f1f40b2.png)
 
 Sending commands from Grasshopper or RVIZ should now directly control the robot! Remember to keep close to the BRB (big red button aka emergency stop) and if you have to shut down the software/restart, it should be done in this order:
@@ -162,6 +198,7 @@ Sending commands from Grasshopper or RVIZ should now directly control the robot!
 If the terminal window is closed and the ros software killed, the smartPAD application cannot shutdown properly and the robot will probably need restarting. You can get around this by running ```roscore``` on Ubuntu while you stop.
 
 Additionally on the smartPAD you should, with the smartServo software running, see some user menus on the left
+
 ![image](https://user-images.githubusercontent.com/48917295/214032698-f2200fa5-e5f7-403b-a12c-e1054ae62851.png)
 
 The gripper menu allows opening and closing of the gripper for testing purposes. The hand guiding mode should be USED WITH EXTREME CAUTION! If you don't know what you're doing with this mode steer clear. 
