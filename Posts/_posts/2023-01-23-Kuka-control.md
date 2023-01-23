@@ -12,9 +12,10 @@ redirect_from:
 comments: false
 hidden: true
 ---
+# Room g02a robot control guide
 S. Wilcock 2023
 
-## Table of contents
+- [Room g02a robot control guide](#room-g02a-robot-control-guide)
 - [Installing Anaconda](#installing-anaconda)
     - [University PC](#university-pc)
     - [Personal PC](#personal-pc)
@@ -24,6 +25,7 @@ S. Wilcock 2023
     - [Verify installation to Rhino/Grasshopper](#verify-installation-to-rhinograsshopper)
 - [Starting the Ubuntu control PC and simulating with ROS](#starting-the-ubuntu-control-pc-and-simulating-with-ros)
 - [Controlling the robot from Grasshopper](#controlling-the-robot-from-grasshopper)
+  - [Accessing ROS services and topics](#accessing-ros-services-and-topics)
 - [Turning on the robot and preparing for real control](#turning-on-the-robot-and-preparing-for-real-control)
 - [Gripper control and settings](#gripper-control-and-settings)
 --- 
@@ -161,9 +163,58 @@ Additionally there is the display tab allowing us to alter the displayed graphic
 ![PlanningGroup](https://user-images.githubusercontent.com/48917295/214026007-fe74045d-b5a0-4c37-aaee-685229dc9d31.png)
 
 
+There are 2 versions of each script on the desktop: one normal, and one labelled debug. The debug mode will display robot trajectories on screen as green lines, and will not execute until you press "Next" (at the bottom). In this way we can observe trajectories first and ensure that there will be no collisions.
+
+When learning to use the robot, make use of this simulation and debug mode before handling the real device!
+
 
 # Controlling the robot from Grasshopper
-~~TODO
+With your PC connected to the Ubuntu box and with a robot program running (simulated OR real), open the following demo file: [iiwa_gh_demo.gh](https://samwilcock.xyz/Files/iiwa_gh_demo.gh)
+
+On opening, the GH definition is split into three colour regions. Blue is setup/input, red is for reach data, and green is for interacting with the ROS ubuntu PC.
+
+First we need to connect to the PC. Click the connect button. If you have an old connection it can be useful to first press Disconnect and Flush first
+![image](https://user-images.githubusercontent.com/48917295/214080519-164e6da3-d740-434e-9fdb-7987ca87fda9.png)
+
+Then underneath that we have a button to load the robot model into Grasshopper. Note that the first time this is loaded will take around 30 seconds, but should be quicker subsequently as it is set to create a cache folder locally.
+
+Once the robot model is loaded, you should see an representation of the arm in Rhino. Note that pressing the trigger button in the load joint_states group should update the model with the current joint angles - this can be set to continuously fire with a timer (included)
+![image](https://user-images.githubusercontent.com/48917295/214081638-543d4a78-9b78-49cd-a704-d8907b5a6ac8.png)
+
+The end effector pose can be acquired in a similar manner. Note here the terminology; positions are locations in XYZ, <i>poses</i> additionally provide rotational information. To achieve this information, the pose is returned as a plane
+![image](https://user-images.githubusercontent.com/48917295/214082060-5a4dc1df-19d6-41ca-8abf-2a533a729431.png)
+
+The reachability data for the arm can also be accessed
+![image](https://user-images.githubusercontent.com/48917295/214082509-7d4762b0-1c36-4731-8694-3346ecc28310.png)
+
+
+## Accessing ROS services and topics
+ROS works on a framework of transmitting data via topics and service calls (have a look at [http://wiki.ros.org/Topics](http://wiki.ros.org/Topics) for more on how it works). In order to access them from Grasshopper (via the COMPAS FAB library) some demonstration nodes have been created.
+
+First is this node which lists all of the possible services and topics currently running on ROS
+
+![image](https://user-images.githubusercontent.com/48917295/214083451-7e3ca4bb-05c4-4640-bb4c-a51218ee7e3b.png)
+
+Following that are two nodes for controlling the robot by specifying its end-effector position/pose:
+
+![image](https://user-images.githubusercontent.com/48917295/214083620-a8b88bd8-6ba7-4a33-9497-aeb2c84420d2.png)
+
+Note that for the position control, the robot will plan (via Moveit) for any random orientation about the desired point. Don't put it too close to the ground(!)
+
+There is also a Cartesian movement node. Note that Cartesian movements are defined by straight lines between two poses. They don't necessarily work amazingly currently, due to the implementation based on MoveIt's interpolation of poses. This would be a good area to upgrade (using Descartes or similar).
+
+The gripper control service will alter the width of the parallel jaw gripper, in mm
+
+![image](https://user-images.githubusercontent.com/48917295/214084638-02d4f136-91f9-4a10-a8e0-f0caa5f5cc75.png)
+
+It is useful to be able to add collision objects into the planning scene. Moveit will plan to avoid hitting objects. The node here allows us to insert mesh objects (keep resolution low for faster planning and exporting). This is a useful method for adding walls, tables etc. Note that Moveit can "grip" collision objects to move them, by converting them into AttachedCollisionObjects, although this is beyond the scope of this demo.
+
+![image](https://user-images.githubusercontent.com/48917295/214085087-fa532648-ea5b-4da3-a25f-7f629556b239.png)
+
+Finally the joints can be controlled directly. Note that this bypasses planning, and as such also collision avoidance! The /iiwa/gh_trajectory service that it calls will allow multiple points to be sent with timings as a trajectory of motions. This could be useful if you plan on using alternative planning software, e.g. HAL, kukaPRC...
+
+![image](https://user-images.githubusercontent.com/48917295/214085548-39a22aac-9b40-4b2e-a3fa-726fdcaacce3.png)
+
 
 # Turning on the robot and preparing for real control
 First switch on the robot by the green button on the back
@@ -172,7 +223,7 @@ First switch on the robot by the green button on the back
 
 Once started, the Kuka software annoyingly has a minor issue with the screen resolution which can be fixed easily. Turn the switch at the top to the settings/gear icon. 
 
-Press the blue bar to unload the control connection and then press again to reload it (this seems to fix the screen issue!)
+Press the blue bar to unload the control connection and then press again to reload it (this seems to fix the screen issue! It's an RDP thing :grin:)
 
 This screen normally allows the selection of control mode: T1 should be used for manual control of the axes/end-effector (jogging), whilst AUT should be used for running programs. Select AUT and move the physical switch back to the vertical position.
 
