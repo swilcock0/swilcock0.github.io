@@ -1,6 +1,6 @@
 ---
 layout: post
-title: KUKA GUIDE
+title: Room g02a robot control guide
 description: >
   Room g02a robot control guide
 categories: []
@@ -42,7 +42,7 @@ With AppsAnywhere setup, it should then be a case of simply searching for Anacon
 ![image](https://user-images.githubusercontent.com/48917295/214005732-7cef76a9-4084-4215-b0fe-0207b926083f.png)
 
 ### Personal PC
-On a personal device follow the instructions here https://docs.anaconda.com/anaconda/install/index.html
+On a personal device follow the instructions here [https://docs.anaconda.com/anaconda/install/index.html](https://docs.anaconda.com/anaconda/install/index.html)
 
 
 
