@@ -15,7 +15,7 @@ global_best_id = -1
 global_best_pos = [-999, -999]
 generation = 0
 
-w_i = 0.5 # Inertia weight
+w_i = 0.5 # Inertia weights
 w_c = 1 # Cognitive coeff
 w_s = 1 # Social coeff
 
