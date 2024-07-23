@@ -117,6 +117,16 @@
 </div>
 
 <script>
+// Break out of iframes   
+    (function(window) {
+      if (window.location !== window.top.location) {
+        window.top.location = window.location;
+      }
+    })(this);
+    
+    </script>
+
+<script>
     document.addEventListener("DOMContentLoaded", function() {
         const gallery = document.querySelector('.gallery');
         const totalImages = 172; // Total number of images
