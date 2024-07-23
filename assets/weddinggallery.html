@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gallery-item {
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            width: calc(33% - 20px); /* Three items per row */
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .download-link {
+            display: block;
+            padding: 8px;
+            text-align: center;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+        }
+        .download-link:hover {
+            background-color: #e8e8e8;
+        }
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: calc(50% - 20px); /* Two items per row on smaller screens */
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery-item {
+                width: calc(100% - 20px); /* One item per row on small screens */
+            }
+        }
+                /* Modal styles */
+                .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, .modal-caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    <base href="https://samwilcock.xyz/" target="_blank">
+</head>
+<body>
+
+<h1>Wedding gallery</h1>
+<a href="https://drive.google.com/drive/folders/1elxEAzU3jeU_z1COoKyjsHmAOnSa3z9E?usp=sharing"><img src="https://static.vecteezy.com/system/resources/previews/000/574/204/original/vector-sign-of-download-icon.jpg" height="40px" width="40px" />DOWNLOAD ALL</a>
+<div class="gallery">
+    <!-- JavaScript will insert images here -->
+</div>
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div class="modal-caption" id="caption"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const gallery = document.querySelector('.gallery');
+        const totalImages = 172; // Total number of images
+
+        for (let i = 1; i <= totalImages; i++) {
+            const galleryItem = document.createElement('div');
+            galleryItem.classList.add('gallery-item');
+
+            const img = document.createElement('img');
+            img.dataset.src = `assets/img/Wedding/${i}.jpg`; // Use data-src for lazy loading
+            img.alt = `Image ${i}`;
+            img.classList.add('lazy');
+
+            const link = document.createElement('a');
+            link.href = `assets/img/Wedding/${i}.jpg`;
+            link.download = `Image_${i}.jpg`;
+            link.classList.add('download-link');
+            link.textContent = 'Download';
+
+            galleryItem.appendChild(img);
+            galleryItem.appendChild(link);
+            gallery.appendChild(galleryItem);
+        }
+
+        // Lazy loading
+        if ('IntersectionObserver' in window) {
+            let lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            let imageObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        let lazyImage = entry.target;
+                        lazyImage.src = lazyImage.dataset.src;
+                        lazyImage.classList.remove('lazy');
+                        imageObserver.unobserve(lazyImage);
+                    }
+                });
+            });
+
+            lazyImages.forEach(function(lazyImage) {
+                imageObserver.observe(lazyImage);
+            });
+        } else {
+            // Fallback for older browsers
+            let lazyImages = document.querySelectorAll('img.lazy');
+            lazyImages.forEach(function(img) {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+            });
+        }
+        // Modal functionality
+        const modal = document.getElementById('myModal');
+        const modalImg = document.getElementById('img01');
+        const captionText = document.getElementById('caption');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
+        function showModal(img) {
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            captionText.innerHTML = img.alt;
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
