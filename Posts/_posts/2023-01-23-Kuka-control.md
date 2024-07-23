@@ -10,7 +10,7 @@ date: 2023-01-23 01:00:00
 redirect_from:
   - /g02a
 comments: false
-hidden: true
+hidden: false
 ---
 # Room g02a robot control guide
 S. Wilcock 2023
