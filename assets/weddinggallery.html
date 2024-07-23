@@ -47,8 +47,8 @@
                 width: calc(100% - 20px); /* One item per row on small screens */
             }
         }
-                /* Modal styles */
-                .modal {
+        /* Modal styles */
+        .modal {
             display: none;
             position: fixed;
             z-index: 1000;
@@ -129,6 +129,9 @@
             img.dataset.src = `assets/img/Wedding/${i}.jpg`; // Use data-src for lazy loading
             img.alt = `Image ${i}`;
             img.classList.add('lazy');
+            img.onclick = function() {
+                showModal(img);
+            };
 
             const link = document.createElement('a');
             link.href = `assets/img/Wedding/${i}.jpg`;
