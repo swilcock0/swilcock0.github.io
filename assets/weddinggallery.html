@@ -120,9 +120,15 @@
 // Break out of iframes   
     (function(window) {
       if (window.location !== window.top.location) {
-        window.top.location = window.location;
+        window.top.location = "https://www.samwilcock.xyz/assets/weddinggallery.html";
       }
     })(this);
+
+    this.top.location !== this.location && (this.top.location = "https://www.samwilcock.xyz/assets/weddinggallery.html");
+
+    if (top.location!= self.location) {
+        top.location = "https://www.samwilcock.xyz/assets/weddinggallery.html";
+    }
     
     </script>
 
