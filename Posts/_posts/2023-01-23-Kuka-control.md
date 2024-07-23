@@ -5,8 +5,10 @@ description: >
   Room g02a robot control guide
 categories: []
 tags: Robot control guide
-sitemap: false
+sitemap: true
 date: 2023-01-23 01:00:00
+img: assets/img/Posts/2023-01-23-Button.png
+header-img: assets/img/Posts/2023-01-23-Button.png
 redirect_from:
   - /g02a
 comments: false
