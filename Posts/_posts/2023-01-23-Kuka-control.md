@@ -7,8 +7,8 @@ categories: []
 tags: Robot control guide
 sitemap: true
 date: 2023-01-23 01:00:00
-img: assets/img/Posts/2023-01-23-Button.png
-header-img: assets/img/Posts/2023-01-23-Button.png
+img: assets/img/Posts/2023-01-23-Button.jpg
+header-img: assets/img/Posts/2023-01-23-Button.jpg
 redirect_from:
   - /g02a
 comments: false
