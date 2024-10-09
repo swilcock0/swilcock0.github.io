@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>W.AMCA gallery</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -103,7 +103,12 @@
     <base href="https://samwilcock.xyz/" target="_blank">
 </head>
 <body>
-<h1>Gallery</h1>
+
+<h1>W.AMCA gallery</h1>
+
+<a href="https://samwilcock.xyz" target="_top_">&lt;&lt; Back</a>
+
+
 <!-- <a href="https://drive.google.com/drive/folders/1elxEAzU3jeU_z1COoKyjsHmAOnSa3z9E?usp=sharing"><img src="https://static.vecteezy.com/system/resources/previews/000/574/204/original/vector-sign-of-download-icon.jpg" height="40px" width="40px" />DOWNLOAD ALL</a> -->
 <div class="gallery">
     <!-- JavaScript will insert images here -->
@@ -118,14 +123,14 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const gallery = document.querySelector('.gallery');
-        const totalImages = 33; // Total number of images
+        const totalImages = 63; // Total number of images
 
-        for (let i = 1; i <= totalImages; i++) {
+        for (let i = 0; i <= totalImages; i++) {
             const galleryItem = document.createElement('div');
             galleryItem.classList.add('gallery-item');
 
             const img = document.createElement('img');
-            img.dataset.src = `assets/img/SummerNest/${i}.jpg`; // Use data-src for lazy loading
+            img.dataset.src = `assets/img/WAMCA/`+ i.toString().padStart(3, '0') +`.jpg`; // Use data-src for lazy loading
             img.alt = `Image ${i}`;
             img.classList.add('lazy');
             img.onclick = function() {
@@ -133,7 +138,7 @@
             };
 
             const link = document.createElement('a');
-            link.href = `assets/img/SummerNest/${i}.jpg`;
+            link.href = `assets/img/WAMCA/`+ i.toString().padStart(3, '0') +`.jpg`;
             link.download = `Image_${i}.jpg`;
             link.classList.add('download-link');
             link.textContent = 'Download';
@@ -188,6 +193,14 @@
             if (event.target == modal) {
                 modal.style.display = 'none';
             }
+        }
+
+        
+    });
+
+    $(document).keyup(function(e) {
+        if (e.key === "Escape") { // escape key maps to keycode `27`
+            modal.style.display = 'none';
         }
     });
 </script>
