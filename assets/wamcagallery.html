@@ -107,20 +107,31 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        table, th, td {
+            border:0px solid black;
+        }
     </style>
     <base href="https://samwilcock.xyz/" target="_blank">
 </head>
 <body>
 
-<h1>W.AMCA gallery</h1>
-
-<script type="text/javascript">
-    if (document.referrer.includes("samwilcock")){
-        document.write('<a href="https://samwilcock.xyz" target="_self">&lt;&lt; Back</a>');
-    } else {
-        document.write('<a href="' + document.referrer + '" target="_self">&lt;&lt; Back</a>');
-    }
-</script>
+    <table style="width:100%">
+        <tr>
+          <th style="text-align: left; width: 1%; white-space: nowrap;">
+              <div style="border: 1px solid green ; background-color: white">
+                <script type="text/javascript">
+                  if (document.referrer.includes("samwilcock")){
+                    document.write('<a href="https://samwilcock.xyz" target="_self">&lt;&lt; Back</a>');
+                  } else {
+                    document.write('<a href="' + document.referrer + '" target="_self">&lt;&lt; Back</a>');
+                  }
+                </script>
+            </div>
+          </th>
+          <th style="text-align: right"><h1>W.AMCA Gallery</h1></th>
+        </tr>
+      </table>
 
 
 <div class="gallery">
