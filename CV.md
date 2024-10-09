@@ -4,7 +4,7 @@ title: My CV
 ---
 
 <h1>Sam Wilcock</h1>
-<h2><i>Postgraduate Researcher at the University of Leeds</i></h2>
+<h2><i>Research fellow at the Politecnico di Milano</i></h2>
 
 Download CV <a href="https://samwilcock.xyz/Files/CV.pdf" target="_top_">here</a>
 
@@ -12,7 +12,7 @@ Download CV <a href="https://samwilcock.xyz/Files/CV.pdf" target="_top_">here</a
 {:.icon-library}
 
 #### The University of Leeds
-PhD Civil Engineering        **2020 – Present**\\
+PhD Civil Engineering        **2020 – 2024**\\
 Researching "Efficient robotic assembling of shell structures"
 
 
