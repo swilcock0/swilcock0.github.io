@@ -6,7 +6,7 @@ title: My CV
 <h1>Sam Wilcock</h1>
 <h2><i>Research fellow at the Politecnico di Milano</i></h2>
 
-Download CV <a href="https://samwilcock.xyz/Files/CV.pdf" target="_top_">here</a>
+Download CV <a href="https://samwilcock.xyz/Files/CV.pdf">here</a>
 
 ## Education
 {:.icon-library}
