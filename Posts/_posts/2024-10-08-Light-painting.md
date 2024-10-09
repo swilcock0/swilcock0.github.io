@@ -23,7 +23,7 @@ For a recent conference, I wanted to quickly demonstrate some robot control from
 {:refdef}
 Here's the quick and dirty LED holder I printed to bolt onto the arm, with a bulky rectangular section that holds a 2xAA battery pack.
 
-<figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/pSzDl-VMxvs/" frameborder="0" allowfullscreen="true"></iframe></figure>
+<figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/pSzDl-VMxvs?autoplay=1&loop=1&playlist=pSzDl-VMxvs" frameborder="0" allowfullscreen="true"></iframe></figure>
 And here's a video of the end result!
 
 The Python script used to generate these images and videos can be found <a href="https://samwilcock.xyz/Files/MakeLongExposure.py" target="_top_">here</a>. It's based on <a href="https://pyimagesearch.com/2017/08/14/long-exposure-with-opencv-and-python/">this article</a>.
