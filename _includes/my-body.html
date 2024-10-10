@@ -48,19 +48,3 @@ Code for integrating CloudFlare's email protection with Hydejack's single page a
     }()
   });
 </script>
-
-<script>
-      $("img").each(function(){
-        var img = $(this);
-        var image = new Image();
-        image.src = $(img).attr("src");
-        var no_image = "https://samwilcock.xyz/assets/img/broken-img.png";
-        if (image.naturalWidth == 0 || image.readyState == 'uninitialized'){
-            $(img).unbind("error").attr("src", no_image).css({
-                height: $(img).css("height"),
-                width: $(img).css("width"),
-            });
-        }
-  });
-
-</script>
