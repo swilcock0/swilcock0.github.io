@@ -77,9 +77,22 @@
             animation-name: zoom;
             animation-duration: 0.6s;
         }
+        /* Existing zoom-in animation */
         @keyframes zoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
+            from {transform: scale(0);}
+            to {transform: scale(1);}
+        }
+
+        /* New zoom-out animation */
+        @keyframes zoom-out {
+            from {transform: scale(1);}
+            to {transform: scale(0);}
+        }
+
+        /* Apply zoom-out animation when closing the modal */
+        .zoom-out {
+            animation-name: zoom-out;
+            animation-duration: 0.6s;
         }
         .modal-caption {
             margin: auto;
@@ -121,6 +134,29 @@
         a:visited {
             color: rgb(75, 14, 155);
         }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.3s;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            color: #bbb;
+        }
     </style>
     <base href="https://samwilcock.xyz/" target="_blank" />
 </head>
@@ -148,7 +184,9 @@
 
 <div id="myModal" class="modal">
     <span class="close">&times;</span>
+    <span class="prev">&laquo;</span> <!-- Back button -->
     <img class="modal-content" id="img01">
+    <span class="next">&raquo;</span> <!-- Forward button -->
     <div class="modal-caption" id="caption"></div>
 </div>
 
@@ -156,21 +194,23 @@
     document.addEventListener("DOMContentLoaded", function() {
         const gallery = document.querySelector('.gallery');
         const totalImages = 64; // Total number of images
+        let currentImageIndex = 0;
 
         for (let i = 0; i <= totalImages; i++) {
             const galleryItem = document.createElement('div');
             galleryItem.classList.add('gallery-item');
 
             const img = document.createElement('img');
-            img.dataset.src = `assets/img/WAMCA/`+ i.toString().padStart(3, '0') +`.jpg`; // Use data-src for lazy loading
+            img.dataset.src = `assets/img/WAMCA/` + i.toString().padStart(3, '0') + `.jpg`; // Use data-src for lazy loading
             img.alt = `Image ${i+1}`;
             img.classList.add('lazy');
+            img.dataset.index = i; // Store the index of the image
             img.onclick = function() {
-                showModal(img);
+                showModal(i); // Pass the image index when clicked
             };
 
             const link = document.createElement('a');
-            link.href = `assets/img/WAMCA/`+ i.toString().padStart(3, '0') +`.jpg`;
+            link.href = `assets/img/WAMCA/` + i.toString().padStart(3, '0') + `.jpg`;
             link.download = `Image_${i+1}.jpg`;
             link.classList.add('download-link');
             link.textContent = 'Download';
@@ -180,7 +220,7 @@
             gallery.appendChild(galleryItem);
         }
 
-        // Lazy loading
+        // Lazy loading logic
         if ('IntersectionObserver' in window) {
             let lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
             let imageObserver = new IntersectionObserver(function(entries, observer) {
@@ -205,36 +245,89 @@
                 img.classList.remove('lazy');
             });
         }
+
         // Modal functionality
         const modal = document.getElementById('myModal');
         const modalImg = document.getElementById('img01');
         const captionText = document.getElementById('caption');
         const closeBtn = document.getElementsByClassName('close')[0];
+        const prevBtn = document.getElementsByClassName('prev')[0];
+        const nextBtn = document.getElementsByClassName('next')[0];
 
-        function showModal(img) {
+        function showModal(index) {
+            currentImageIndex = index;
             modal.style.display = 'block';
-            modalImg.src = img.src;
-            captionText.innerHTML = img.alt;
+            modal.classList.remove('zoom-out'); // Reset any previous zoom-out animation
+            updateModalImage();
         }
 
+        function updateModalImage() {
+            const imgSrc = `assets/img/WAMCA/` + currentImageIndex.toString().padStart(3, '0') + `.jpg`;
+            modalImg.src = imgSrc;
+            captionText.innerHTML = `Image ${currentImageIndex + 1}`;
+        }
+
+        // Close the modal with a zoom-out effect
         closeBtn.onclick = function() {
-            modal.style.display = 'none';
+            closeModal();
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
+        function closeModal() {
+            modal.classList.add('zoom-out'); // Apply zoom-out animation
+            setTimeout(function() {
+                modal.style.display = 'none'; // Hide modal after animation
+            }, 600); // Match the animation duration (0.6s)
+        }
+
+        // Navigate to the previous image
+        prevBtn.onclick = function() {
+            navigatePrev();
+        }
+
+        // Navigate to the next image
+        nextBtn.onclick = function() {
+            navigateNext();
+        }
+
+        function navigatePrev() {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+                updateModalImage();
             }
         }
 
-        
-    });
+        function navigateNext() {
+            if (currentImageIndex < totalImages) {
+                currentImageIndex++;
+                updateModalImage();
+            }
+        }
 
-    $(document).keyup(function(e) {
-        if (e.key === "Escape") { // escape key maps to keycode `27`
-            modal.style.display = 'none';
+        // Handle keydown events for modal navigation
+        document.onkeydown = function(event) {
+            if (modal.style.display === 'block') { // Only listen to key presses when modal is open
+                switch (event.key) {
+                    case "Escape": // Escape key
+                        closeModal();
+                        break;
+                    case "ArrowLeft": // Left arrow key
+                        navigatePrev();
+                        break;
+                    case "ArrowRight": // Right arrow key
+                        navigateNext();
+                        break;
+                }
+            }
+        }
+
+        // Close the modal when clicking outside of the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     });
+
 </script>
 
 </body>
