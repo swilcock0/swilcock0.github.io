@@ -111,23 +111,31 @@
         table, th, td {
             border:0px solid black;
         }
+
+        /* unvisited link */
+        a:link {
+            color: rgb(75, 14, 155);
+        }
+
+        /* visited link */
+        a:visited {
+            color: rgb(75, 14, 155);
+        }
     </style>
-    <base href="https://samwilcock.xyz/" target="_blank">
+    <base href="https://samwilcock.xyz/" target="_blank" />
 </head>
 <body>
 
     <table style="width:100%">
         <tr>
-          <th style="text-align: left; width: 1%; white-space: nowrap;">
-              <div style="background-color: white">
-                <script type="text/javascript">
-                  if (document.referrer.includes("samwilcock")){
-                    document.write('<a href="https://samwilcock.xyz" target="_self">&lt;&lt; Back</a>');
-                  } else {
-                    document.write('<a href="' + document.referrer + '" target="_self">&lt;&lt; Back</a>');
-                  }
-                </script>
-            </div>
+          <th style="text-align: left; width: 10%; white-space: nowrap;">
+            <script type="text/javascript">
+                if (document.referrer.includes("samwilcock")){
+                document.write('<a href="https://samwilcock.xyz" target="_self"><img src="assets/back.png" height="32px" /></a>');
+                } else {
+                document.write('<a href="' + document.referrer + '" target="_self"><img src="assets/back.png"  height="32px" /></a>');
+                }
+            </script>
           </th>
           <th style="text-align: right"><h1>W.AMCA Gallery</h1></th>
         </tr>
@@ -147,7 +155,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const gallery = document.querySelector('.gallery');
-        const totalImages = 63; // Total number of images
+        const totalImages = 64; // Total number of images
 
         for (let i = 0; i <= totalImages; i++) {
             const galleryItem = document.createElement('div');
@@ -155,7 +163,7 @@
 
             const img = document.createElement('img');
             img.dataset.src = `assets/img/WAMCA/`+ i.toString().padStart(3, '0') +`.jpg`; // Use data-src for lazy loading
-            img.alt = `Image ${i}`;
+            img.alt = `Image ${i+1}`;
             img.classList.add('lazy');
             img.onclick = function() {
                 showModal(img);
@@ -163,7 +171,7 @@
 
             const link = document.createElement('a');
             link.href = `assets/img/WAMCA/`+ i.toString().padStart(3, '0') +`.jpg`;
-            link.download = `Image_${i}.jpg`;
+            link.download = `Image_${i+1}.jpg`;
             link.classList.add('download-link');
             link.textContent = 'Download';
 
