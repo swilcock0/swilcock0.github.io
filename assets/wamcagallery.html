@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>W.AMCA Gallery</title>
     <style>
+        /* Body styles */
         body {
             font-family: Arial, sans-serif;
             background-image: url("https://samwilcock.xyz/assets/img/WAMCA/000.jpg");
@@ -14,6 +15,8 @@
             background-color: rgba(255,255,255,0.6);
             background-blend-mode: lighten;
         }
+
+        /* Gallery layout */
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -31,6 +34,8 @@
             height: auto;
             display: block;
         }
+
+        /* Download link styles */
         .download-link {
             display: block;
             padding: 8px;
@@ -43,6 +48,8 @@
         .download-link:hover {
             background-color: #e8e8e8;
         }
+
+        /* Responsive design */
         @media (max-width: 768px) {
             .gallery-item {
                 width: calc(50% - 20px);
@@ -53,6 +60,8 @@
                 width: calc(100% - 20px);
             }
         }
+
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -72,7 +81,7 @@
             max-width: calc(80% - 100px);
             max-height: 80%;
             object-fit: contain;
-            transition: transform 0.6s ease; /* Added transition for smooth zoom */
+            transition: transform 0.6s ease;
         }
         .modal-caption {
             text-align: center;
@@ -80,6 +89,8 @@
             padding: 10px 0;
             max-width: calc(80% - 100px);
         }
+
+        /* Close button styles */
         .close {
             position: absolute;
             top: 20px;
@@ -90,6 +101,8 @@
             transition: 0.3s;
             cursor: pointer;
         }
+
+        /* Navigation button styles */
         .prev, .next {
             cursor: pointer;
             position: absolute;
@@ -111,6 +124,8 @@
         .prev:hover, .next:hover {
             color: #bbb;
         }
+
+        /* Zoom effects */
         .zoom {
             transform: scale(1);
         }
@@ -122,10 +137,12 @@
 </head>
 <body>
 
+<!-- Header with navigation back -->
 <table style="width:100%">
     <tr>
       <th style="text-align: left; width: 10%; white-space: nowrap;">
         <script type="text/javascript">
+            // Back navigation based on referrer
             if (document.referrer.includes("samwilcock")){
                 document.write('<a href="https://samwilcock.xyz" target="_self"><img src="assets/back.png" height="32px" /></a>');
             } else {
@@ -137,10 +154,12 @@
     </tr>
 </table>
 
+<!-- Gallery container -->
 <div class="gallery">
     <!-- JavaScript will insert images here -->
 </div>
 
+<!-- Modal for displaying images -->
 <div id="myModal" class="modal" style="display: none">
     <span class="close">&times;</span>
     <img class="modal-content" id="img01">
@@ -150,58 +169,60 @@
 </div>
 
 <script>
+    // Main script for gallery functionality
     document.addEventListener("DOMContentLoaded", function() {
-        const gallery = document.querySelector('.gallery');
-        const totalImages = 64; // Total number of images
-        let currentImageIndex = 0;
+        const gallery = document.querySelector('.gallery'); // Select gallery
+        const totalImages = 64; // Number of images
+        let currentImageIndex = 0; // Track currently displayed image
 
+        // Loop to create gallery items
         for (let i = 0; i <= totalImages; i++) {
-            const galleryItem = document.createElement('div');
+            const galleryItem = document.createElement('div'); // Create gallery item
             galleryItem.classList.add('gallery-item');
 
-            const img = document.createElement('img');
-            img.dataset.src = `assets/img/WAMCA/` + i.toString().padStart(3, '0') + `.jpg`;
-            img.alt = `Image ${i+1}`;
-            img.classList.add('lazy');
-            img.dataset.index = i;
-            img.onclick = function() {
+            const img = document.createElement('img'); // Create image element
+            img.dataset.src = `assets/img/WAMCA/` + i.toString().padStart(3, '0') + `.jpg`; // Set image source
+            img.alt = `Image ${i+1}`; // Alt text
+            img.classList.add('lazy'); // Lazy load class
+            img.dataset.index = i; // Store index
+            img.onclick = function() { // Open modal on click
                 showModal(i);
             };
 
-            const link = document.createElement('a');
-            link.href = `assets/img/WAMCA/` + i.toString().padStart(3, '0') + `.jpg`;
-            link.download = `Image_${i+1}.jpg`;
-            link.classList.add('download-link');
-            link.textContent = 'Download';
+            const link = document.createElement('a'); // Create download link
+            link.href = `assets/img/WAMCA/` + i.toString().padStart(3, '0') + `.jpg`; // Set download URL
+            link.download = `Image_${i+1}.jpg`; // Set download filename
+            link.classList.add('download-link'); // Link class
+            link.textContent = 'Download'; // Link text
 
-            galleryItem.appendChild(img);
-            galleryItem.appendChild(link);
-            gallery.appendChild(galleryItem);
+            galleryItem.appendChild(img); // Add image to gallery item
+            galleryItem.appendChild(link); // Add download link
+            gallery.appendChild(galleryItem); // Add item to gallery
         }
 
-        // Lazy loading logic
+        // Lazy loading setup using Intersection Observer
         if ('IntersectionObserver' in window) {
-            let lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            let lazyImages = [].slice.call(document.querySelectorAll('img.lazy')); // Select lazy images
             let imageObserver = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
+                    if (entry.isIntersecting) { // Check if image is in view
                         let lazyImage = entry.target;
-                        lazyImage.src = lazyImage.dataset.src;
-                        lazyImage.classList.remove('lazy');
-                        imageObserver.unobserve(lazyImage);
+                        lazyImage.src = lazyImage.dataset.src; // Set actual source
+                        lazyImage.classList.remove('lazy'); // Remove lazy class
+                        imageObserver.unobserve(lazyImage); // Stop observing
                     }
                 });
             });
 
             lazyImages.forEach(function(lazyImage) {
-                imageObserver.observe(lazyImage);
+                imageObserver.observe(lazyImage); // Observe each lazy image
             });
         } else {
             // Fallback for older browsers
             let lazyImages = document.querySelectorAll('img.lazy');
             lazyImages.forEach(function(img) {
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
+                img.src = img.dataset.src; // Set source for all images
+                img.classList.remove('lazy'); // Remove lazy class
             });
         }
 
@@ -213,42 +234,40 @@
         const prevBtn = document.getElementsByClassName('prev')[0];
         const nextBtn = document.getElementsByClassName('next')[0];
 
+        // Show modal with the selected image
         function showModal(index) {
             currentImageIndex = index;
-            modal.style.display = 'flex';
-            // modalImg.classList.remove('zoom-out');
-            // modalImg.classList.add('zoom');
-            updateModalImage();
+            modal.style.display = 'flex'; // Show modal
+            updateModalImage(); // Update modal content
         }
 
+        // Update modal image and caption
         function updateModalImage() {
             const imgSrc = `assets/img/WAMCA/` + currentImageIndex.toString().padStart(3, '0') + `.jpg`;
-            modalImg.src = imgSrc;
-            captionText.innerHTML = `Image ${currentImageIndex + 1}`;
+            modalImg.src = imgSrc; // Set modal image source
+            captionText.innerHTML = `Image ${currentImageIndex + 1}`; // Set caption
         }
 
+        // Close modal functionality
         closeBtn.onclick = function() {
-            closeModal();
+            closeModal(); // Call close function
         }
 
+        // Close modal
         function closeModal() {
-            // modalImg.classList.remove('zoom');
-            // modalImg.classList.add('zoom-out');
-            // setTimeout(function() {
-            //     modal.style.display = 'none';
-            // }, 600);
-
-            modal.style.display = 'none';
+            modal.style.display = 'none'; // Hide modal
         }
 
+        // Navigation button functionality
         prevBtn.onclick = function() {
-            navigatePrev();
+            navigatePrev(); // Navigate to previous image
         }
 
         nextBtn.onclick = function() {
-            navigateNext();
+            navigateNext(); // Navigate to next image
         }
 
+        // Navigate to previous image
         function navigatePrev() {
             if (currentImageIndex > 0) {
                 currentImageIndex--;
@@ -256,13 +275,13 @@
             }
         }
 
+        // Navigate to next image
         function navigateNext() {
             if (currentImageIndex < totalImages) {
                 currentImageIndex++;
-                updateModalImage();
+                updateModalImage(); // Update displayed image
             }
         }
-
         document.onkeydown = function(event) {
             if (modal.style.display === 'flex') {
                 switch (event.key) {
@@ -286,6 +305,5 @@
         }
     });
 </script>
-
 </body>
 </html>
