@@ -2,7 +2,7 @@
 const placeholder = 'https://samwilcock.xyz/assets/img/broken-img.png'; // Replace with your placeholder image URL
 
 // Global variable for the ping delay
-let globalPingDelay = 2000; // Default to 1000 ms (1 second)
+let globalPingDelay = 5000; // Default to 1000 ms (1 second)
 
 // Function to handle image load error with a delay based on the global ping delay
 function handleImageError(event) {
