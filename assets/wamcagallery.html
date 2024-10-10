@@ -72,6 +72,7 @@
             max-width: calc(80% - 100px);
             max-height: 80%;
             object-fit: contain;
+            transition: transform 0.6s ease; /* Added transition for smooth zoom */
         }
         .modal-caption {
             text-align: center;
@@ -110,37 +111,31 @@
         .prev:hover, .next:hover {
             color: #bbb;
         }
-        @keyframes zoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
-        }
-        @keyframes zoom-out {
-            from {transform: scale(1);}
-            to {transform: scale(0);}
+        .zoom {
+            transform: scale(1);
         }
         .zoom-out {
-            animation-name: zoom-out;
-            animation-duration: 0.6s;
+            transform: scale(0);
         }
     </style>
     <base href="https://samwilcock.xyz/" target="_blank" />
 </head>
 <body>
 
-    <table style="width:100%">
-        <tr>
-          <th style="text-align: left; width: 10%; white-space: nowrap;">
-            <script type="text/javascript">
-                if (document.referrer.includes("samwilcock")){
+<table style="width:100%">
+    <tr>
+      <th style="text-align: left; width: 10%; white-space: nowrap;">
+        <script type="text/javascript">
+            if (document.referrer.includes("samwilcock")){
                 document.write('<a href="https://samwilcock.xyz" target="_self"><img src="assets/back.png" height="32px" /></a>');
-                } else {
+            } else {
                 document.write('<a href="' + document.referrer + '" target="_self"><img src="assets/back.png"  height="32px" /></a>');
-                }
-            </script>
-          </th>
-          <th style="text-align: right"><h1>W.AMCA Gallery</h1></th>
-        </tr>
-      </table>
+            }
+        </script>
+      </th>
+      <th style="text-align: right"><h1>W.AMCA Gallery</h1></th>
+    </tr>
+</table>
 
 <div class="gallery">
     <!-- JavaScript will insert images here -->
@@ -220,13 +215,9 @@
 
         function showModal(index) {
             currentImageIndex = index;
-            modal.classList.remove('zoom-out');
-            modal.classList.add('zoom');
             modal.style.display = 'flex';
-            setTimeout(function() {
-                modal.style.display = 'flex';
-            }, 600);
-            
+            // modalImg.classList.remove('zoom-out');
+            // modalImg.classList.add('zoom');
             updateModalImage();
         }
 
@@ -241,12 +232,13 @@
         }
 
         function closeModal() {
-            modal.classList.remove('zoom');
-            modal.classList.add('zoom-out');
-            setTimeout(function() {
-                modal.style.display = 'none';
-            }, 600);
-            
+            // modalImg.classList.remove('zoom');
+            // modalImg.classList.add('zoom-out');
+            // setTimeout(function() {
+            //     modal.style.display = 'none';
+            // }, 600);
+
+            modal.style.display = 'none';
         }
 
         prevBtn.onclick = function() {
