@@ -133,21 +133,29 @@
 <script src="../scripts/imageCheck.js" type="text/javascript"></script>
 
 <!-- Header with navigation back -->
-<table style="width:100%">
-    <tr>
-      <th style="text-align: left; width: 10%; white-space: nowrap;">
-        <script type="text/javascript">
+<script type="text/javascript">
+    // Back navigation based on referrer
+    if (document.referrer.includes("samwilcock")){
+        document.write(
+            `<table style="width:100%">
+                <tr>
+                    <th style="text-align: left; width: 10%; white-space: nowrap;">
+                        <a href="https://samwilcock.xyz" target="_self"><img src="assets/back.png" height="32px" /></a>
+                    </th>
+                    <th style="text-align: right"><h1>Gallery</h1></th>
+                </tr>
+            </table> `);
+    } else {
+        document.write(`<h1>Gallery</h1> `)
+    }
+</script>
+
+<script type="text/javascript">
             // Back navigation based on referrer
             if (document.referrer.includes("samwilcock")){
                 document.write('<a href="https://samwilcock.xyz" target="_self"><img src="assets/back.png" height="32px" /></a>');
-            } else {
-                document.write('<a href="' + document.referrer + '" target="_self"><img src="assets/back.png"  height="32px" /></a>');
             }
         </script>
-      </th>
-      <th style="text-align: right"><h1>Gallery</h1></th>
-    </tr>
-</table>
 
 <!-- Gallery container -->
 <div class="gallery">
@@ -177,7 +185,7 @@
 
             const img = document.createElement('img'); // Create image element
             img.dataset.src = `assets/img/SummerNest/${i}.jpg`; // Set image source
-            img.alt = `Image ${i+1}`; // Alt text
+            img.alt = `Image ${i}`; // Alt text
             img.classList.add('lazy'); // Lazy load class
             img.dataset.index = i; // Store index
             img.onclick = function() { // Open modal on click
@@ -238,7 +246,7 @@
 
         // Update modal image and caption
         function updateModalImage() {
-            const imgSrc = `assets/img/SummerNest/${i}.jpg`;
+            const imgSrc = `assets/img/SummerNest/${currentImageIndex}.jpg`;
             modalImg.src = imgSrc; // Set modal image source
             captionText.innerHTML = `Image ${currentImageIndex}`; // Set caption
         }
