@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W.AMCA gallery</title>
+    <title>W.AMCA Gallery</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            /* The image used */
             background-image: url("https://samwilcock.xyz/assets/img/WAMCA/000.jpg");
-            /* Center and scale the image nicely */
             background-attachment: fixed;
             background-repeat: repeat;
             background-size: 100%;
@@ -26,7 +24,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             overflow: hidden;
-            width: calc(33% - 20px); /* Three items per row */
+            width: calc(33% - 20px);
         }
         .gallery-item img {
             width: 100%;
@@ -47,15 +45,14 @@
         }
         @media (max-width: 768px) {
             .gallery-item {
-                width: calc(50% - 20px); /* Two items per row on smaller screens */
+                width: calc(50% - 20px);
             }
         }
         @media (max-width: 480px) {
             .gallery-item {
-                width: calc(100% - 20px); /* One item per row on small screens */
+                width: calc(100% - 20px);
             }
         }
-        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -64,45 +61,23 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
+            overflow: hidden;
             background-color: rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
         .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-        .modal-content, .modal-caption {
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
-        /* Existing zoom-in animation */
-        @keyframes zoom {
-            from {transform: scale(0);}
-            to {transform: scale(1);}
-        }
-
-        /* New zoom-out animation */
-        @keyframes zoom-out {
-            from {transform: scale(1);}
-            to {transform: scale(0);}
-        }
-
-        /* Apply zoom-out animation when closing the modal */
-        .zoom-out {
-            animation-name: zoom-out;
-            animation-duration: 0.6s;
+            max-width: calc(80% - 100px);
+            max-height: 80%;
+            object-fit: contain;
         }
         .modal-caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
             text-align: center;
             color: #ccc;
             padding: 10px 0;
-            height: 150px;
+            max-width: calc(80% - 100px);
         }
         .close {
             position: absolute;
@@ -114,48 +89,38 @@
             transition: 0.3s;
             cursor: pointer;
         }
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        table, th, td {
-            border:0px solid black;
-        }
-
-        /* unvisited link */
-        a:link {
-            color: rgb(75, 14, 155);
-        }
-
-        /* visited link */
-        a:visited {
-            color: rgb(75, 14, 155);
-        }
-
         .prev, .next {
+            cursor: pointer;
             position: absolute;
             top: 50%;
+            padding: 16px;
+            margin-top: -50px;
             color: white;
-            font-size: 40px;
             font-weight: bold;
-            cursor: pointer;
-            user-select: none;
+            font-size: 30px;
             transition: 0.3s;
+            user-select: none;
         }
-
         .prev {
-            left: 10px;
+            left: 20px;
         }
-
         .next {
-            right: 10px;
+            right: 20px;
         }
-
         .prev:hover, .next:hover {
             color: #bbb;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        @keyframes zoom-out {
+            from {transform: scale(1);}
+            to {transform: scale(0);}
+        }
+        .zoom-out {
+            animation-name: zoom-out;
+            animation-duration: 0.6s;
         }
     </style>
     <base href="https://samwilcock.xyz/" target="_blank" />
@@ -177,17 +142,16 @@
         </tr>
       </table>
 
-
 <div class="gallery">
     <!-- JavaScript will insert images here -->
 </div>
 
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" style="display: none">
     <span class="close">&times;</span>
-    <span class="prev">&laquo;</span> <!-- Back button -->
     <img class="modal-content" id="img01">
-    <span class="next">&raquo;</span> <!-- Forward button -->
     <div class="modal-caption" id="caption"></div>
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
 </div>
 
 <script>
@@ -201,12 +165,12 @@
             galleryItem.classList.add('gallery-item');
 
             const img = document.createElement('img');
-            img.dataset.src = `assets/img/WAMCA/` + i.toString().padStart(3, '0') + `.jpg`; // Use data-src for lazy loading
+            img.dataset.src = `assets/img/WAMCA/` + i.toString().padStart(3, '0') + `.jpg`;
             img.alt = `Image ${i+1}`;
             img.classList.add('lazy');
-            img.dataset.index = i; // Store the index of the image
+            img.dataset.index = i;
             img.onclick = function() {
-                showModal(i); // Pass the image index when clicked
+                showModal(i);
             };
 
             const link = document.createElement('a');
@@ -256,8 +220,13 @@
 
         function showModal(index) {
             currentImageIndex = index;
-            modal.style.display = 'block';
-            modal.classList.remove('zoom-out'); // Reset any previous zoom-out animation
+            modal.classList.remove('zoom-out');
+            modal.classList.add('zoom');
+            modal.style.display = 'flex';
+            setTimeout(function() {
+                modal.style.display = 'flex';
+            }, 600);
+            
             updateModalImage();
         }
 
@@ -267,24 +236,23 @@
             captionText.innerHTML = `Image ${currentImageIndex + 1}`;
         }
 
-        // Close the modal with a zoom-out effect
         closeBtn.onclick = function() {
             closeModal();
         }
 
         function closeModal() {
-            modal.classList.add('zoom-out'); // Apply zoom-out animation
+            modal.classList.remove('zoom');
+            modal.classList.add('zoom-out');
             setTimeout(function() {
-                modal.style.display = 'none'; // Hide modal after animation
-            }, 600); // Match the animation duration (0.6s)
+                modal.style.display = 'none';
+            }, 600);
+            
         }
 
-        // Navigate to the previous image
         prevBtn.onclick = function() {
             navigatePrev();
         }
 
-        // Navigate to the next image
         nextBtn.onclick = function() {
             navigateNext();
         }
@@ -303,31 +271,28 @@
             }
         }
 
-        // Handle keydown events for modal navigation
         document.onkeydown = function(event) {
-            if (modal.style.display === 'block') { // Only listen to key presses when modal is open
+            if (modal.style.display === 'flex') {
                 switch (event.key) {
-                    case "Escape": // Escape key
+                    case "Escape":
                         closeModal();
                         break;
-                    case "ArrowLeft": // Left arrow key
+                    case "ArrowLeft":
                         navigatePrev();
                         break;
-                    case "ArrowRight": // Right arrow key
+                    case "ArrowRight":
                         navigateNext();
                         break;
                 }
             }
         }
 
-        // Close the modal when clicking outside of the image
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeModal();
             }
         }
     });
-
 </script>
 
 </body>
