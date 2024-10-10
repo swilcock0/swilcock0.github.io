@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <style>
+        /* Body styles */
         body {
             font-family: Arial, sans-serif;
         }
+
+        /* Gallery layout */
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -18,13 +21,15 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             overflow: hidden;
-            width: calc(33% - 20px); /* Three items per row */
+            width: calc(33% - 20px);
         }
         .gallery-item img {
             width: 100%;
             height: auto;
             display: block;
         }
+
+        /* Download link styles */
         .download-link {
             display: block;
             padding: 8px;
@@ -37,16 +42,19 @@
         .download-link:hover {
             background-color: #e8e8e8;
         }
+
+        /* Responsive design */
         @media (max-width: 768px) {
             .gallery-item {
-                width: calc(50% - 20px); /* Two items per row on smaller screens */
+                width: calc(50% - 20px);
             }
         }
         @media (max-width: 480px) {
             .gallery-item {
-                width: calc(100% - 20px); /* One item per row on small screens */
+                width: calc(100% - 20px);
             }
         }
+
         /* Modal styles */
         .modal {
             display: none;
@@ -56,33 +64,27 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
+            overflow: hidden;
             background-color: rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
         .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-        .modal-content, .modal-caption {
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
-        @keyframes zoom {
-            from {transform: scale(0)}
-            to {transform: scale(1)}
+            max-width: calc(80% - 100px);
+            max-height: 80%;
+            object-fit: contain;
+            transition: transform 0.6s ease;
         }
         .modal-caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
             text-align: center;
             color: #ccc;
             padding: 10px 0;
-            height: 150px;
+            max-width: calc(80% - 100px);
         }
+
+        /* Close button styles */
         .close {
             position: absolute;
             top: 20px;
@@ -93,100 +95,207 @@
             transition: 0.3s;
             cursor: pointer;
         }
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
+
+        /* Navigation button styles */
+        .prev, .next {
             cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.3s;
+            user-select: none;
+        }
+        .prev {
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+        .prev:hover, .next:hover {
+            color: #bbb;
+        }
+
+        /* Zoom effects */
+        .zoom {
+            transform: scale(1);
+        }
+        .zoom-out {
+            transform: scale(0);
         }
     </style>
-    <base href="https://samwilcock.xyz/" target="_blank">
+    <base href="https://samwilcock.xyz/" target="_blank" />
 </head>
 <body>
-<h1>Gallery</h1>
-<!-- <a href="https://drive.google.com/drive/folders/1elxEAzU3jeU_z1COoKyjsHmAOnSa3z9E?usp=sharing"><img src="https://static.vecteezy.com/system/resources/previews/000/574/204/original/vector-sign-of-download-icon.jpg" height="40px" width="40px" />DOWNLOAD ALL</a> -->
+<script src="../scripts/imageCheck.js" type="text/javascript"></script>
+
+<!-- Header with navigation back -->
+<table style="width:100%">
+    <tr>
+      <th style="text-align: left; width: 10%; white-space: nowrap;">
+        <script type="text/javascript">
+            // Back navigation based on referrer
+            if (document.referrer.includes("samwilcock")){
+                document.write('<a href="https://samwilcock.xyz" target="_self"><img src="assets/back.png" height="32px" /></a>');
+            } else {
+                document.write('<a href="' + document.referrer + '" target="_self"><img src="assets/back.png"  height="32px" /></a>');
+            }
+        </script>
+      </th>
+      <th style="text-align: right"><h1>Gallery</h1></th>
+    </tr>
+</table>
+
+<!-- Gallery container -->
 <div class="gallery">
     <!-- JavaScript will insert images here -->
 </div>
 
-<div id="myModal" class="modal">
+<!-- Modal for displaying images -->
+<div id="myModal" class="modal" style="display: none">
     <span class="close">&times;</span>
     <img class="modal-content" id="img01">
     <div class="modal-caption" id="caption"></div>
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
 </div>
 
 <script>
+    // Main script for gallery functionality
     document.addEventListener("DOMContentLoaded", function() {
-        const gallery = document.querySelector('.gallery');
-        const totalImages = 33; // Total number of images
+        const gallery = document.querySelector('.gallery'); // Select gallery
+        const totalImages = 33; // Number of images
+        let currentImageIndex = 1; // Track currently displayed image
 
+        // Loop to create gallery items
         for (let i = 1; i <= totalImages; i++) {
-            const galleryItem = document.createElement('div');
+            const galleryItem = document.createElement('div'); // Create gallery item
             galleryItem.classList.add('gallery-item');
 
-            const img = document.createElement('img');
-            img.dataset.src = `assets/img/SummerNest/${i}.jpg`; // Use data-src for lazy loading
-            img.alt = `Image ${i}`;
-            img.classList.add('lazy');
-            img.onclick = function() {
-                showModal(img);
+            const img = document.createElement('img'); // Create image element
+            img.dataset.src = `assets/img/SummerNest/${i}.jpg`; // Set image source
+            img.alt = `Image ${i+1}`; // Alt text
+            img.classList.add('lazy'); // Lazy load class
+            img.dataset.index = i; // Store index
+            img.onclick = function() { // Open modal on click
+                showModal(i);
             };
 
-            const link = document.createElement('a');
-            link.href = `assets/img/SummerNest/${i}.jpg`;
-            link.download = `Image_${i}.jpg`;
-            link.classList.add('download-link');
-            link.textContent = 'Download';
+            const link = document.createElement('a'); // Create download link
+            link.href = `assets/img/SummerNest/${i}.jpg`; // Set download URL
+            link.download = `Image_${i}.jpg`; // Set download filename
+            link.classList.add('download-link'); // Link class
+            link.textContent = 'Download'; // Link text
 
-            galleryItem.appendChild(img);
-            galleryItem.appendChild(link);
-            gallery.appendChild(galleryItem);
+            galleryItem.appendChild(img); // Add image to gallery item
+            galleryItem.appendChild(link); // Add download link
+            gallery.appendChild(galleryItem); // Add item to gallery
         }
 
-        // Lazy loading
+        // Lazy loading setup using Intersection Observer
         if ('IntersectionObserver' in window) {
-            let lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            let lazyImages = [].slice.call(document.querySelectorAll('img.lazy')); // Select lazy images
             let imageObserver = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
+                    if (entry.isIntersecting) { // Check if image is in view
                         let lazyImage = entry.target;
-                        lazyImage.src = lazyImage.dataset.src;
-                        lazyImage.classList.remove('lazy');
-                        imageObserver.unobserve(lazyImage);
+                        lazyImage.src = lazyImage.dataset.src; // Set actual source
+                        lazyImage.classList.remove('lazy'); // Remove lazy class
+                        imageObserver.unobserve(lazyImage); // Stop observing
                     }
                 });
             });
 
             lazyImages.forEach(function(lazyImage) {
-                imageObserver.observe(lazyImage);
+                imageObserver.observe(lazyImage); // Observe each lazy image
             });
         } else {
             // Fallback for older browsers
             let lazyImages = document.querySelectorAll('img.lazy');
             lazyImages.forEach(function(img) {
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
+                img.src = img.dataset.src; // Set source for all images
+                img.classList.remove('lazy'); // Remove lazy class
             });
         }
+
         // Modal functionality
         const modal = document.getElementById('myModal');
         const modalImg = document.getElementById('img01');
         const captionText = document.getElementById('caption');
         const closeBtn = document.getElementsByClassName('close')[0];
+        const prevBtn = document.getElementsByClassName('prev')[0];
+        const nextBtn = document.getElementsByClassName('next')[0];
 
-        function showModal(img) {
-            modal.style.display = 'block';
-            modalImg.src = img.src;
-            captionText.innerHTML = img.alt;
+        // Show modal with the selected image
+        function showModal(index) {
+            currentImageIndex = index;
+            modal.style.display = 'flex'; // Show modal
+            updateModalImage(); // Update modal content
         }
 
+        // Update modal image and caption
+        function updateModalImage() {
+            const imgSrc = `assets/img/SummerNest/${i}.jpg`;
+            modalImg.src = imgSrc; // Set modal image source
+            captionText.innerHTML = `Image ${currentImageIndex}`; // Set caption
+        }
+
+        // Close modal functionality
         closeBtn.onclick = function() {
-            modal.style.display = 'none';
+            closeModal(); // Call close function
+        }
+
+        // Close modal
+        function closeModal() {
+            modal.style.display = 'none'; // Hide modal
+        }
+
+        // Navigation button functionality
+        prevBtn.onclick = function() {
+            navigatePrev(); // Navigate to previous image
+        }
+
+        nextBtn.onclick = function() {
+            navigateNext(); // Navigate to next image
+        }
+
+        // Navigate to previous image
+        function navigatePrev() {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+                updateModalImage();
+            }
+        }
+
+        // Navigate to next image
+        function navigateNext() {
+            if (currentImageIndex < totalImages) {
+                currentImageIndex++;
+                updateModalImage(); // Update displayed image
+            }
+        }
+        document.onkeydown = function(event) {
+            if (modal.style.display === 'flex') {
+                switch (event.key) {
+                    case "Escape":
+                        closeModal();
+                        break;
+                    case "ArrowLeft":
+                        navigatePrev();
+                        break;
+                    case "ArrowRight":
+                        navigateNext();
+                        break;
+                }
+            }
         }
 
         window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = 'none';
+                closeModal();
             }
         }
     });
