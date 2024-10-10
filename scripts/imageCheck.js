@@ -1,9 +1,20 @@
 // URL of the placeholder image
 const placeholder = 'https://samwilcock.xyz/assets/img/broken-img.png'; // Replace with your placeholder image URL
 
-// Function to handle image load error
+// Global variable for the ping delay
+let globalPingDelay = 2000; // Default to 1000 ms (1 second)
+
+// Function to handle image load error with a delay based on the global ping delay
 function handleImageError(event) {
-    event.target.src = placeholder; // Set the src to the placeholder
+    const img = event.target; // Reference to the image
+    const timeoutId = setTimeout(() => {
+        img.src = placeholder; // Set the src to the placeholder after the global delay
+    }, globalPingDelay); // Use the global ping delay
+
+    // Clear the timeout if the image loads successfully
+    img.addEventListener('load', () => {
+        clearTimeout(timeoutId); // Clear the timeout if the image loads
+    }, { once: true }); // Use { once: true } to ensure the listener is removed after execution
 }
 
 // Function to add error event listener to an image

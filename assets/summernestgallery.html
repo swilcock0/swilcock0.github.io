@@ -135,7 +135,7 @@
 <!-- Header with navigation back -->
 <script type="text/javascript">
     // Back navigation based on referrer
-    if (document.referrer.includes("samwilcock")){
+    if (document.referrer.includes("samwilcock") || document.referrer == ""){
         document.write(
             `<table style="width:100%">
                 <tr>
@@ -149,13 +149,6 @@
         document.write(`<h1>Gallery</h1> `)
     }
 </script>
-
-<script type="text/javascript">
-            // Back navigation based on referrer
-            if (document.referrer.includes("samwilcock")){
-                document.write('<a href="https://samwilcock.xyz" target="_self"><img src="assets/back.png" height="32px" /></a>');
-            }
-        </script>
 
 <!-- Gallery container -->
 <div class="gallery">
