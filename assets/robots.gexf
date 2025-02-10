@@ -27,7 +27,7 @@
           <attvalue for="indegree" value="33"/>
           <attvalue for="outdegree" value="33"/>
           <attvalue for="degree" value="66"/>
-        </attvalues>
+        </attvalues> 
         <viz:size value="31.042253"/>
         <viz:position x="353.4297" y="-601.2555" z="0.009723128"/>
         <viz:color r="46" g="144" b="114"/>
@@ -395,7 +395,7 @@
         <viz:position x="-822.4027" y="-269.19995" z="0.007965956"/>
         <viz:color r="95" g="198" b="19"/>
       </node>
-      <node id="Rrt*" label="Rrt*">
+      <node id="Rrt*" label="RRT*">
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="indegree" value="34"/>
