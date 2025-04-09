@@ -12,11 +12,15 @@
             "url": "{{ site.url }}{{ site.baseurl }}",
         {% endif %} 
         {% if site.author %}
-            "author": { "@type": "Person", "name": "{{ site.author }}" },
+            "author": {
+                "@type": "Person",
+                "name": "{{ site.author.name }}",
+                "email": "{{ site.author.email }}",
+            },
         {% endif %} 
         {% if site.date %}
             "dateCreated": "{{ site.date | date: "%Y-%m-%d" }}",
         {% endif %} 
-        "dateModified": "{{ site_modified | date: "%Y-%m-%d" }}" 
+        "dateModified": "{% if page.modified %}{{page.modified}}{% else %}{{page.date}}{% endif %}"
     } 
 </script>

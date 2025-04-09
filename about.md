@@ -7,6 +7,7 @@ description: >
 hide_description: true
 redirect_from:
   - /download/
+date: 2025-04-01
 ---
 
 <meta property="og:description" content="Sam Wilcock is a research fellow in the Department of Architecture, Built Environment and Construction at the Politecnico di Milano, using robots to build curved structures." />
