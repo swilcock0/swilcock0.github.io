@@ -53,9 +53,11 @@ a.nav-btn:focus {
 }
 
 .image-caption {
+  display: block;
   text-align: center;
   font-size: 0.9em;
   color: #666;
   margin-top: 0.5em;
   font-style: italic;
+  width: 100%;
 }
