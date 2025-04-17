@@ -5,7 +5,7 @@ layout: null
 // Debug mode flag - can be toggled in console
 window.DEBUG = window.DEBUG || false;
 // Add near the top of your file
-window.placeholderImage = window.placeholderImage || '/assets/images/broken-img.png';
+window.placeholderImage = window.placeholderImage || '/assets/img/broken-img.png';
 
 // Add at the top of the file with other global variables
 window.initialScrollY = window.initialScrollY || window.scrollY;
@@ -278,7 +278,7 @@ function processImageSrc(img, originalSrc, avifOk, webpOk, isMobile, suffix) {
   window.previousMobileState = isMobile; // Update shared variable
   
   // Get hero base path from config, removing any extensions
-  const heroBase = "{{ site.heroimage }}".replace(/\.(avif|webp|png)$/, '');
+  const heroBase = "{{ site.accent_image }}".replace(/\.(avif|webp|png)$/, '');
   
   // Wait for DOM to be ready
   if (document.readyState === "loading") {
