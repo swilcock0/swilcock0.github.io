@@ -33,3 +33,12 @@
 .outerIFrame {
   display: none;
 }
+
+#_dark-mode {
+  border-right: none; 
+  border-left: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
