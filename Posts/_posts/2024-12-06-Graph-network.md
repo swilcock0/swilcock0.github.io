@@ -22,8 +22,10 @@ comments: true
   ></iframe>
 </div>
 
-<div class="mobile-only" style="text-align: center;">
+<div class="mobile-only">
+<p style="text-align: center;">
   <img src="/assets/img/Posts/2024-12-06-Graph-network.png" height="1000" width="500" style="margin: 0 auto; display: block;" />
 
   N.B.: For interactive visualisation, view on desktop
+  </P>
 </div>
