@@ -42,6 +42,6 @@
     function changeIFrame(){iframeVis=document.getElementsByClassName("outerIFrame")[0],null!=iframeVis&&(_buttonCntr=document.createElement("center"),_button=document.createElement("button"),_button.classList.add("myButton"),_button.id="loadButton",_button.innerHTML="Load model",_buttonCntr.append(_button),iframeVis.parentNode.insertBefore(_buttonCntr,iframeVis),iframeVis.style.display="none",_button.onclick=function(){"Load model"==_button.innerText?_button.innerText="Close":_button.innerText="Load model",myframe=iframeVis.getElementsByTagName("iframe"),""==myframe[0].src&&(myframe[0].src="about:blank"),tmp=myframe[0].src,myframe[0].src=myframe[0].dataset.src,myframe[0].dataset.src=tmp,"block"==iframeVis.style.display?iframeVis.style.display="none":iframeVis.style.display="block"})}load_listener=document.getElementById("_pushState").addEventListener("hy-push-state-load",function(){changeIFrame()});    
 </script>
 
-<script src="../scripts/last-modified.js" type="text/javascript"></script>
+<script src="../../scripts/last-modified.js" type="text/javascript"></script>
 
-<script src="../scripts/imageCheck.js" type="text/javascript"></script>
+<script src="../../scripts/imageCheck.js" type="text/javascript"></script>
