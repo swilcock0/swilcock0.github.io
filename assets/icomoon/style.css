@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Academicons';
+  font-family: 'icomoon';
   src:  url('fonts/Academicons.eot?rhbeuj');
   src:  url('fonts/Academicons.eot?rhbeuj#iefix') format('embedded-opentype'),
     url('fonts/Academicons.ttf?rhbeuj') format('truetype'),
@@ -12,7 +12,7 @@
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'Academicons' !important;
+  font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -79,9 +79,8 @@
 .icon-heart:before {
   content: "\e9da";
 }
-.icon-new-tab::before {
-  content: "↗"; /* North East Arrow */
-  margin-left: 0.25em; /* Optional spacing */
+.icon-new-tab:before {
+  content: "\ea7e";
 }
 .icon-amazon:before {
   content: "\ea87";
