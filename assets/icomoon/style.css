@@ -79,8 +79,9 @@
 .icon-heart:before {
   content: "\e9da";
 }
-.icon-new-tab:before {
-  content: "\ea7e";
+.icon-new-tab::before {
+  content: "↗"; /* North East Arrow */
+  margin-left: 0.25em; /* Optional spacing */
 }
 .icon-amazon:before {
   content: "\ea87";
