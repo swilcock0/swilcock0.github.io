@@ -38,7 +38,7 @@ jobs:
         run: |
           if [ -f "./Files/CV.pdf" ]; then
             echo "Original CV size: $(du -h ./Files/CV.pdf)"
-            ./cpdf -compress ./Files/CV.pdf -o ./Files/CV_compressed.pdf
+            ./cpdf -squeeze ./Files/CV.pdf -o ./Files/CV_compressed.pdf
             mv ./Files/CV_compressed.pdf ./Files/CV.pdf
             echo "Compressed CV size: $(du -h ./Files/CV.pdf)"
           else
