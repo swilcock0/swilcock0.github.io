@@ -29,6 +29,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Download and setup cpdf
+        run: |
+          wget https://github.com/coherentgraphics/cpdf-binaries/raw/master/Linux-Intel-64bit/cpdf
+          chmod +x cpdf
+          
+      - name: Compress CV PDF
+        run: |
+          if [ -f "./Files/CV.pdf" ]; then
+            echo "Original CV size: $(du -h ./Files/CV.pdf)"
+            ./cpdf -compress ./Files/CV.pdf -o ./Files/CV_compressed.pdf
+            mv ./Files/CV_compressed.pdf ./Files/CV.pdf
+            echo "Compressed CV size: $(du -h ./Files/CV.pdf)"
+          else
+            echo "CV.pdf not found"
+          fi
+
       # - name: Set up Python
       #   uses: actions/setup-python@v4
       #   with:
