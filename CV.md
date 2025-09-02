@@ -5,7 +5,7 @@ title: My CV
 
 Download CV <a href="https://samwilcock.xyz/Files/CV.pdf">here</a>
 <p>
-<object data="/Files/CV.pdf" type="application/pdf" width="100%" style="height: 90vh; min-height:600px;">
+<iframe src="https://docs.google.com/gview?url=https://samwilcock.xyz/Files/CV.pdf&embedded=true" style="width:100%; height:90vh; min-height:600px;" frameborder="0">
     <p>Unable to display PDF file. <a href="/Files/CV.pdf">Download</a> instead.</p>
-</object>
+</iframe>
 
