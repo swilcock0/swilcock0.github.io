@@ -2,17 +2,17 @@
 <html>
   <body>
     <script>
-      const pdf = new URLSearchParams(location.search).get("file");
-      if (pdf) {
-        const a = document.createElement("a");
-        a.href = pdf;
-        a.download = pdf.split("/").pop();
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      } else {
-        document.body.textContent = "Missing ?file= parameter";
-      }
+    const pdf = new URLSearchParams(location.search).get("file");
+    if (pdf && pdf.startsWith("Files/")) {
+      const a = document.createElement("a");
+      a.href = pdf;
+      a.download = pdf.split("/").pop();
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } else {
+      document.body.textContent = "Invalid file path.";
+    }
     </script>
   </body>
 </html>
