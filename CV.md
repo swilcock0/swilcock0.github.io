@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (link) {
     const timestamp = new Date().getTime();
     const url = new URL(link.href, window.location.origin);
-    url.searchParams.set("ver", timestamp);
+    url.searchParams.set("timestamp", timestamp);
     link.href = url.toString();
   }
 });
