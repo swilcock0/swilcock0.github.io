@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <body>
+    <script>
+      const pdf = new URLSearchParams(location.search).get("file");
+      if (pdf) {
+        const a = document.createElement("a");
+        a.href = pdf;
+        a.download = pdf.split("/").pop();
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } else {
+        document.body.textContent = "Missing ?file= parameter";
+      }
+    </script>
+  </body>
+</html>
