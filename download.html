@@ -68,7 +68,7 @@
 
           // Redirect back to referring page after short delay
           setTimeout(() => {
-            window.location.href = referer;
+            window.location.replace(referer);
           }, 1000);
         }, 600);
       });
