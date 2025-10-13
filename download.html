@@ -29,43 +29,37 @@
     <p id="status">Please wait.</p>
 
     <script>
-      /*
-       * Safe GitHub Pages downloader.
-       * Only allows relative files (e.g. docs/myfile.pdf)
-       * and prevents external abuse.
-       */
-      document.addEventListener("DOMContentLoaded", () => {
-        const params = new URLSearchParams(location.search);
-        const file = params.get("file");
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(location.search);
+  const file = params.get("file");
 
-        if (!file) {
-          document.getElementById("status").textContent = "Missing ?file= parameter.";
-          return;
-        }
+  if (!file || file.startsWith("http") || file.startsWith("//") || file.includes("..")) {
+    document.getElementById("status").textContent = "Invalid or missing file.";
+    return;
+  }
 
-        // ✅ Only allow internal paths (no http://, https://, or ../)
-        if (file.startsWith("http") || file.startsWith("//") || file.includes("..")) {
-          document.getElementById("status").textContent = "Invalid or unsafe file path.";
-          return;
-        }
+  const a = document.createElement("a");
+  a.href = file;
+  a.download = file.split("/").pop();
+  document.body.appendChild(a);
 
-        const a = document.createElement("a");
-        a.href = file;
-        a.download = file.split("/").pop();
+  setTimeout(() => {
+    a.click();
+    
+    // Attempt to close the window (only works if opened via window.open)
+    setTimeout(() => {
+      window.close();
+    }, 300);
 
-        // Append to DOM for click to register on Android
-        document.body.appendChild(a);
+    // Fallback message if close fails
+    document.getElementById("status").textContent = "If the download didn't start, use the link below.";
+    const fallback = document.createElement("p");
+    fallback.innerHTML = `<a href="${file}" target="_blank" rel="noopener">Open manually</a>`;
+    document.body.appendChild(fallback);
+    a.remove();
+  }, 600);
+});
+</script>
 
-        // Delay a bit for nicer UX
-        setTimeout(() => {
-          a.click();
-          document.getElementById("status").textContent = "If your download didn’t start, tap the link below.";
-          const fallback = document.createElement("p");
-          fallback.innerHTML = `<a href="${file}" target="_blank" rel="noopener">Open manually</a>`;
-          document.body.appendChild(fallback);
-          a.remove();
-        }, 600);
-      });
-    </script>
   </body>
 </html>
