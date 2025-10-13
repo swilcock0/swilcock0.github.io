@@ -1,18 +1,71 @@
 <!doctype html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Downloading…</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        text-align: center;
+        padding: 3em 1em;
+        color: #333;
+      }
+      .spinner {
+        width: 2em;
+        height: 2em;
+        border: 3px solid #ccc;
+        border-top-color: #007bff;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 1em auto;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+  </head>
   <body>
+    <h2>Preparing your download…</h2>
+    <div class="spinner"></div>
+    <p id="status">Please wait.</p>
+
     <script>
-    const pdf = new URLSearchParams(location.search).get("file");
-    if (pdf && pdf.startsWith("Files/")) {
-      const a = document.createElement("a");
-      a.href = pdf;
-      a.download = pdf.split("/").pop();
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    } else {
-      document.body.textContent = "Invalid file path.";
-    }
+      /*
+       * Safe GitHub Pages downloader.
+       * Only allows relative files (e.g. docs/myfile.pdf)
+       * and prevents external abuse.
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(location.search);
+        const file = params.get("file");
+
+        if (!file) {
+          document.getElementById("status").textContent = "Missing ?file= parameter.";
+          return;
+        }
+
+        // ✅ Only allow internal paths (no http://, https://, or ../)
+        if (file.startsWith("http") || file.startsWith("//") || file.includes("..")) {
+          document.getElementById("status").textContent = "Invalid or unsafe file path.";
+          return;
+        }
+
+        const a = document.createElement("a");
+        a.href = file;
+        a.download = file.split("/").pop();
+
+        // Append to DOM for click to register on Android
+        document.body.appendChild(a);
+
+        // Delay a bit for nicer UX
+        setTimeout(() => {
+          a.click();
+          document.getElementById("status").textContent = "If your download didn’t start, tap the link below.";
+          const fallback = document.createElement("p");
+          fallback.innerHTML = `<a href="${file}" target="_blank" rel="noopener">Open manually</a>`;
+          document.body.appendChild(fallback);
+          a.remove();
+        }, 600);
+      });
     </script>
   </body>
 </html>
