@@ -29,37 +29,49 @@
     <p id="status">Please wait.</p>
 
     <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(location.search);
-  const file = params.get("file");
+      /*
+       * Safe GitHub Pages downloader with return to referring page.
+       * Only allows relative files (e.g. docs/myfile.pdf)
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(location.search);
+        const file = params.get("file");
+        const referer = document.referrer || "/"; // fallback to homepage if no referrer
 
-  if (!file || file.startsWith("http") || file.startsWith("//") || file.includes("..")) {
-    document.getElementById("status").textContent = "Invalid or missing file.";
-    return;
-  }
+        if (!file) {
+          document.getElementById("status").textContent = "Missing ?file= parameter.";
+          return;
+        }
 
-  const a = document.createElement("a");
-  a.href = file;
-  a.download = file.split("/").pop();
-  document.body.appendChild(a);
+        // Only allow internal paths
+        if (file.startsWith("http") || file.startsWith("//") || file.includes("..")) {
+          document.getElementById("status").textContent = "Invalid or unsafe file path.";
+          return;
+        }
 
-  setTimeout(() => {
-    a.click();
-    
-    // Attempt to close the window (only works if opened via window.open)
-    setTimeout(() => {
-      window.close();
-    }, 300);
+        const a = document.createElement("a");
+        a.href = file;
+        a.download = file.split("/").pop();
+        document.body.appendChild(a);
 
-    // Fallback message if close fails
-    document.getElementById("status").textContent = "If the download didn't start, use the link below.";
-    const fallback = document.createElement("p");
-    fallback.innerHTML = `<a href="${file}" target="_blank" rel="noopener">Open manually</a>`;
-    document.body.appendChild(fallback);
-    a.remove();
-  }, 600);
-});
-</script>
+        // Delay a bit for UX, then trigger download
+        setTimeout(() => {
+          a.click();
+          document.getElementById("status").textContent = "Download started. Returning…";
 
+          // Fallback link in case auto-redirect fails
+          const fallback = document.createElement("p");
+          fallback.innerHTML = `<a href="${referer}">Return to previous page</a>`;
+          document.body.appendChild(fallback);
+
+          a.remove();
+
+          // Redirect back to referring page after short delay
+          setTimeout(() => {
+            window.location.href = referer;
+          }, 1000);
+        }, 600);
+      });
+    </script>
   </body>
 </html>
