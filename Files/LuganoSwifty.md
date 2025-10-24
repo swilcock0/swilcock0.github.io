@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Legnano swift bike ride route"
+title: "Lugano swift bike ride route"
 categories: []
 sitemap: true
 date: 2025-10-23 01:00:00
