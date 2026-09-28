@@ -1,0 +1,124 @@
+# Publications. Entries with an `id` come from the Arch//Struct Lab site's _publications
+# (archstructlab/archstructlab.github.io); `id` builds the lab page, PDF and BibTeX links.
+# Entries without an `id` are added by hand from Files/CV.pdf.
+
+- id: 26-reconfigurable-panel-kits
+  year: 2026
+  title: A reconfigurable hardware-geometry system for the assembly of multiple structures from finite panel kits and adaptable nodes
+  authors: Sam Wilcock, Emil Korkis and Ornella Iuorio
+  venue: Proceedings of the IASS-IWSS 2026 Symposium
+  url: https://archstructlab.com/download/pubs/26-reconfigurable-panel-kits.pdf
+  pdf: true
+  bib: true
+- id: 26-teaching-design-stock
+  year: 2026
+  title: 'Teaching Architectural Design from Stock: A course-based framework for material reuse leveraging digital design and fabrication'
+  authors: Ornella Iuorio, Bruno Figueiredo and Sam Wilcock
+  venue: Proceedings of the 44th eCAADe Conference (eCAADe 2026)
+  doi: 10.52842/conf.ecaade.2026.3.119
+  pdf: true
+  bib: true
+- id: 26-fiducial-marker-fusion
+  year: 2026
+  title: Fusion of fiducial marker and point cloud data for reliable multi-camera tracking in robotic assembly of construction elements
+  authors: Sam Wilcock and Ornella Iuorio
+  venue: Construction Robotics
+  doi: 10.1007/s41693-026-00183-3
+  pdf: true
+  bib: true
+- year: 2026
+  title: Privacy-Preserving Occupancy Estimation from IEQ and BIM for Demand-Controlled Building Operation
+  authors: Ivan Smirnov, Sam Wilcock, Liubov Chechulina, Ornella Iuorio, Tiziana Poli and Fulvio Re Cecconi
+  venue: SSRN Preprint Server
+  note: Preprint
+  doi: 10.2139/ssrn.7043291
+- year: 2026
+  title: 'Perception-driven assembly of spatial timber structures: a heterogeneous robotic approach using adjustable fixtures'
+  authors: Sam Wilcock and Ornella Iuorio
+  venue: AM Perspectives 3
+  note: In press
+- year: 2026
+  title: Heterogeneous robot teams for construction in cluttered environments
+  authors: Sam Wilcock and Ornella Iuorio
+  venue: Robotics in Architecture
+  note: In press
+- year: 2026
+  title: 'Digitizing waste: teaching circular construction through computational workflows and digital fabrication'
+  authors: Ornella Iuorio, Sam Wilcock and Bruno Figueiredo
+  venue: ReSBE26
+  note: In press
+- id: 25-tree-identification-co2
+  year: 2025
+  title: Neural Network Tree Identification from Street View Images to Estimate CO2 Sequestration
+  authors: Sam Wilcock, Ivan Smirnov and Ornella Iuorio
+  venue: Envisioning the Futures - Designing and Building for People and the Environment
+  doi: 10.1007/978-3-032-06978-8_45
+  pdf: true
+  bib: true
+- id: 25-automating-workflow
+  year: 2025
+  title: Towards automating the workflow for design, manufacturing, and assembly process feedback of discrete panel structures
+  authors: Sam Wilcock and Ornella Iuorio
+  venue: Structures and Architecture - REstructure REmaterialize REthink REuse
+  doi: 10.1201/9781003658641-58
+  pdf: true
+  bib: true
+- id: 25-metamorphosis
+  year: 2025
+  title: 'Kinetic Harlequin: an interactive kinetic sculpture simulating nature through discrete mechanisms'
+  authors: Sam Wilcock and Ornella Iuorio
+  venue: 'Metamorphosis: Transforming Italian Architecture'
+  url: https://www.metamorphosisarchfest.com/wp-content/uploads/2025/05/METAMORPHOSIS-pubblicazione.pdf
+  pdf: true
+  bib: true
+- id: 25-laser-robot
+  year: 2025
+  title: Robotic manipulators as advanced manufacturing agents for laser-cut construction systems
+  authors: Sam Wilcock and Ornella Iuorio
+  venue: 'AM Perspectives 2: Research in advanced manufacturing for architecture and construction'
+  pdf: true
+  bib: true
+  doi: 10.47982/eqdj0367
+- year: 2025
+  title: Efficient Robotic Assembly of Shell Structures
+  authors: Sam Wilcock
+  venue: University of Leeds
+  note: PhD thesis
+  url: https://etheses.whiterose.ac.uk/id/eprint/36320/
+- year: 2025
+  title: Dispositivo di presa meccanico (Mechanical gripping device)
+  authors: Sam Wilcock and Ornella Iuorio
+  venue: Italian Patent Application No. 102025000024571, assigned to Politecnico di Milano
+  note: Patent application, pending
+- id: 24-rfunic-stability
+  year: 2024
+  title: Integrating R-funicularity, local stability and inter-panel constraint assessment for discrete timber shell construction design
+  authors: Sam Wilcock, Han Fang, Mehmet R. Dogar and Ornella Iuorio
+  venue: Structures
+  doi: 10.1016/j.istruc.2024.106592
+  pdf: true
+  bib: true
+- id: 24-des-disassembly
+  year: 2024
+  title: Design for deconstruction through digital fabrication of thin spatial systems
+  authors: Ornella Iuorio, Sam Wilcock and Emil Korkis
+  venue: Lecture Notes in Civil Engineering
+  doi: 10.1007/978-3-031-57800-7_24
+  pdf: true
+  bib: true
+- id: 23-stability-assessment
+  year: 2024
+  title: Methodology for Stability Assessment of Discretised Shell Structures During Robotic Assembly
+  authors: Sam Wilcock, Mehmet R. Dogar and Ornella Iuorio
+  venue: Lecture Notes in Civil Engineering
+  doi: 10.1007/978-3-031-44328-2_49
+  pdf: false
+  bib: true
+- id: 22-rob-agents
+  year: 2022
+  title: Automated robotics agents for assembly-aware design of shells
+  authors: Sam Wilcock, Jordan H. Boyle, Mehmet R. Dogar and Ornella Iuorio
+  venue: Structures and Architecture. A Viable Urban Perspective?
+  doi: 10.1201/9781003023555-127
+  pdf: false
+  bib: true

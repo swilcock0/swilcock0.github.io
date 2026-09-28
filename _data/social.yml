@@ -206,6 +206,9 @@ keybase:
 download:
   name: Download
   icon: icon-box-add
+scholar:
+  name: Google Scholar
+  prepend: "https://scholar.google.com/citations?user="
 researchgate:
   name: ResearchGate
   icon: icon-researchgate

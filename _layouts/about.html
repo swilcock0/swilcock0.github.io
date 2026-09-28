@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{% assign me = site.data.authors.Sam %}
+<article class="post about">
+  <header class="post-head about-head">
+    <img class="portrait" src="{{ me.picture.path }}" alt="Portrait of {{ me.name }}" width="160" height="160">
+    <div>
+      <h1>{{ me.name }}</h1>
+      <p class="meta"><a href="mailto:{{ me.email }}">{{ me.email }}</a><a href="/publications/">Publications</a><a href="/CV/">CV</a></p>
+    </div>
+  </header>
+  <div class="prose">
+    {{ me.about | markdownify }}
+    {{ content }}
+  </div>
+</article>

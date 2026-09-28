@@ -1,0 +1,36 @@
+---
+layout: default
+title: Publications
+description: Papers and book chapters by Sam Wilcock on robotic assembly, discrete shell structures and digital fabrication.
+permalink: /publications/
+---
+{% assign lab = 'https://archstructlab.com' %}
+<header class="post-head list-head">
+  <h1>Publications</h1>
+  <p class="standfirst">Papers and chapters on robotic assembly, discrete shells and digital fabrication, most of them written with the <a href="{{ lab }}/publications">Arch//Struct Lab</a>.</p>
+</header>
+
+{% assign years = site.data.publications | group_by: 'year' %}
+<div class="archive">
+  {% for year in years %}
+  <section class="year" aria-labelledby="p{{ year.name }}">
+    <h2 class="year-num" id="p{{ year.name }}">{{ year.name }}</h2>
+    <ol class="posts pubs">
+      {% for p in year.items %}
+      <li class="pub">
+        {% capture href %}{% include pub-url.html p=p %}{% endcapture %}
+        <h3>{% if href != "" %}<a href="{{ href }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+        <p class="pub-authors">{{ p.authors | replace: 'Sam Wilcock', '<strong>Sam Wilcock</strong>' }}</p>
+        <p class="pub-venue">{{ p.venue }}{% if p.note %} <span class="pub-note">{{ p.note }}</span>{% endif %}</p>
+        {% if p.doi or p.pdf or p.bib or p.url %}<p class="pub-links">
+          {% if p.url and p.id == nil %}<a href="{{ p.url }}">Full text</a>{% endif %}
+          {% if p.doi %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}
+          {% if p.pdf %}<a href="{{ lab }}/download/pubs/{{ p.id }}.pdf">PDF</a>{% endif %}
+          {% if p.bib %}<a href="{{ lab }}/download/pubs/{{ p.id }}.bib">BibTeX</a>{% endif %}
+        </p>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endfor %}
+</div>

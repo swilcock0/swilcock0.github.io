@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <script>document.documentElement.classList.add('js'); try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <meta name="theme-color" content="#EDF0EA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E1A2C" media="(prefers-color-scheme: dark)">
+  {% seo %}
+  {% feed_meta %}
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  {% include my-head.html %}
+</head>
+<body class="l-{{ page.layout }}">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar">
+    {% unless page.layout == 'home' %}<a class="bar-name" href="/">{{ site.title }}</a>{% endunless %}
+    <nav id="site-nav" aria-label="Main">
+      <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+      <a href="/publications/"{% if page.url == '/publications/' %} aria-current="page"{% endif %}>Publications</a>
+      <a href="/posts/"{% if page.url == '/posts/' %} aria-current="page"{% endif %}>Posts</a>
+      <a href="/CV/"{% if page.url == '/CV/' %} aria-current="page"{% endif %}>CV</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+    </button>
+    <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path class="bars" d="M2 5h16M2 10h16M2 15h16"/><path class="cross" d="M4 4l12 12M16 4L4 16"/></svg>
+    </button>
+  </header>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer class="foot">
+    <p>{% for link in site.data.authors.Sam.social %}{% assign key = link[0] %}{% assign s = site.data.social[key] %}<a href="{% if link[1] contains '://' %}{{ link[1] }}{% else %}{{ s.prepend }}{{ link[1] }}{{ s.append }}{% endif %}">{% if key == 'uoleeds' %}Arch//Struct Lab{% else %}{{ s.name }}{% endif %}</a>{% endfor %}</p>
+    <p>© 2020–{{ site.time | date: '%Y' }} {{ site.copyright }}</p>
+  </footer>
+
+  {% if content contains '\[' or content contains '\(' %}
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  {% endif %}
+  {% include my-scripts.html %}
+</body>
+</html>

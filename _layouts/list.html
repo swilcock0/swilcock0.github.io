@@ -1,0 +1,8 @@
+---
+layout: default
+---
+<header class="post-head list-head">
+  <h1>{{ page.title }}</h1>
+  {% assign d = page.description | strip %}{% if d != '' %}<p class="standfirst">{{ d }}</p>{% endif %}
+</header>
+{% include post-list.html %}

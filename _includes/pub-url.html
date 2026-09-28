@@ -1,0 +1,5 @@
+{%- comment -%} Best link for a publication: its lab page, else DOI, else URL {%- endcomment -%}
+{%- if include.p.id -%}https://archstructlab.com/publications/{{ include.p.id }}
+{%- elsif include.p.doi -%}https://doi.org/{{ include.p.doi }}
+{%- elsif include.p.url -%}{{ include.p.url }}
+{%- endif -%}

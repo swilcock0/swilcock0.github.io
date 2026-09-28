@@ -30,7 +30,8 @@ S. Wilcock 2023
   - [Accessing ROS services and topics](#accessing-ros-services-and-topics)
 - [Turning on the robot and preparing for real control](#turning-on-the-robot-and-preparing-for-real-control)
 - [Gripper control and settings](#gripper-control-and-settings)
---- 
+
+---
 
 First up we need to install Anaconda on your PC. 
 

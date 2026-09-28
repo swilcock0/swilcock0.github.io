@@ -8,8 +8,15 @@ Sam:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    I'm a research fellow at the Politecnico di Milano, currently researching digital fabrication - specifically how CAD and collaborative robotics can be used together to create novel architectural scale curved structures. 
-    My general scientific interests lie in robotics and dynamics modelling. When I'm not working I'm playing at circus skills, rock climbing or out for a biiiiig walk.
+    I'm a research fellow in the [Arch//Struct Lab](https://archstructlab.com) at the Politecnico di Milano. I work where robotics meets the built environment, building the limits of fabrication into the design process itself, so that what gets designed is something a robot can actually put together.
+
+    Most of that work is about curved and discrete structures: robotic assembly of timber panel and shell systems, multi-camera tracking so robots know where parts really are, laser-cut construction kits, and the occasional kinetic sculpture or aerial construction experiment. The aim is workflows that take a complex geometry from the CAD model to the assembled thing with as little hand-holding as possible.
+
+    I did my PhD at the School of Civil Engineering, University of Leeds, on efficient robotic assembly of shell structures, after an MSc (Eng) in Mechatronics and Robotics and a BSc in Mechanical Engineering. Day to day that means ROS 2, C++ and Python on the robot side, and parametric modelling in Rhino and Grasshopper on the design side.
+
+    I also teach. I'm a Fellow of the Higher Education Academy and have developed and delivered courses at both Politecnico di Milano and Leeds, mostly on digital design and fabrication.
+
+    When I'm not working I'm playing at circus skills, rock climbing or out for a biiiiig walk.
 
   # This photo will be used in the about section
   picture:
@@ -23,6 +30,7 @@ Sam:
   # Comment/uncommet to show/hide
   # Rearrange to change the order in which they appear
   social:
+    scholar:           R1dbEL4AAAAJ
     researchgate:      Sam_Wilcock2
     linkedin:          samwilcock
     #github:            swilcock0
