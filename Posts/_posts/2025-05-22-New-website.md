@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "New Arch//Struct Lab website"
-description: "I built the new Arch//Struct Lab (AS Lab) website at the Politecnico di Milano to showcase the lab's research projects and publications in one place."
+title: "New Arch // Struct Lab website"
+description: "I built the new Arch // Struct Lab (AS Lab) website at the Politecnico di Milano to showcase the lab's research projects and publications in one place."
 categories: []
 tags: Architecture
 sitemap: true

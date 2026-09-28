@@ -6,7 +6,7 @@ sitemap: false
 
 > {{ site.description | strip }}
 
-Research fellow in the Arch//Struct Lab (https://archstructlab.com), Politecnico di Milano. PhD, University of Leeds.
+Research fellow in the Arch // Struct Lab (https://archstructlab.com), Politecnico di Milano. PhD, University of Leeds.
 ORCID: https://orcid.org/0000-0002-8353-6219
 
 ## Pages

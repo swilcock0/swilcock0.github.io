@@ -8,7 +8,7 @@ Sam:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    I'm a research fellow in the [Arch//Struct Lab](https://archstructlab.com) at the Politecnico di Milano. I work where robotics meets the built environment, building the limits of fabrication into the design process itself, so that what gets designed is something a robot can actually put together.
+    I'm a research fellow in the [Arch // Struct Lab](https://archstructlab.com) at the Politecnico di Milano. I work where robotics meets the built environment, building the limits of fabrication into the design process itself, so that what gets designed is something a robot can actually put together.
 
     Most of that work is about curved and discrete structures: robotic assembly of timber panel and shell systems, multi-camera tracking so robots know where parts really are, laser-cut construction kits, and the occasional kinetic sculpture or aerial construction experiment. The aim is workflows that take a complex geometry from the CAD model to the assembled thing with as little hand-holding as possible.
 
