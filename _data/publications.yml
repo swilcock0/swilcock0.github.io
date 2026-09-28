@@ -10,6 +10,7 @@
   url: https://archstructlab.com/download/pubs/26-reconfigurable-panel-kits.pdf
   pdf: true
   bib: true
+  posts: [/posts/2026-09-28-Reconfigurable-panel-kit/]
 - id: 26-teaching-design-stock
   year: 2026
   title: 'Teaching Architectural Design from Stock: A course-based framework for material reuse leveraging digital design and fabrication'
@@ -42,6 +43,7 @@
   authors: Sam Wilcock and Ornella Iuorio
   venue: Robotics in Architecture
   note: In press
+  posts: [/posts/2026-09-28-Heterogeneous-robot-teams/]
 - year: 2026
   title: 'Digitizing waste: teaching circular construction through computational workflows and digital fabrication'
   authors: Ornella Iuorio, Sam Wilcock and Bruno Figueiredo

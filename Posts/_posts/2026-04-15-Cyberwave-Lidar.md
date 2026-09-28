@@ -53,3 +53,5 @@ The learning repository goes into much more detail on creating the driver, publi
 </video>
 <p class="image-caption">Live test</p>
 </div>
+
+*Update, September 2026:* the UGV has since become the mobile scout in our [heterogeneous robot team](/posts/2026-09-28-Heterogeneous-robot-teams/) for assembly on cluttered sites.
