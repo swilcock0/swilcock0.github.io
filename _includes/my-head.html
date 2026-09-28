@@ -8,7 +8,7 @@
   gtag('config', 'G-PRLRX739BZ');
 </script>
 
-{% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+{% if page.noindex %}<meta name="robots" content="noindex">{% else %}<meta name="robots" content="max-image-preview:large">{% endif %}
 {% if page.url == '/' or page.layout == 'about' %}{% include person-jsonld.html %}{% endif %}
 {% if page.url != '/' and page.title %}{% include breadcrumbs-jsonld.html %}{% endif %}
 {% if page.url == '/publications/' %}{% include publications-jsonld.html %}{% endif %}

@@ -1,3 +1,16 @@
-{% comment %} YouTube embed that only loads the player when clicked (a plain link to YouTube without JS).
-Params: id, title, loop (optional) {% endcomment %}
+{% comment %} YouTube embed that only loads the player when clicked (a plain link to YouTube without JS),
+plus VideoObject data so search engines still see the video.
+Params: id, title (label on the page), name (the video's YouTube title), date (YouTube upload date), loop (optional) {% endcomment %}
 <figure class="video_container yt"><a href="https://www.youtube.com/watch?v={{ include.id }}" data-yt="{{ include.id }}"{% if include.loop %} data-loop{% endif %} aria-label="Play video: {{ include.title }}"><img src="https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg" alt="" decoding="async" data-nofade></a></figure>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": {{ include.name | default: include.title | jsonify }},
+  "description": {{ page.description | default: include.title | strip | jsonify }},
+  "thumbnailUrl": ["https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg"],
+  "uploadDate": {{ include.date | default: page.date | date_to_xmlschema | jsonify }},
+  "embedUrl": "https://www.youtube.com/embed/{{ include.id }}",
+  "url": "https://www.youtube.com/watch?v={{ include.id }}"
+}
+</script>

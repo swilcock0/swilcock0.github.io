@@ -70,7 +70,7 @@ With the wall generation definition complete, it was necessary to find a set of 
 
 Here's a video of the system in action.
 
-{% include youtube.html id="MLa0AMedjpQ" title="Grasshopper to ROS demonstration" %}
+{% include youtube.html id="MLa0AMedjpQ" name="Path planning for building a generatively designed brick wall" date="2020-12-03T05:19:22-08:00" title="Grasshopper to ROS demonstration" %}
 {:.lead}
 Moveit2 VS068 Demonstration
 {:.figcaption style="text-align: center;"}

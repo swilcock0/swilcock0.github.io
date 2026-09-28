@@ -51,6 +51,7 @@ The learning repository goes into much more detail on creating the driver, publi
   <source src="/assets/img/Posts/UGV.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+{% include video-jsonld.html src="/assets/img/Posts/UGV.mp4" poster="/assets/img/Posts/2026-04-15-UGV-poster.jpg" name="UGV Beast with lidar: live test" duration="PT47S" %}
 <p class="image-caption">Live test</p>
 </div>
 

@@ -6,6 +6,7 @@ categories: []
 tags: Architecture
 sitemap: true
 date: 2025-05-22 01:00:00
+image: /assets/img/Posts/2025-05-22-New-website.png
 
 comments: true
 ---

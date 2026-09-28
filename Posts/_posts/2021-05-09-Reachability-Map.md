@@ -6,6 +6,7 @@ categories: []
 tags: Manipulator
 sitemap: true
 date: 2021-05-09 01:00:00
+image: /assets/img/Posts/2021-05-09-Reach.png
 #img: assets/img/Posts/2020-12-03-GH-Ros.jpg
 #header-img: assets/img/Posts/2020-12-03-GH-Ros.jpg
 comments: false

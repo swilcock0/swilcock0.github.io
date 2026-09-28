@@ -6,6 +6,7 @@ categories: [ ]
 tags: Teaching
 sitemap: true
 date: 2024-07-26 01:00:00
+image: /assets/img/Posts/2024-07-26-SummerNest.jpg
 # redirect_from:
 #   - /wedding
 comments: false

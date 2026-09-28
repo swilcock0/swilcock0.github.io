@@ -1,0 +1,13 @@
+{% comment %} VideoObject for a video hosted on this site. Params: src, poster, name, duration (ISO 8601, e.g. PT28S) {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": {{ include.name | jsonify }},
+  "description": {{ page.description | default: include.name | strip | jsonify }},
+  "thumbnailUrl": [{{ site.url | append: include.poster | jsonify }}],
+  "uploadDate": {{ page.date | date_to_xmlschema | jsonify }},
+  "contentUrl": {{ site.url | append: include.src | jsonify }},
+  "duration": {{ include.duration | jsonify }}
+}
+</script>

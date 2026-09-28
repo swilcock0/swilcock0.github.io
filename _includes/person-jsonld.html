@@ -24,7 +24,8 @@
 {% if page.layout == 'about' %}{
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  "url": {{ site.url | append: page.url | jsonify }},
+  "url": {{ site.url | append: page.url | jsonify }},{% if page.last_modified_at %}
+  "dateModified": {{ page.last_modified_at | date_to_xmlschema | jsonify }},{% endif %}
   "mainEntity": {{ person }}
 }{% else %}{
   "@context": "https://schema.org",

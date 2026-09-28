@@ -6,6 +6,7 @@ categories: []
 tags: Retina
 sitemap: true
 date: 2024-12-06 01:00:00
+image: /assets/img/Posts/2024-12-06-Graph-network.png
 
 comments: true
 ---
