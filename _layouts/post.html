@@ -4,13 +4,23 @@ layout: default
 <article class="post">
   <header class="post-head">
     <h1>{{ page.title }}</h1>
-    {% if page.date %}<p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%-d %B %Y' }}</time>{% if page.tags.size > 0 %}<span class="tags">{{ page.tags | join: ', ' }}</span>{% endif %}</p>{% endif %}
+    {% if page.date %}<p class="meta"><span>By <a href="/about/">{{ site.author.name }}</a></span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%-d %B %Y' }}</time>{% if page.tags.size > 0 %}<span class="tags">{{ page.tags | join: ', ' }}</span>{% endif %}</p>{% endif %}
     {% assign d = page.description | strip %}{% if d != '' %}<p class="standfirst">{{ d | strip_html }}</p>{% endif %}
   </header>
 
   <div class="prose">
     {{ content }}
   </div>
+
+  {% assign related = site.data.publications | where_exp: 'p', 'p.posts contains page.url' %}
+  {% if related.size > 0 %}
+  <aside class="related" aria-labelledby="related-h">
+    <h2 id="related-h">Related publications</h2>
+    <ul>{% for p in related %}{% capture href %}{% include pub-url.html p=p %}{% endcapture %}
+      <li>{% if href != "" %}<a href="{{ href }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %} <span class="pub-venue">{{ p.venue }}, {{ p.year }}</span></li>{% endfor %}
+    </ul>
+  </aside>
+  {% endif %}
 
   {% if page.previous or page.next %}
   <nav class="pager" aria-label="More posts">

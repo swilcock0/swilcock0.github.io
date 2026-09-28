@@ -18,7 +18,7 @@
   var W, H, R, L, g, colors;        // canvas size, reach, link length, scene geometry
   var q = null;                     // joint angles [shoulder, elbow], radians, y up
   var trail = [], target = null, lastPointer = -Infinity, last = performance.now();
-  var visible = true, running = false;
+  var visible = true, running = false, started = false;
 
   // Build state
   var placed = 0, carrying = false, step = 0, wait = 0, phase = 'build', phaseT = 0;
@@ -354,7 +354,7 @@
     draw(now);
     schedule();
   }
-  function schedule() { if (!running) { running = true; requestAnimationFrame(frame); } }
+  function schedule() { if (started && !running) { running = true; requestAnimationFrame(frame); } }
 
   // Reduced motion: one still frame, halfway through the wall with a brick on its way
   function drawStill() {
@@ -369,6 +369,7 @@
     trail = [];
     if (!q) q = home();
     if (still.matches) drawStill();
+    else if (!started) draw(performance.now()); // resizing clears the canvas; redraw until the loop runs
   }
 
   addEventListener('pointermove', function (ev) {
@@ -392,7 +393,12 @@
   document.addEventListener('themechange', restyle);
   readColors();
   resize();
-  schedule();
+  // Animate only once the page has loaded, so the arm doesn't compete with first paint
+  function start() { started = true; last = performance.now(); schedule(); }
+  if (document.readyState === 'complete') start();
+  else addEventListener('load', function () {
+    if (window.requestIdleCallback) requestIdleCallback(start, { timeout: 1000 }); else setTimeout(start, 200);
+  });
 
   // Read-only hook for tests
   canvas.armState = function () {

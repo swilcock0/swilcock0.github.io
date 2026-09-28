@@ -47,7 +47,7 @@ I have been documenting the process in my live learning repository, including th
 The learning repository goes into much more detail on creating the driver, publishing `LaserScan`-style telemetry, and attaching the sensor into the Cyberwave catalogue and environment model. More updates to come once I push the navigation side further.
 
 <div style="text-align: center;">
-<video controls autoplay loop muted playsinline style="margin: 0 auto; display: block; max-width: 100%;">
+<video controls autoplay loop muted playsinline preload="metadata" poster="/assets/img/Posts/2026-04-15-UGV-poster.jpg" style="margin: 0 auto; display: block; max-width: 100%;">
   <source src="/assets/img/Posts/UGV.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>

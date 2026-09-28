@@ -71,7 +71,7 @@ With the wall generation definition complete, it was necessary to find a set of 
 
 Here's a video of the system in action.
 
-<figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/MLa0AMedjpQ" frameborder="0" allowfullscreen="true"></iframe></figure>
+{% include youtube.html id="MLa0AMedjpQ" title="Grasshopper to ROS demonstration" %}
 {:.lead}
 Moveit2 VS068 Demonstration
 {:.figcaption style="text-align: center;"}

@@ -1,0 +1,3 @@
+{% comment %} YouTube embed that only loads the player when clicked (a plain link to YouTube without JS).
+Params: id, title, loop (optional) {% endcomment %}
+<figure class="video_container yt"><a href="https://www.youtube.com/watch?v={{ include.id }}" data-yt="{{ include.id }}"{% if include.loop %} data-loop{% endif %} aria-label="Play video: {{ include.title }}"><img src="https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg" alt="" decoding="async" data-nofade></a></figure>

@@ -1,0 +1,24 @@
+---
+layout: null
+sitemap: false
+---
+# {{ site.title }}
+
+> {{ site.description | strip }}
+
+Research fellow in the Arch//Struct Lab (https://archstructlab.com), Politecnico di Milano. PhD, University of Leeds.
+ORCID: https://orcid.org/0000-0002-8353-6219
+
+## Pages
+
+- [About]({{ site.url }}/about/): background, research and teaching
+- [Publications]({{ site.url }}/publications/): papers, chapters, thesis and patent
+- [CV]({{ site.url }}/CV/): curriculum vitae (PDF)
+
+## Publications
+{% for p in site.data.publications %}{% capture href %}{% include pub-url.html p=p %}{% endcapture %}
+- {% if href != "" %}[{{ p.title }}]({{ href | strip }}){% else %}{{ p.title }}{% endif %}: {{ p.authors }}. {{ p.venue }}, {{ p.year }}.{% endfor %}
+
+## Posts
+{% for post in site.posts %}{% unless post.sitemap == false %}
+- [{{ post.title }}]({{ site.url }}{{ post.url }}){% assign d = post.description | strip %}{% if d != '' %}: {{ d | strip_html }}{% endif %}{% endunless %}{% endfor %}

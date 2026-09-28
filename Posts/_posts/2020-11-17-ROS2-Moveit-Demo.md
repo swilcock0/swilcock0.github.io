@@ -23,7 +23,7 @@ My recent work has required me to learn ROS2. Having not used the original ROS b
 
 Since my work is aiming to focus on bringing robotic simulation and planning for structural assemblies into the geometry design process, I have been building on the tools available to implement a model of the Denso VS068 manipulator that we have available in the lab. The trusty [Solidworks to URDF Exporter](http://wiki.ros.org/sw_urdf_exporter) worked a treat for converting the provided CAD files of the arm into a useable description format for ROS2, whilst the [Moveit! Setup Assistant](http://docs.ros.org/en/kinetic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html) aided in the generation of configuration files for motion planning. The setup assistant hasn't yet been ported to Moveit2, however the generated .yaml and srdf files required little modification to get a working model.
 
-<figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/sSEF9cADy6s" frameborder="0" allowfullscreen="true"></iframe></figure>
+{% include youtube.html id="sSEF9cADy6s" title="ROS2 and MoveIt2 demonstration" %}
 {:.lead}
 VS068 Demonstration
 {:.figcaption style="text-align: center;"}

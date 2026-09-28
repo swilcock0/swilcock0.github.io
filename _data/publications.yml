@@ -66,6 +66,7 @@
 - id: 25-metamorphosis
   year: 2025
   title: 'Kinetic Harlequin: an interactive kinetic sculpture simulating nature through discrete mechanisms'
+  posts: [/posts/2025-04-09-Arlecchino/]
   authors: Sam Wilcock and Ornella Iuorio
   venue: 'Metamorphosis: Transforming Italian Architecture'
   url: https://www.metamorphosisarchfest.com/wp-content/uploads/2025/05/METAMORPHOSIS-pubblicazione.pdf
@@ -84,6 +85,7 @@
   authors: Sam Wilcock
   venue: University of Leeds
   note: PhD thesis
+  posts: [/posts/2020-11-17-ROS2-Moveit-Demo/, /posts/2020-12-03-Grasshopper-ROS/, /posts/2021-05-09-Reachability-Map/]
   url: https://etheses.whiterose.ac.uk/id/eprint/36320/
 - year: 2025
   title: Dispositivo di presa meccanico (Mechanical gripping device)

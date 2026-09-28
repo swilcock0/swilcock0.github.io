@@ -23,7 +23,11 @@ The page `publications.html` renders `_data/publications.yml`, grouped by year i
   note: In press                            # optional: In press, Preprint, PhD thesis, Patent application, pending
   pdf: true                                 # lab entries only: does download/pubs/<id>.pdf exist on the lab site
   bib: true                                 # lab entries only: does download/pubs/<id>.bib exist
+  posts: [/posts/2025-04-09-Arlecchino/]    # optional: blog posts about this work; linked both ways
 ```
+
+Keep existing `posts:` lists when re-syncing an entry; they are hand-curated and not in the CV or on the lab site.
+The authors string also feeds the /publications/ JSON-LD, so keep it as "A, B and C" with full names.
 
 ## Steps
 

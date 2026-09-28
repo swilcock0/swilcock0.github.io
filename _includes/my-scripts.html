@@ -28,6 +28,21 @@
   })();
 </script>
 
+<!-- YouTube embeds (_includes/youtube.html) load the player only when clicked -->
+<script>
+  document.querySelectorAll('.yt a[data-yt]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var id = a.dataset.yt, frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1' + ('loop' in a.dataset ? '&loop=1&playlist=' + id : '');
+      frame.title = a.getAttribute('aria-label').replace('Play video: ', '');
+      frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      frame.allowFullscreen = true;
+      a.replaceWith(frame);
+    });
+  });
+</script>
+
 <!-- Hides embedded 3D models (.outerIFrame) behind a "Load model" button until asked for -->
 <script>
   document.querySelectorAll('.outerIFrame').forEach(function (box) {

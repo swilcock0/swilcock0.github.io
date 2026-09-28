@@ -4,22 +4,10 @@ title: My CV
 description: Curriculum vitae of Sam Wilcock, research fellow in robotic construction at the Politecnico di Milano.
 ---
 
-Download CV <a href="https://samwilcock.xyz/Files/CV.pdf" id="pdfLink" target="_blank" rel="noopener">here</a>
+I'm a research fellow in the [Arch//Struct Lab](https://archstructlab.com) at the Politecnico di Milano, working on robotic construction, digital fabrication and computational design for architecture. I did my PhD, *Efficient Robotic Assembly of Shell Structures*, at the School of Civil Engineering, University of Leeds, and I'm a Fellow of the Higher Education Academy. My papers are listed on the [publications](/publications/) page.
 
-<p>
-<iframe src="https://docs.google.com/gview?url=https://samwilcock.xyz/Files/CV.pdf&embedded=true" style="width:100%; height:90vh; min-height:600px;" frameborder="0">
-    <p>Unable to display PDF file. <a href="/Files/CV.pdf">Download</a> instead.</p>
+[Download the CV (PDF)](/Files/CV.pdf)
+
+<iframe src="https://docs.google.com/gview?url=https://www.samwilcock.xyz/Files/CV.pdf&embedded=true" title="CV (PDF)" style="width:100%; height:90vh; min-height:600px; border:0;" loading="lazy">
+  <p>Unable to display the PDF. <a href="/Files/CV.pdf">Download it</a> instead.</p>
 </iframe>
-
-<script>
-/* Cache-buster for PDFs */
-document.addEventListener("DOMContentLoaded", () => {
-  const link = document.getElementById("pdfLink");
-  if (link) {
-    const timestamp = new Date().getTime();
-    const url = new URL(link.href, window.location.origin);
-    url.searchParams.set("timestamp", timestamp);
-    link.href = url.toString();
-  }
-});
-</script>

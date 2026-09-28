@@ -21,7 +21,7 @@ As part of the University of Leeds' annual public engagement event [Be Curious](
 Using a cheap webcam and monitor, along with a custom printed paddle which has an Apriltag on either side, it was possible to direct the robot arm through a series of preprogrammed motions. The dual Apriltags allowed for open/closed control of the gripper, and through this hordes of children and parents managed to successfully control the arm through a (sweety driven!) pick and place task, purely using vision control.
 
 See the video here of the control method here:
-<figure class="video_container"><iframe width="560" height="315" src="https://www.youtube.com/embed/ghKIeF5u6CU" frameborder="0" allowfullscreen="true"></iframe></figure>
+{% include youtube.html id="ghKIeF5u6CU" title="Be Curious 2022" %}
 {:.lead}
 PincherX Apriltag control demo
 {:.figcaption style="text-align: center;"}

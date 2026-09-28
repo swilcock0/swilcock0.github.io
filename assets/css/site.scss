@@ -1,6 +1,19 @@
 ---
 ---
 /* Drafting film, prussian ink, robot yellow. */
+
+/* Local fonts scaled to the web fonts' metrics, so text doesn't reflow when they swap in.
+   Numbers from the fonts' hmtx/hhea tables against Arial/Times metrics (Liberation Sans/Serif). */
+@font-face {
+  font-family: "Archivo Fallback";
+  src: local("Arial"), local("Liberation Sans"), local("Helvetica");
+  size-adjust: 101.8%; ascent-override: 86.2%; descent-override: 20.6%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Source Serif Fallback";
+  src: local("Times New Roman"), local("Liberation Serif"), local("Times");
+  size-adjust: 111.5%; ascent-override: 92.9%; descent-override: 30%; line-gap-override: 0%;
+}
 :root {
   --paper: #EDF0EA;
   --paper-2: #E2E6DF;
@@ -11,8 +24,8 @@
   --robot-ink: #7A5A00;
   --code-bg: #E4E8E2;
 
-  --sans: "Archivo", system-ui, sans-serif;
-  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Archivo", "Archivo Fallback", system-ui, sans-serif;
+  --serif: "Source Serif 4", "Source Serif Fallback", Georgia, serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
   --measure: 40rem;
@@ -155,6 +168,7 @@ h1, h2, h3, h4 {
 }
 .hero-lead { font-size: 1.3rem; line-height: 1.5; max-width: 26em; margin: 0 0 1.5rem; }
 .hero-links { font-family: var(--sans); display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; margin: 0 0 1rem; }
+.hero-links a, .about-head .meta a { padding-block: .6rem; margin-block: -.6rem; }
 .orcid { display: inline-flex; align-items: center; gap: .4em; }
 .orcid svg { width: 1.1em; height: 1.1em; flex: none; }
 .arm-wrap { margin: 0; }
@@ -279,6 +293,15 @@ h1, h2, h3, h4 {
 
 .video_container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 1.5rem auto; }
 .video_container iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.yt { height: auto; padding: 0; aspect-ratio: 16 / 9; }
+.yt a { position: absolute; inset: 0; display: block; background: var(--ink); }
+.yt img { display: block; width: 100%; height: 100%; max-height: none; margin: 0; object-fit: cover; }
+.yt a::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 4.5rem; height: 3.2rem; margin: -1.6rem 0 0 -2.25rem;
+  border-radius: .9rem; background: var(--robot) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%2314264A'/%3E%3C/svg%3E") center / 1.9rem no-repeat;
+  transition: transform .15s;
+}
+.yt a:hover::after, .yt a:focus-visible::after { transform: scale(1.08); }
 
 .myButton {
   display: block;
@@ -308,6 +331,13 @@ pre { background: var(--code-bg); padding: 1rem 1.25rem; overflow-x: auto; line-
 .about-head { display: flex; align-items: center; gap: 1.75rem; }
 .about-head h1 { margin: 0 0 .5rem; }
 .portrait { width: 8rem; height: 8rem; border-radius: 50%; object-fit: cover; flex: none; }
+
+/* Related publications at the end of a post */
+.related { max-width: var(--measure); margin: 3rem auto 0; border-top: 1px solid var(--rule); padding-top: 1.5rem; }
+.related h2 { font-family: var(--sans); font-size: 1rem; font-weight: 600; margin: 0 0 .75rem; }
+.related ul { margin: 0; padding-left: 1.1rem; }
+.related li { margin-bottom: .5rem; }
+.related .pub-venue { font-size: .9375rem; }
 
 /* Pager */
 .pager {

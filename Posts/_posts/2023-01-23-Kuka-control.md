@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Room g02a robot control guide
+title: "Controlling the KUKA iiwa from Grasshopper and ROS: Room g02a guide"
 description: >
-  Room g02a robot control guide
+  Step-by-step setup for driving the KUKA LBR iiwa in Leeds room g02a from Rhino/Grasshopper through ROS and COMPAS: installs, simulation, real control and the gripper.
 categories: []
 tags: Robot control guide
 sitemap: true
@@ -14,10 +14,8 @@ redirect_from:
 comments: false
 hidden: false
 ---
-# Room g02a robot control guide
 S. Wilcock 2023
 
-- [Room g02a robot control guide](#room-g02a-robot-control-guide)
 - [Installing Anaconda](#installing-anaconda)
     - [University PC](#university-pc)
     - [Personal PC](#personal-pc)
@@ -35,7 +33,7 @@ S. Wilcock 2023
 
 First up we need to install Anaconda on your PC. 
 
-# Installing Anaconda
+## Installing Anaconda
 
 ### University PC
 If you're running a university computer, Anaconda is included in the AppsAnywhere system. Visit https://appsanywhere.leeds.ac.uk/ , accept any installation requirements, validate etc. etc. If you need help with this step see the knowledge base https://it.leeds.ac.uk/it?id=kb_article&sysparm_article=KB0014827
@@ -50,7 +48,7 @@ On a personal device follow the instructions here [https://docs.anaconda.com/ana
 
 
 
-# Installing COMPAS
+## Installing COMPAS
 The initial setup is the same for both University and personal computers.
 
 Anaconda allows us to create "virtual environments" that contain sets of Python packages. This is beneficial as it allows isolation of packages with different, clashing installation requirements, whilst acting as a sandbox of sorts.
@@ -122,7 +120,7 @@ print(compas_fab.__version__)
 
 ![image](https://user-images.githubusercontent.com/48917295/214018288-0a61298f-2daa-4230-a5ce-2be004fc302a.png)
 
-# Starting the Ubuntu control PC and simulating with ROS
+## Starting the Ubuntu control PC and simulating with ROS
 The control PC is setup to be almost plug and play. First turn on the PC. If you are required to enter login credentials, use
 Username: ros
 Password: ros
@@ -171,7 +169,7 @@ There are 2 versions of each script on the desktop: one normal, and one labelled
 When learning to use the robot, make use of this simulation and debug mode before handling the real device!
 
 
-# Controlling the robot from Grasshopper
+## Controlling the robot from Grasshopper
 With your PC connected to the Ubuntu box and with a robot program running (simulated OR real), open the following demo file: [iiwa_gh_demo.gh](https://samwilcock.xyz/Files/iiwa_gh_demo.gh)
 
 On opening, the GH definition is split into three colour regions. Blue is setup/input, red is for reach data, and green is for interacting with the ROS ubuntu PC.
@@ -191,7 +189,7 @@ The reachability data for the arm can also be accessed
 ![image](https://user-images.githubusercontent.com/48917295/214082509-7d4762b0-1c36-4731-8694-3346ecc28310.png)
 
 
-## Accessing ROS services and topics
+### Accessing ROS services and topics
 ROS works on a framework of transmitting data via topics and service calls (have a look at [http://wiki.ros.org/Topics](http://wiki.ros.org/Topics) for more on how it works). In order to access them from Grasshopper (via the COMPAS FAB library) some demonstration nodes have been created.
 
 First is this node which lists all of the possible services and topics currently running on ROS
@@ -219,7 +217,7 @@ Finally the joints can be controlled directly. Note that this bypasses planning,
 ![image](https://user-images.githubusercontent.com/48917295/214085548-39a22aac-9b40-4b2e-a3fa-726fdcaacce3.png)
 
 
-# Turning on the robot and preparing for real control
+## Turning on the robot and preparing for real control
 First switch on the robot by the green button on the back
 
 ![image](https://user-images.githubusercontent.com/48917295/214019821-ed524f92-dc7a-4efa-a78f-23adbd6a168e.png)
@@ -267,6 +265,6 @@ Safety requirements for hand guiding should include:
 Missing any of these safety requirments can end up with black eyes, broken materials, and a robot that needs remastering. Again, if you don't know what you're doing here <b>JUST. DON'T.</b>
 
 
-# Gripper control and settings
+## Gripper control and settings
 The gripper is controllable via services as demonstrated in the Grasshopper demo file. Alternatively, while the robot is switched on but the ROS software is NOT running, the gripper can be accessed from either the host ubuntu PC or the control PC via this link [http://172.31.1.140](http://172.31.1.140). See the Schunk WSG050-110 manual for info.
 The gripper requires "homing" to a known position to calibrate it before moving. This is automatic with the control software, however if you wish to test it through the web interface see the "Motion" tab.
