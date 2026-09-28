@@ -411,3 +411,11 @@ picture > source { display: none; }
   .fade-pending { opacity: 1; }
   .fade-in-visible { animation: none; }
 }
+
+/* Wide screens have no top bar above the page, so the home page can start near the top */
+@media (min-width: 64rem) {
+  .hero { padding: 1rem 0 0; align-items: center; }
+  /* Shorter canvas trims the empty sky above the arm's reach arc */
+  #arm { aspect-ratio: 2 / 1; }
+  .latest { margin-top: 1.5rem; }
+}
