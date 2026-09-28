@@ -46,6 +46,8 @@ author:
   # Used by `jekyll-feed`:
   name:                Sam Wilcock
   email:               sam.wilcock@polimi.it
+  # Used by `jekyll-seo-tag` for the author of every post in the structured data
+  url:                 https://www.samwilcock.xyz/about/
   # # Used by `jekyll-seo-tag`:
 
 # This text will appear in a `<small>` tag in the footer of every page.
