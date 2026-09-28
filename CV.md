@@ -1,6 +1,6 @@
 ---
 layout: page
-title: My CV
+title: CV
 description: Curriculum vitae of Sam Wilcock, research fellow in robotic construction at the Politecnico di Milano.
 ---
 

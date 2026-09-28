@@ -1,8 +1,7 @@
 ---
 layout: post
-title: ROS2 and Moveit2 Demonstration
-description: >
-  A first demonstration of the Moveit2 planning capabilities for a Denso VS068 manipulator
+title: "ROS2 and MoveIt2 demo: motion planning for a Denso VS068 arm"
+description: "A first ROS2 and MoveIt2 demo: a Denso VS068 manipulator exported from SolidWorks to URDF and motion-planned in RViz, with video and setup notes."
 categories: []
 tags: PhD Manipulator ROS Moveit
 sitemap: true

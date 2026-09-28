@@ -1,8 +1,7 @@
 ---
 layout: post
-title: Creating a Reachability Map
-description: >
-  Experimenting with producing graphs of reachability mappings
+title: "Creating a robot reachability map"
+description: "Scoring a manipulator's workspace by testing how many orientations inverse kinematics can reach at each point of a voxel grid, following Zacharias et al. (2007)."
 categories: []
 tags: Manipulator
 sitemap: true

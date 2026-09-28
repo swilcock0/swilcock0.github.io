@@ -1,8 +1,7 @@
 ---
 layout: post
-title: Connecting Grasshopper to ROS for transfer of generatively designed geometries
-description: >
-  Experimentation with sending geometries to ROS from Grasshopper
+title: "Grasshopper to ROS: sending Rhino geometry to a robot arm"
+description: "Sending generatively designed geometry from Rhino and Grasshopper over ROS2, following COMPAS FAB, so a simulated robot arm can plan with MoveIt around it."
 categories: []
 tags: PhD Manipulator ROS Moveit CAD
 sitemap: true

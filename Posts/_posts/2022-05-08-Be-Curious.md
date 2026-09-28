@@ -1,8 +1,7 @@
 ---
 layout: post
-title: Be Curious 2022
-description: >
-  Public engagement event
+title: "Be Curious 2022: AprilTag control of a PincherX robot arm"
+description: "Families at the University of Leeds' Be Curious day steered a PincherX robot arm with an AprilTag paddle and a webcam, through a sweet-powered pick-and-place task."
 categories: []
 tags: Public engagement family robotics
 sitemap: true
