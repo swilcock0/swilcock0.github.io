@@ -6,7 +6,7 @@ description: >
 categories: []
 tags: Research Robotics ROS2 Construction
 sitemap: true
-date: 2026-09-28 11:00:00
+date: 2026-09-14 11:00:00
 image: /assets/img/Posts/2026-09-28-Robot-teams-team.jpg
 comments: true
 ---
