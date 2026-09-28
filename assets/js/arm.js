@@ -1,5 +1,5 @@
 // Planar two-link arm with a vertical tool on the home page. Left alone, it builds a small running-bond brick wall
-// from a pallet, then clears it and starts again. Moving the pointer over it takes over: the tip
+// from a pallet, signs "Sam" beside it, lets the signature fade, then clears the wall and starts again. Moving the pointer over it takes over: the tip
 // follows the pointer within reach. Either way, no link, the tool or a carried brick may enter
 // the floor or a brick: any step that would is refused.
 (function () {
@@ -10,10 +10,18 @@
   var dark = matchMedia('(prefers-color-scheme: dark)');
 
   var FRAME_MS = 1000 / 30 - 4;     // capped at ~30 fps; the slack absorbs rAF jitter on 60/120 Hz screens
-  var IDLE_MS = 2500, TRAIL_MS = 1400, DWELL_MS = 180, DONE_MS = 2200, RESET_MS = 900;
+  var IDLE_MS = 2500, TRAIL_MS = 1400, DWELL_MS = 180, DONE_MS = 500, FADE_MS = 2200, RESET_MS = 900;
+  var PEN_SPEED = 0.65;             // signing speed, reach lengths per second
   var COURSES = [4, 3, 4];          // bricks per course, bottom up; a shorter course is offset half a brick
   var PALLET = [6, 5];              // bricks per pallet column: near column, far column
   var TOTAL = 11;                   // bricks in the wall (= sum of COURSES = sum of PALLET)
+  // The signature: pen strokes of tip positions [x, y, x, y, ...] in reach lengths from the shoulder, y up.
+  // Centre line of the traced signature SVG, sized and placed offline so the whole thing is reachable with
+  // the elbow on the left (ik side +1) while clearing the floor and the finished wall. Last stroke: the dot.
+  var SIG = [
+    [-0.573,0.444,-0.577,0.443,-0.591,0.448,-0.611,0.45,-0.643,0.447,-0.68,0.447,-0.691,0.445,-0.727,0.434,-0.751,0.422,-0.765,0.412,-0.782,0.396,-0.788,0.388,-0.797,0.368,-0.799,0.357,-0.798,0.344,-0.791,0.327,-0.774,0.309,-0.729,0.274,-0.699,0.256,-0.653,0.235,-0.627,0.22,-0.616,0.208,-0.611,0.207,-0.573,0.206,-0.583,0.207,-0.617,0.206,-0.629,0.193,-0.671,0.168,-0.729,0.127,-0.759,0.105,-0.776,0.096,-0.801,0.07,-0.823,0.051,-0.825,0.044,-0.825,0.037,-0.823,0.032,-0.819,0.027,-0.814,0.025,-0.796,0.022,-0.745,0.02,-0.709,0.022,-0.664,0.028,-0.609,0.045,-0.584,0.058,-0.571,0.067,-0.538,0.096,-0.531,0.108,-0.528,0.126,-0.53,0.134,-0.535,0.141,-0.54,0.145,-0.555,0.15,-0.562,0.159,-0.564,0.168,-0.565,0.186,-0.569,0.208,-0.565,0.214,-0.548,0.229,-0.53,0.241,-0.516,0.245,-0.494,0.248,-0.489,0.247,-0.487,0.243,-0.488,0.222,-0.49,0.207,-0.493,0.196,-0.507,0.187,-0.52,0.163,-0.537,0.148,-0.52,0.163,-0.507,0.187,-0.498,0.193,-0.492,0.194,-0.488,0.191,-0.485,0.186,-0.483,0.162,-0.476,0.139,-0.472,0.132,-0.466,0.129,-0.455,0.128,-0.445,0.131,-0.44,0.134,-0.429,0.147,-0.418,0.17,-0.406,0.179,-0.405,0.184,-0.401,0.228,-0.401,0.239,-0.401,0.23,-0.404,0.18,-0.402,0.176,-0.391,0.167,-0.387,0.166,-0.382,0.167,-0.375,0.169,-0.371,0.173,-0.331,0.252,-0.326,0.256,-0.312,0.262,-0.308,0.26,-0.305,0.256,-0.3,0.225,-0.291,0.193,-0.283,0.178,-0.278,0.173,-0.27,0.17,-0.262,0.169,-0.256,0.17,-0.248,0.174,-0.24,0.181,-0.215,0.214,-0.208,0.217,-0.2,0.218,-0.191,0.213,-0.177,0.192,-0.151,0.16,-0.144,0.155,-0.125,0.143],
+    [-0.555,0.413,-0.556,0.409,-0.559,0.406,-0.563,0.406,-0.566,0.409,-0.568,0.413,-0.566,0.416,-0.563,0.419,-0.559,0.419,-0.556,0.416,-0.555,0.413]
+  ];
 
   var W, H, R, L, g, colors;        // canvas size, reach, link length, scene geometry
   var q = null;                     // joint angles [shoulder, elbow], radians, y up
@@ -23,6 +31,9 @@
   // Build state
   var placed = 0, carrying = false, step = 0, wait = 0, phase = 'build', phaseT = 0;
   var escape = null, blocked = 0;   // lift-clear move used when a move stays blocked
+
+  // Signing state: stroke, next point, pen down, and the ink laid so far (a list of px polylines)
+  var si = 0, pi = 0, pen = false, ink = [];
 
   // ---------- geometry ----------
 
@@ -186,8 +197,44 @@
     return { x: g.sx + dx, y: Math.min(t.y, y) };
   }
 
+  function sigPoint(k) { var s = SIG[si]; return { x: g.sx + s[2 * k] * R, y: g.sy - s[2 * k + 1] * R }; }
+  function finishSign(now) { phase = 'signed'; phaseT = now; pen = false; }
+
+  // Pen up: a joint move to the next point (the start of a stroke, or where the pointer interrupted).
+  // Pen down: the tip runs along the stroke at a steady speed, laying ink behind it.
+  function signStep(now, dt) {
+    var p = sigPoint(pi), r;
+    if (!pen) {
+      r = jointStep(ik(p, 1, q), dt, 4.5);
+      blocked = r === 'blocked' ? blocked + 1 : 0;
+      if (r === 'done') { pen = true; ink.push([fk(q).t]); }
+      else if (blocked > 30) finishSign(now);
+      return;
+    }
+    var goal = fk(q).t, left = R * PEN_SPEED * dt / 1000, k = pi, n = SIG[si].length / 2, d;
+    while ((d = Math.hypot(p.x - goal.x, p.y - goal.y)) <= left) {
+      left -= d; goal = p;
+      if (++k >= n) break;
+      p = sigPoint(k);
+    }
+    if (k < n && d > left) goal = { x: goal.x + (p.x - goal.x) * left / d, y: goal.y + (p.y - goal.y) * left / d };
+    var a = ik(goal, 1, q);
+    if (collides(a) && !collides(q)) { if (++blocked > 30) finishSign(now); return; }
+    blocked = 0; q = a; pi = k;
+    ink[ink.length - 1].push(goal);
+    if (pi >= n) {
+      pi = 0; pen = false;
+      if (++si >= SIG.length) finishSign(now);
+    }
+  }
+
   function scriptStep(now, dt) {
-    if (phase === 'done') { if (now - phaseT > DONE_MS) { phase = 'reset'; phaseT = now; } return; }
+    if (phase === 'done') {
+      if (now - phaseT > DONE_MS) { phase = 'sign'; si = 0; pi = 0; pen = false; ink = []; }
+      return;
+    }
+    if (phase === 'sign') { signStep(now, dt); return; }
+    if (phase === 'signed') { if (now - phaseT > FADE_MS) { phase = 'reset'; phaseT = now; ink = []; } return; }
     if (phase === 'reset') {
       if (now - phaseT > RESET_MS) { phase = 'build'; placed = 0; step = 0; }
       return;
@@ -222,6 +269,7 @@
   // When the pointer lets go: lift clear, then carry on from the nearest safe waypoint
   function resume() {
     wait = 0; blocked = 0;
+    if (phase === 'sign') { pen = false; return; }  // swing back to where the pen left off
     if (phase !== 'build') return;
     if (placed >= TOTAL) { phase = 'done'; phaseT = performance.now(); step = 0; return; }
     step = carrying ? 4 : 0; escape = liftClear();
@@ -277,6 +325,7 @@
     for (i = placed + (carrying ? 1 : 0); i < TOTAL; i++) drawBrick(palletBrick(i), 1);
     if (phase === 'reset') for (i = 0; i < placed; i++) drawBrick(palletBrick(i), f);
 
+    drawInk(now);
     drawTrail(now);
     if (target && now - lastPointer < IDLE_MS) drawTarget(target);
     drawArm();
@@ -289,6 +338,20 @@
       ctx.globalAlpha = Math.max(0, 1 - (now - trail[i].t) / TRAIL_MS) * 0.9;
       ctx.beginPath(); ctx.moveTo(trail[i - 1].x, trail[i - 1].y); ctx.lineTo(trail[i].x, trail[i].y); ctx.stroke();
     }
+    ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+  }
+
+  // The signature stays whole while it is written, then fades out over the pause
+  function drawInk(now) {
+    if (!ink.length) return;
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = colors.robot; ctx.lineWidth = 3;
+    if (isDark()) { ctx.shadowColor = colors.robot; ctx.shadowBlur = 10; }
+    ctx.globalAlpha = phase === 'signed' ? Math.max(0, 1 - (now - phaseT) / FADE_MS) * 0.9 : 0.9;
+    ink.forEach(function (s) {
+      ctx.beginPath(); ctx.moveTo(s[0].x, s[0].y);
+      for (var i = 1; i < s.length; i++) ctx.lineTo(s[i].x, s[i].y);
+      ctx.stroke();
+    });
     ctx.globalAlpha = 1; ctx.shadowBlur = 0;
   }
 
@@ -340,7 +403,7 @@
     running = false;
     if (!visible || still.matches) return;
     if (!g && !layout()) { schedule(); return; }
-    if (!q || !q.every(isFinite)) { q = home(); placed = 0; carrying = false; step = 0; phase = 'build'; escape = null; }
+    if (!q || !q.every(isFinite)) { q = home(); placed = 0; carrying = false; step = 0; phase = 'build'; escape = null; ink = []; }
     if (now - last < FRAME_MS) { schedule(); return; }
     var dt = Math.min(50, now - last); last = now;
     if (target && now - lastPointer < IDLE_MS) pointerStep(dt);
@@ -366,7 +429,8 @@
 
   function resize() {
     if (!layout()) return;
-    trail = [];
+    trail = []; ink = [];                  // both are in px, so a new size would misplace them
+    if (phase === 'sign') pen = false;
     if (!q) q = home();
     if (still.matches) drawStill();
     else if (!started) draw(performance.now()); // resizing clears the canvas; redraw until the loop runs
