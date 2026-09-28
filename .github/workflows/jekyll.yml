@@ -24,11 +24,37 @@ jobs:
         with:
           fetch-depth: 0 # jekyll-last-modified-at reads git history
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image tools
+        run: pip install pillow pillow-avif-plugin
+
+      # Restore previously converted images; the script only re-encodes images whose hash changed
+      - name: Cache converted images
+        uses: actions/cache@v4
+        with:
+          path: |
+            assets/**/*.webp
+            assets/**/*.avif
+            assets/**/*_l.png
+            assets/.conversion-manifest.json
+          key: images-${{ hashFiles('assets/**/*.png', 'assets/**/*.jpg', 'assets/**/*.jpeg', 'scripts/imageConversion.py') }}
+          restore-keys: images-
+
+      - name: Make AVIF/WebP and mobile image variants
+        run: python scripts/imageConversion.py
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
           bundler-cache: true
+
+      - name: Check responsive image plugin
+        run: bundle exec ruby scripts/test_responsive_images.rb
 
       - name: Build site with Jekyll
         run: bundle exec jekyll build --trace

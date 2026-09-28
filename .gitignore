@@ -51,3 +51,9 @@ _zip
 
 /assets/js/*hydejack-*
 /_sass/*/__*__/*
+
+# Generated in CI by scripts/imageConversion.py
+/assets/**/*.avif
+/assets/**/*.webp
+/assets/**/*_l.png
+/assets/.conversion-manifest.json

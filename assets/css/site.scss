@@ -355,3 +355,19 @@ pre { background: var(--code-bg); padding: 1rem 1.25rem; overflow-x: auto; line-
   .pager { grid-template-columns: 1fr; }
   .pager .newer { grid-column: 1; text-align: left; }
 }
+
+// <picture> wrappers come from _plugins/responsive_images.rb; lay out as if the <img> were bare
+picture { display: contents; }
+picture > source { display: none; }
+
+// Images below the fold wait here until scripts/reveal.js fades them in as they scroll into view
+.fade-pending { opacity: 0; }
+.fade-in-visible { animation: fade-in .8s cubic-bezier(.33, 0, .66, 1) forwards; }
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-pending { opacity: 1; }
+  .fade-in-visible { animation: none; }
+}
