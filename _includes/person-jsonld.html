@@ -9,7 +9,6 @@
     "image": {{ site.url | append: me.picture.path | jsonify }},
     "jobTitle": "Research Fellow",
     "description": {{ site.description | strip | jsonify }},
-    "email": {{ me.email | prepend: 'mailto:' | jsonify }},
     "affiliation": {
       "@type": "CollegeOrUniversity",
       "name": "Politecnico di Milano",

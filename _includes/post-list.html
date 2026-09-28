@@ -9,13 +9,11 @@
       {% assign thumb = post.image %}
       {% unless thumb %}{% assign parts = post.content | split: '<img' %}{% if parts.size > 1 %}{% assign thumb = parts[1] | split: 'src="' | slice: 1 | first | split: '"' | first %}{% endif %}{% endunless %}
       {% if thumb %}{% assign c0 = thumb | slice: 0 %}{% unless thumb contains '://' or c0 == '/' %}{% assign thumb = thumb | prepend: '/' %}{% endunless %}{% endif %}
-      <li class="entry{% if thumb %} has-img{% endif %}">
-        <div class="entry-text">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b' }}</time>
-          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-          {% assign d = post.description | strip %}{% if d != '' %}<p>{{ d | strip_html }}</p>{% endif %}
-        </div>
+      <li class="entry">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b' }}</time>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
         {% if thumb %}<a class="entry-img" href="{{ post.url }}" tabindex="-1" aria-hidden="true"><img src="{{ thumb }}" alt="" loading="lazy"></a>{% endif %}
+        {% assign d = post.description | strip %}{% if d != '' %}<p>{{ d | strip_html }}</p>{% endif %}
       </li>
       {% endfor %}
     </ol>

@@ -75,4 +75,4 @@ We tiled a flat plane, a hemispherical dome and a designed shell from the same k
 
 The tilings still leave some holes, either where the candidate pool never offered a panel or where a corner is sharper than the kit's smallest angle. Enriching the kit with more acute panels, adding triangles or quads for saddle-shaped regions, and letting the optimiser choose panel types more freely are the next steps. The other big one is structural: load-testing the locked joint and building at full scale to measure real assembly tolerances and how much effort a reconfiguration actually takes.
 
-If you're working on reusable or demountable structures and want to compare notes, [get in touch](mailto:sam.wilcock@polimi.it).
+If you're working on reusable or demountable structures and want to compare notes, {% include email-link.html text='get in touch' %}.

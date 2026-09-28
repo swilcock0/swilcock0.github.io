@@ -7,7 +7,7 @@ layout: default
     <img class="portrait" src="{{ me.picture.path }}" alt="Portrait of {{ me.name }}" width="160" height="160">
     <div>
       <h1>{{ me.name }}</h1>
-      <p class="meta"><a href="mailto:{{ me.email }}">{{ me.email }}</a><a href="/publications/">Publications</a><a href="/CV/">CV</a></p>
+      <p class="meta">{% include email-link.html %}<a href="/publications/">Publications</a><a href="/CV/">CV</a></p>
     </div>
   </header>
   <div class="prose">

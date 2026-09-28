@@ -1,0 +1,1 @@
+{% comment %} Address stored reversed; scripts in my-scripts.html turn it into a mailto link (and the text, if none given) {% endcomment %}<a class="email" data-e="{{ site.data.authors.Sam.email | split: '' | reverse | join: '' }}">{{ include.text }}</a>

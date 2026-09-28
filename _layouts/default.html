@@ -5,27 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <script>document.documentElement.classList.add('js'); try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
-  <meta name="theme-color" content="#EDF0EA" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0E1A2C" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#47183B">
   {% seo %}
   {% feed_meta %}
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400..700;1,400..700&family=Roboto+Slab:wght@400..800&display=swap">
   <link rel="stylesheet" href="/assets/css/site.css">
   {% include my-head.html %}
 </head>
 <body class="l-{{ page.layout }}">
   <a class="skip" href="#main">Skip to content</a>
   <header class="bar">
-    {% unless page.layout == 'home' %}<a class="bar-name" href="/">{{ site.title }}</a>{% endunless %}
+    <a class="bar-name" href="/"><img class="bar-logo" src="/assets/img/logo.png" alt="" width="640" height="640">{{ site.title }}</a>
+    <p class="bar-tagline">{{ site.tagline }}</p>
     <nav id="site-nav" aria-label="Main">
       <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
       <a href="/publications/"{% if page.url == '/publications/' %} aria-current="page"{% endif %}>Publications</a>
       <a href="/posts/"{% if page.url == '/posts/' %} aria-current="page"{% endif %}>Posts</a>
       <a href="/CV/"{% if page.url == '/CV/' %} aria-current="page"{% endif %}>CV</a>
     </nav>
+    <p class="bar-social">{% include social-links.html icons=true %}</p>
     <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
       <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
     </button>
@@ -39,7 +40,7 @@
   </main>
 
   <footer class="foot">
-    <p>{% for link in site.data.authors.Sam.social %}{% assign key = link[0] %}{% assign s = site.data.social[key] %}<a href="{% if link[1] contains '://' %}{{ link[1] }}{% else %}{{ s.prepend }}{{ link[1] }}{{ s.append }}{% endif %}">{% if key == 'uoleeds' %}Arch//Struct Lab{% else %}{{ s.name }}{% endif %}</a>{% endfor %}</p>
+    <p>{% include social-links.html %}{% include email-link.html text='Email' %}</p>
     <p>© 2020–{{ site.time | date: '%Y' }} {{ site.copyright }}</p>
   </footer>
 

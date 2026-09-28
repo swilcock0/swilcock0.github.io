@@ -60,4 +60,13 @@
   });
 </script>
 
+<!-- Email link: the address sits reversed in data-e so scrapers reading the HTML don't find it -->
+<script>
+  document.querySelectorAll('a.email').forEach(function (a) {
+    var e = a.dataset.e.split('').reverse().join('');
+    a.href = 'mailto:' + e;
+    if (!a.textContent) a.textContent = e;
+  });
+</script>
+
 <script src="/scripts/imageCheck.js"></script>
