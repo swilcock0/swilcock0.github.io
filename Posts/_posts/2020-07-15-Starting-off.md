@@ -6,6 +6,7 @@ description: >
 categories: []
 tags: Example test first
 sitemap: false
+noindex: true
 date: 2020-07-15 13:00:00
 comments: true
 ---

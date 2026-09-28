@@ -7,7 +7,7 @@ categories: []
 tags: Robotics Cyberwave ROS2 Lidar
 sitemap: true
 date: 2026-04-15 14:40:00
-image: /assets/img/Posts/2026-04-15-Cyberwave-Lidar-1.png
+image: /assets/img/Posts/2026-04-15-UGV-poster.jpg
 header-img: assets/img/Posts/2026-04-15-Cyberwave-Lidar-1.png
 comments: true
 ---

@@ -7,7 +7,7 @@ categories: []
 tags: Robot control guide
 sitemap: true
 date: 2023-01-23 01:00:00
-image: /assets/img/Posts/2023-01-23-Button.jpg
+image: /assets/img/Posts/2023-01-23-Kuka-iiwa-RViz.jpg
 header-img: assets/img/Posts/2023-01-23-Button.jpg
 redirect_from:
   - /g02a
