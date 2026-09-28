@@ -1,0 +1,32 @@
+{% comment %} Who the site is about: on the home page as a Person, on /about/ as the ProfilePage for that Person {% endcomment %}
+{% assign me = site.data.authors.Sam %}
+{% capture same_as %}{% for link in me.social %}{% assign key = link[0] %}{% assign s = site.data.social[key] %}{% if link[1] contains '://' %}{{ link[1] }}{% else %}{{ s.prepend }}{{ link[1] }}{{ s.append }}{% endif %}|{% endfor %}https://www.wikidata.org/wiki/Q141561489{% endcapture %}
+{% capture person %}{
+    "@type": "Person",
+    "@id": {{ site.url | append: '/#person' | jsonify }},
+    "name": {{ me.name | jsonify }},
+    "url": {{ site.url | append: '/' | jsonify }},
+    "image": {{ site.url | append: me.picture.path | jsonify }},
+    "jobTitle": "Research Fellow",
+    "description": {{ site.description | strip | jsonify }},
+    "email": {{ me.email | prepend: 'mailto:' | jsonify }},
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Politecnico di Milano",
+      "department": { "@type": "Organization", "name": "Arch//Struct Lab", "url": "https://archstructlab.com" }
+    },
+    "worksFor": { "@type": "CollegeOrUniversity", "name": "Politecnico di Milano", "url": "https://www.polimi.it" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Leeds" },
+    "knowsAbout": ["Robotic construction", "Digital fabrication", "Computational design", "Architecture", "Robotics"],
+    "sameAs": {{ same_as | split: '|' | jsonify }}
+  }{% endcapture %}
+<script type="application/ld+json">
+{% if page.layout == 'about' %}{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": {{ site.url | append: page.url | jsonify }},
+  "mainEntity": {{ person }}
+}{% else %}{
+  "@context": "https://schema.org",
+  {{ person | remove_first: '{' | strip }}{% endif %}
+</script>

@@ -2,7 +2,8 @@
 layout: post
 title: "Lugano swift bike ride route"
 categories: []
-sitemap: true
+sitemap: false
+noindex: true
 date: 2025-10-23 01:00:00
 
 comments: false

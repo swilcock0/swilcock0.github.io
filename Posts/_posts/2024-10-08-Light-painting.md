@@ -9,7 +9,7 @@ sitemap: true
 date: 2024-10-08 01:00:00
 # redirect_from:
 #   - /BeCurious
-img: assets/img/Posts/2024-10-08-Light-painting-1.png
+image: /assets/img/Posts/2024-10-08-Light-painting-1.png
 header-img: assets/img/Posts/2024-10-08-Light-painting-1.png
 comments: true
 ---

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Network visualisation
-description: >
-  
+description: An interactive network graph of robotics topics, built with Retina.
 categories: []
 tags: Retina
 sitemap: true

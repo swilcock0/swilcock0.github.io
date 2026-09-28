@@ -9,7 +9,7 @@ sitemap: true
 date: 2022-03-22 01:00:00
 redirect_from:
   - /SummerSchool
-img: assets/img/Posts/2022-03-22-Echo.jpg
+image: /assets/img/Posts/2022-03-22-Echo.jpg
 header-img: assets/img/Posts/2022-03-22-Echo.jpg
 comments: false
 ---

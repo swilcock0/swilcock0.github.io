@@ -5,6 +5,10 @@ layout: list
 # The title of the tag's page.
 title: Posts
 
+# The search page was removed; it still ranks, so send it here
+redirect_from:
+  - /search/
+
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
 slug: posts
 

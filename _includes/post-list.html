@@ -6,7 +6,7 @@
     <ol class="posts">
       {% for post in year.items %}
       {% comment %} Thumbnail: front-matter img, else the first <img> in the post {% endcomment %}
-      {% assign thumb = post.img %}
+      {% assign thumb = post.image %}
       {% unless thumb %}{% assign parts = post.content | split: '<img' %}{% if parts.size > 1 %}{% assign thumb = parts[1] | split: 'src="' | slice: 1 | first | split: '"' | first %}{% endif %}{% endunless %}
       {% if thumb %}{% assign c0 = thumb | slice: 0 %}{% unless thumb contains '://' or c0 == '/' %}{% assign thumb = thumb | prepend: '/' %}{% endunless %}{% endif %}
       <li class="entry{% if thumb %} has-img{% endif %}">

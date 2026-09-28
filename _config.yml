@@ -4,7 +4,7 @@
 # IMPORTANT: Set the URL of your site.
 # Set to https://<username>.github.io when hosting on GitHub Pages
 # (unless you are using a custom domain).
-url:                   http://samwilcock.xyz
+url:                   https://www.samwilcock.xyz
 
 # IMPORTANT: Set The "base URL" of your site.
 # When your site sits in a subdirectory, set to /<name of directory>
@@ -28,13 +28,13 @@ title:                 Sam Wilcock
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  A site discussing the use of robots in construction and architecture. Also a place for me to unload various programming garbage!
+  Sam Wilcock, research fellow at the Politecnico di Milano: robotic construction, digital fabrication and computational design for architecture.
 
 # A shorter description for the sidebar.
 tagline:               Robotic construction and digital fabrication
 
 # A list of keywords for your blog
-keywords:              [robotics, engineering, science, mathematics, rhino3d, architecture, generative, CAD, Leeds, civil]
+keywords:              [robotics, engineering, science, mathematics, rhino3d, architecture, generative, CAD, Politecnico di Milano, construction]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -85,6 +85,30 @@ defaults:
     values:
       sitemap:         false
   
+  - scope:
+      type:            pages
+    values:
+      image:           /assets/img/me.jpg
+
+  # Personal documents and utility pages: reachable by direct link, not listed for search
+  - scope:
+      path:            "Files/BeCurious.pdf"
+    values:
+      sitemap:         false
+  - scope:
+      path:            "Files/Certificate_C-8XEH2M3UZ6.pdf"
+    values:
+      sitemap:         false
+  - scope:
+      path:            "Files/Sam Wilcock - Fellowship.pdf"
+    values:
+      sitemap:         false
+
+  - scope:
+      path:            "download.html"
+    values:
+      sitemap:         false
+
   - scope:
       path:            "googledae5203f89959b84.html"
     values:
@@ -145,7 +169,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Start.bat
-  - webp.js
+  - Gemfile.lockBAK
+  - samwilcock.xyz-audit
   - README.md
   - netlify.toml
 include:

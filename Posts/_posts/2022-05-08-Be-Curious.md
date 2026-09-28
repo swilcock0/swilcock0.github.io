@@ -9,7 +9,7 @@ sitemap: true
 date: 2022-05-08 01:00:00
 redirect_from:
   - /BeCurious
-img: assets/img/Posts/2022-05-08-BeCurious.jpg
+image: /assets/img/Posts/2022-05-08-BeCurious.jpg
 header-img: assets/img/Posts/2022-05-08-BeCurious.jpg
 comments: true
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Whispers from a summer nest - Milano 2024
+description: An international summer workshop in Milan on building with reused materials.
 categories: [ ]
 tags: Teaching
 sitemap: true

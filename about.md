@@ -1,10 +1,12 @@
 ---
 layout: about
 title: About
-image: /assets/img/blog/hydejack-9.jpg
+image: /assets/img/me.jpg
 description: >
   Sam Wilcock is a research fellow in the Department of Architecture, Built Environment and Construction at the Politecnico di Milano, using robots to build structures.
 hide_description: true
+seo:
+  type: WebPage
 redirect_from:
   - /download/
 date: 2025-04-01

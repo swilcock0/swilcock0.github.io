@@ -7,7 +7,7 @@ categories: []
 tags: PhD Manipulator ROS Moveit CAD
 sitemap: true
 date: 2020-12-03 08:00:00
-img: assets/img/Posts/2020-12-03-GH-Ros.jpg
+image: /assets/img/Posts/2020-12-03-GH-Ros.jpg
 header-img: assets/img/Posts/2020-12-03-GH-Ros.jpg
 related-posts:
   Posts/_posts/2020-11-17-ROS2-Moveit-Demo.md
