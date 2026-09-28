@@ -371,8 +371,10 @@
 
   addEventListener('pointermove', function (ev) {
     var r = canvas.getBoundingClientRect();
-    if (ev.clientY > r.bottom + 40 || ev.clientY < r.top - 200) return;
-    target = clampReach({ x: ev.clientX - r.left, y: ev.clientY - r.top });
+    var p = { x: ev.clientX - r.left, y: ev.clientY - r.top };
+    // Only a pointer inside the drawn reach arc takes over; leaving it hands back to the wall at once
+    if (!g || Math.hypot(p.x - g.sx, p.y - g.sy) > R || p.y > g.floor) { lastPointer = -Infinity; return; }
+    target = clampReach(p);
     lastPointer = performance.now();
   }, { passive: true });
 
