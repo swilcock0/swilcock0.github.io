@@ -9,6 +9,7 @@
   var still = matchMedia('(prefers-reduced-motion: reduce)');
   var dark = matchMedia('(prefers-color-scheme: dark)');
 
+  var FRAME_MS = 1000 / 30 - 4;     // capped at ~30 fps; the slack absorbs rAF jitter on 60/120 Hz screens
   var IDLE_MS = 2500, TRAIL_MS = 1400, DWELL_MS = 180, DONE_MS = 2200, RESET_MS = 900;
   var COURSES = [4, 3, 4];          // bricks per course, bottom up; a shorter course is offset half a brick
   var PALLET = [6, 5];              // bricks per pallet column: near column, far column
@@ -340,6 +341,7 @@
     if (!visible || still.matches) return;
     if (!g && !layout()) { schedule(); return; }
     if (!q || !q.every(isFinite)) { q = home(); placed = 0; carrying = false; step = 0; phase = 'build'; escape = null; }
+    if (now - last < FRAME_MS) { schedule(); return; }
     var dt = Math.min(50, now - last); last = now;
     if (target && now - lastPointer < IDLE_MS) pointerStep(dt);
     else {
