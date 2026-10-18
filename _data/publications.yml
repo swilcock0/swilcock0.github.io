@@ -27,6 +27,14 @@
   doi: 10.1007/s41693-026-00183-3
   pdf: true
   bib: true
+- id: 26-digitising-waste-circular-construction
+  year: 2026
+  title: 'Digitising Waste: Teaching Circular Construction Through Computational Workflows and Digital Fabrication'
+  authors: Ornella Iuorio, Sam Wilcock and Bruno Figueiredo
+  venue: ReShaping the Built Environment through Sustainability and Circularity (ReSBE 2026)
+  doi: 10.1007/978-3-032-35104-3_146
+  pdf: true
+  bib: true
 - year: 2026
   title: Privacy-Preserving Occupancy Estimation from IEQ and BIM for Demand-Controlled Building Operation
   authors: Ivan Smirnov, Sam Wilcock, Liubov Chechulina, Ornella Iuorio, Tiziana Poli and Fulvio Re Cecconi
@@ -44,11 +52,6 @@
   venue: Robotics in Architecture
   note: In press
   posts: [/posts/2026-09-14-Heterogeneous-robot-teams/]
-- year: 2026
-  title: 'Digitizing waste: teaching circular construction through computational workflows and digital fabrication'
-  authors: Ornella Iuorio, Sam Wilcock and Bruno Figueiredo
-  venue: ReSBE26
-  note: In press
 - id: 25-tree-identification-co2
   year: 2025
   title: Neural Network Tree Identification from Street View Images to Estimate CO2 Sequestration
