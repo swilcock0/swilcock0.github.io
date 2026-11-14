@@ -1,0 +1,9 @@
+---
+layout: null
+sitemap: false
+---
+# All crawlers welcome, including search and AI crawlers. See also {{ site.url }}/llms.txt
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.url }}/sitemap.xml

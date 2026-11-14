@@ -6,7 +6,13 @@
   <meta name="color-scheme" content="light dark">
   <script>document.documentElement.classList.add('js'); try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
   <meta name="theme-color" content="#47183B">
-  {% seo %}
+  {%- comment -%} Point jekyll-seo-tag's author and publisher at the Person in person-jsonld.html {%- endcomment -%}
+  {%- capture seo_tag %}{% seo %}{% endcapture -%}
+  {%- capture seo_author %}"author":{"@type":"Person","name":{{ site.author.name | jsonify }},"url":{{ site.author.url | jsonify }}}{% endcapture -%}
+  {%- capture seo_publisher %}"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":{{ site.url | append: site.logo | jsonify }}},"name":{{ site.title | jsonify }}}{% endcapture -%}
+  {%- capture my_author %}"author":{"@type":"Person","@id":{{ site.url | append: '/#person' | jsonify }},"name":{{ site.author.name | jsonify }},"url":{{ site.author.url | jsonify }}}{% endcapture -%}
+  {%- capture my_publisher %}"publisher":{"@type":"Person","@id":{{ site.url | append: '/#person' | jsonify }},"name":{{ site.author.name | jsonify }},"url":{{ site.url | append: '/' | jsonify }}}{% endcapture %}
+  {{ seo_tag | replace: seo_author, my_author | replace: seo_publisher, my_publisher }}
   {% feed_meta %}
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
