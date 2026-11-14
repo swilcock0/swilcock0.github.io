@@ -23,7 +23,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NEW_SITEMAP = os.path.join(ROOT, "_site", "sitemap.xml")
 NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 # Built from _data/ (publications, authors) and Files/ (CV), so their own lastmod doesn't move
-DATA_PAGES = ["/", "/about/", "/publications/", "/CV/", "/llms.txt"]
+DATA_PAGES = ["/", "/about/", "/publications/", "/CV/"]
+# Not in the sitemap, and rebuilt from every post and publication, so sent with any other change
+LLMS_FILES = ["/llms.txt", "/llms-full.txt"]
 
 
 def lastmods(xml):
@@ -83,6 +85,8 @@ def main():
             if any(p.startswith(("_data/", "Files/")) for p in changed):
                 urls += [SITE + p for p in DATA_PAGES if SITE + p not in urls]
 
+    if urls:
+        urls += [SITE + p for p in LLMS_FILES if SITE + p not in urls]
     print(f"{len(urls)} URL(s) to submit:", *urls, sep="\n  ")
     payload = {"host": HOST, "key": KEY, "keyLocation": f"{SITE}/{KEY}.txt", "urlList": urls}
     with open(args.out, "w") as f:

@@ -1,0 +1,20 @@
+---
+layout: null
+sitemap: false
+# llms.txt with the full text of every post; _plugins/llms_markdown.rb cleans each post's source
+---
+# {{ site.title }}
+
+{% include llms-profile.txt %}
+
+## Posts
+{% for post in site.posts %}{% unless post.sitemap == false %}
+### {{ post.title }}
+
+URL: {{ site.url }}{{ post.url }}
+Published: {{ post.date | date: "%Y-%m-%d" }}{% assign d = post.description | strip %}{% if d != '' %}
+Summary: {{ d | strip_html | strip_newlines }}{% endif %}{% assign related = site.data.publications | where_exp: 'p', 'p.posts contains post.url' %}{% for p in related %}
+Related publication: {{ p.title }} ({{ p.venue }}, {{ p.year }}){% endfor %}
+
+{{ post.path | llms_markdown }}
+{% endunless %}{% endfor %}
