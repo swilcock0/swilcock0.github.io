@@ -1,23 +1,48 @@
 ---
 layout: null
 sitemap: false
+# The introduction and Highlights are curated by hand (bio follows _data/authors.yml and the
+# AS_Lab people page); Publications and Posts are generated at build time.
 ---
 # {{ site.title }}
 
-> {{ site.description | strip }}
+> Dr Sam Wilcock is a Research Fellow in AS_Lab at the Politecnico di Milano, working on robotic construction, digital fabrication and computational design for architecture.
 
-Research fellow in the Arch // Struct Lab (https://archstructlab.com), Politecnico di Milano. PhD, University of Leeds.
-ORCID: https://orcid.org/0000-0002-8353-6219
+Last updated: {{ site.time | date: "%Y-%m-%d" }}
+
+Sam Wilcock is the roboticist and computational designer of AS_Lab (https://archstructlab.com, formerly the Arch // Struct Lab), the Thin Architecture and Structures Lab led by Professor Ornella Iuorio in the Department of Architecture, Built Environment and Construction Engineering (DABC) at Politecnico di Milano, Milan, Italy. He leads the lab's work on robotic assembly and construction automation.
+
+His research embeds physical fabrication constraints directly into the design process, so that what gets designed is something a robot can actually build. He develops workflows that take complex and curved geometry from the CAD model to the assembled structure with as little manual intervention as possible.
+
+Core topics: robotic assembly of discrete timber, panel and shell structures; perception for robotic assembly (multi-camera tracking that fuses fiducial markers with point clouds); heterogeneous robot teams working in cluttered construction environments; reconfigurable panel kits with adjustable 3D-printed joints; laser-cut construction systems; kinetic sculpture; aerial (drone) construction and surface treatment; circular construction and teaching design with reused materials.
+
+Education: PhD, School of Civil Engineering, University of Leeds, UK, thesis "Efficient Robotic Assembly of Shell Structures" (2025, https://etheses.whiterose.ac.uk/id/eprint/36320/); MSc (Eng) in Mechatronics and Robotics; BSc in Mechanical Engineering.
+
+Skills: programming robots with ROS 2, C++ and Python; parametric modelling in Rhino and Grasshopper; mechatronic design.
+
+Teaching: Fellow of the Higher Education Academy (FHEA), with experience developing and delivering courses in digital design and fabrication at Politecnico di Milano and the University of Leeds.
+
+Profiles: ORCID https://orcid.org/0000-0002-8353-6219 · Google Scholar https://scholar.google.com/citations?user=R1dbEL4AAAAJ · Wikidata https://www.wikidata.org/wiki/Q141561489 · GitHub https://github.com/swilcock0 · LinkedIn https://www.linkedin.com/in/samwilcock/ · Lab profile https://archstructlab.com/people/sam-wilcock
 
 ## Pages
 
-- [About]({{ site.url }}/about/): background, research and teaching
-- [Publications]({{ site.url }}/publications/): papers, chapters, thesis and patent
+- [About]({{ site.url }}/about/): biography, research, teaching and contact
+- [Publications]({{ site.url }}/publications/): papers, chapters, PhD thesis and patent
 - [CV]({{ site.url }}/CV/): curriculum vitae (PDF)
+- [Posts]({{ site.url }}/posts/): project write-ups, tutorials and events
+
+## Highlights
+
+- [Set in Transition, Venice Architecture Biennale 2023](https://archstructlab.com/news/Biennale): robotically assembled, dry-stack, self-standing shell structure by Ornella Iuorio, Sam Wilcock and Mehmet Dogar, shown at the Students as Researchers collateral event
+- [Kinetic Harlequin, Milan Design Week 2025]({{ site.url }}/posts/2025-04-09-Arlecchino/): robotically actuated kinetic sculpture by Sam Wilcock and Ornella Iuorio, shown at Fabbrica del Vapore for Metamorphosis
+- [W.AMCA 2024]({{ site.url }}/posts/2024-10-09-WAMCA-24/): Workshop on Additive Manufacturing and Construction Automation hosted at Politecnico di Milano with the University of Minho and TU Darmstadt, organised by Sam Wilcock; it led to the open-access book AM Perspectives 2
+- [Whispers from a summer nest, Milan 2024]({{ site.url }}/posts/2024-07-26-Summer-nest/): international design-and-build workshop on reused materials, co-organised with the University of Antwerp and ETH Zürich
+- [Drone spraying](https://archstructlab.com/projects/drone-spraying): mechatronic design, manufacture and control of a drone spraying system for cleaning and surface treatment of buildings at height, with industry partner FlyNow
+- [Leeds International Summer School 2022]({{ site.url }}/posts/2022-03-22-Summer-school/): two-week summer school in digital design and fabrication at the University of Leeds
 
 ## Publications
-{% for p in site.data.publications %}{% capture href %}{% include pub-url.html p=p %}{% endcapture %}
-- {% if href != "" %}[{{ p.title }}]({{ href | strip }}){% else %}{{ p.title }}{% endif %}: {{ p.authors }}. {{ p.venue }}, {{ p.year }}.{% endfor %}
+{% for p in site.data.publications %}{% capture href %}{% include pub-url.html p=p %}{% endcapture %}{% assign href = href | strip %}{% if href == "" and p.posts %}{% assign href = site.url | append: p.posts[0] %}{% endif %}
+- {% if href != "" %}[{{ p.title }}]({{ href }}){% else %}{{ p.title }}{% endif %}: {{ p.authors }}. {{ p.venue }}, {{ p.year }}{% if p.note %} ({{ p.note }}){% endif %}.{% endfor %}
 
 ## Posts
 {% for post in site.posts %}{% unless post.sitemap == false %}
