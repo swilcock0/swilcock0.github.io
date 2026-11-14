@@ -4,7 +4,7 @@ title: CV
 description: Curriculum vitae of Sam Wilcock, research fellow in robotic construction at the Politecnico di Milano.
 ---
 
-I'm a research fellow in the [Arch // Struct Lab](https://archstructlab.com) at the Politecnico di Milano, working on robotic construction, digital fabrication and computational design for architecture. I did my PhD, *Efficient Robotic Assembly of Shell Structures*, at the School of Civil Engineering, University of Leeds, and I'm a Fellow of the Higher Education Academy. My papers are listed on the [publications](/publications/) page.
+I'm a research fellow in [AS_Lab](https://archstructlab.com) at the Politecnico di Milano, working on robotic construction, digital fabrication and computational design for architecture. I did my PhD, *Efficient Robotic Assembly of Shell Structures*, at the School of Civil Engineering, University of Leeds, and I'm a Fellow of the Higher Education Academy. My papers are listed on the [publications](/publications/) page.
 
 [Download the CV (PDF)](/Files/CV.pdf)
 

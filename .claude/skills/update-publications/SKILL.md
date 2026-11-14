@@ -1,6 +1,6 @@
 ---
 name: update-publications
-description: Sync the /publications/ page (_data/publications.yml) with Files/CV.pdf and the Arch // Struct Lab site. Use when the CV has been updated (a "Update CV from <sha>" commit, or the user says the CV changed), when a paper is accepted, published or moves out of "In press", or when the user asks to check the publications list for anything missing.
+description: Sync the /publications/ page (_data/publications.yml) with Files/CV.pdf and the AS_Lab site. Use when the CV has been updated (a "Update CV from <sha>" commit, or the user says the CV changed), when a paper is accepted, published or moves out of "In press", or when the user asks to check the publications list for anything missing.
 ---
 
 # Update publications
