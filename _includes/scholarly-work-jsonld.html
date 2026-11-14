@@ -1,0 +1,13 @@
+{%- comment -%} One publication (param p) as a schema.org work, with Sam linked to the Person on the home page {%- endcomment -%}
+{%- assign me = site.url | append: '/#person' -%}
+{%- capture href %}{% include pub-url.html p=include.p %}{% endcapture -%}
+{%- assign names = include.p.authors | replace: ' and ', ', ' | split: ', ' -%}
+{
+      "@type": "{% if include.p.note contains 'thesis' %}Thesis{% else %}ScholarlyArticle{% endif %}",
+      "name": {{ include.p.title | jsonify }},
+      "datePublished": "{{ include.p.year }}",
+      "author": [{% for n in names %}{% assign n = n | strip %}{% if n == 'Sam Wilcock' %}{ "@id": {{ me | jsonify }} }{% else %}{ "@type": "Person", "name": {{ n | jsonify }} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      "isPartOf": {{ include.p.venue | jsonify }}{% if href != "" %},
+      "url": {{ href | strip | jsonify }}{% endif %}{% if include.p.doi %},
+      "sameAs": {{ include.p.doi | prepend: 'https://doi.org/' | jsonify }}{% endif %}
+    }

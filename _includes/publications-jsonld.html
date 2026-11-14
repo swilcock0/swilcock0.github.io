@@ -1,21 +1,12 @@
 {% comment %} The publications list as schema.org works, with Sam linked to the Person on the home page {% endcomment %}
-{% assign me = site.url | append: '/#person' %}
 {% assign works = site.data.publications | where_exp: 'p', 'p.note != "Patent application, pending"' %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Publications by Sam Wilcock",
-  "itemListElement": [{% for p in works %}{% capture href %}{% include pub-url.html p=p %}{% endcapture %}{% assign names = p.authors | replace: ' and ', ', ' | split: ', ' %}
-    { "@type": "ListItem", "position": {{ forloop.index }}, "item": {
-      "@type": "{% if p.note contains 'thesis' %}Thesis{% else %}ScholarlyArticle{% endif %}",
-      "name": {{ p.title | jsonify }},
-      "datePublished": "{{ p.year }}",
-      "author": [{% for n in names %}{% assign n = n | strip %}{% if n == 'Sam Wilcock' %}{ "@id": {{ me | jsonify }} }{% else %}{ "@type": "Person", "name": {{ n | jsonify }} }{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}],
-      "isPartOf": {{ p.venue | jsonify }}{% if href != "" %},
-      "url": {{ href | strip | jsonify }}{% endif %}{% if p.doi %},
-      "sameAs": {{ p.doi | prepend: 'https://doi.org/' | jsonify }}{% endif %}
-    } }{% unless forloop.last %},{% endunless %}{% endfor %}
+  "itemListElement": [{% for p in works %}
+    { "@type": "ListItem", "position": {{ forloop.index }}, "item": {% include scholarly-work-jsonld.html p=p %} }{% unless forloop.last %},{% endunless %}{% endfor %}
   ]
 }
 </script>
